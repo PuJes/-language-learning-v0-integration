@@ -1,0 +1,7 @@
+version: 1
+build:
+  builder: dockerfile
+  dockerfilePath: Dockerfile
+deploy:
+  restartPolicyType: onFailure
+  restartPolicyMaxRetries: 10
