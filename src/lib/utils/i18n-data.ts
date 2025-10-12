@@ -289,7 +289,7 @@ export function getLocalizedLanguageById(
 }
 
 /**
- * 获取单个本地化的文章
+ * 获取单个本地化的文章（通过ID）
  */
 export function getLocalizedArticleById(
   articles: CultureArticle[],
@@ -297,5 +297,17 @@ export function getLocalizedArticleById(
   locale: Locale
 ): LocalizedCultureArticle | undefined {
   const article = articles.find(art => art.id === id)
+  return article ? localizeCultureArticle(article, locale) : undefined
+}
+
+/**
+ * 获取单个本地化的文章（通过slug）
+ */
+export function getLocalizedArticleBySlug(
+  articles: CultureArticle[],
+  slug: string,
+  locale: Locale
+): LocalizedCultureArticle | undefined {
+  const article = articles.find(art => art.slug === slug)
   return article ? localizeCultureArticle(article, locale) : undefined
 }

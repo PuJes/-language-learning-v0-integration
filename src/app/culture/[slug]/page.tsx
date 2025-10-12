@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation'
 import { useTranslation } from '@/hooks/useTranslation'
 import { cultureArticles } from '@/lib/data/culture-articles'
 import { REGION_LABELS, THEME_LABELS } from '@/types/culture'
-import { getLocalizedArticleById, type LocalizedCultureArticle } from '@/lib/utils/i18n-data'
+import { getLocalizedArticleBySlug, type LocalizedCultureArticle } from '@/lib/utils/i18n-data'
 import { ArticleTableOfContents, MobileArticleTableOfContents } from '@/components/article-table-of-contents'
 import { LanguageLearningCTA } from '@/components/language-learning-cta'
 import { RelatedArticles } from '@/components/related-articles'
@@ -24,7 +24,7 @@ export default function ArticleDetailPage() {
 
   useEffect(() => {
     if (params.slug) {
-      const foundArticle = getLocalizedArticleById(cultureArticles, params.slug as string, locale)
+      const foundArticle = getLocalizedArticleBySlug(cultureArticles, params.slug as string, locale)
       setArticle(foundArticle || null)
     }
   }, [params.slug, locale])

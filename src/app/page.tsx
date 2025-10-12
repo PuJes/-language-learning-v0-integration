@@ -417,7 +417,7 @@ const CulturePreviewSection = ({ t }: { t: any }) => {
             <Camera className="w-4 h-4" />
             {t.homepage.culture.badge}
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent mb-6">
             {t.homepage.culture.title}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -562,7 +562,7 @@ const LearningMethodsSection = ({ t }: { t: any }) => {
             <Lightbulb className="w-4 h-4" />
             {t.homepage.learningMethods.badge}
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent mb-6">
             {t.homepage.learningMethods.title}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -735,7 +735,7 @@ const ResourceToolsSection = ({ t }: { t: any }) => {
             <Rocket className="w-4 h-4" />
             {t.homepage.resources.badge}
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent mb-6">
             {t.homepage.resources.title}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -929,9 +929,9 @@ export default function HomePage() {
         <section className="py-24 bg-gradient-to-br from-slate-50 to-slate-100">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent mb-6">
-                {t.homepage.whyUs.title}
-              </h2>
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent mb-6">
+            {t.homepage.whyUs.title}
+          </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 {t.homepage.whyUs.subtitle}
               </p>
@@ -986,7 +986,7 @@ export default function HomePage() {
         <section className="py-24 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold leading-tight bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent mb-6">
                 {t.homepage.popularLanguages.title}
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
