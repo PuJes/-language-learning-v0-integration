@@ -1,4 +1,0 @@
-[deploy]
-startCommand = ""
-restartPolicyType = "ON_FAILURE"
-restartPolicyMaxRetries = 10
