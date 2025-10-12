@@ -1,0 +1,47 @@
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
+import { Header } from '@/components/header'
+import { Footer } from '@/components/footer'
+import { cn } from '@/lib/utils'
+
+const inter = Inter({ subsets: ['latin'] })
+
+export const metadata: Metadata = {
+  title: 'Language World - Personalized Language Learning Platform',
+  description: 'Through AI-powered recommendation system, we provide personalized language recommendations based on your background, cultural interests, and learning goals.',
+  keywords: ['language learning', 'AI', 'personalized recommendation', 'multilingual', 'cultural exchange', 'language world', 'learning platform'],
+  authors: [{ name: 'Language World Team' }],
+}
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1.0,
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en">
+      <body className={cn(inter.className, "antialiased bg-gray-50")}>
+        <div className="min-h-screen flex flex-col">
+          {/* Header */}
+          <Header />
+
+          {/* Main Content */}
+          <main className="flex-1 pt-16">
+            {children}
+          </main>
+
+          {/* Footer */}
+          <Footer />
+        </div>
+
+        {/* Global components like Toast notifications can be added here */}
+      </body>
+    </html>
+  )
+}

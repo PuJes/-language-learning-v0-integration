@@ -1,0 +1,436 @@
+import { Language } from '@/types'
+
+/**
+ * Enhanced language data with detailed cultural information, learning guides, and resources
+ * All data is in proper bilingual format (BilingualText and BilingualArray)
+ * This file provides additional detailed information beyond the base languages.ts
+ */
+
+export const enhancedLanguageData: Record<string, Language> = {
+  spanish: {
+    id: "spanish",
+    code: "es",
+    flag: "🇪🇸",
+    name: "Spanish",
+    nameEn: "Spanish",
+    nameZh: "西班牙语",
+    nativeName: "Español",
+    description: {
+      zh: "世界第二大母语，职场和旅游热门选择",
+      en: "World's second most spoken native language, popular for work and travel"
+    },
+    difficulty: 2,
+    speakers: {
+      native: 500000000,
+      total: 559000000,
+      countries: {
+        zh: ["西班牙", "墨西哥", "阿根廷", "哥伦比亚", "秘鲁", "委内瑞拉", "智利", "厄瓜多尔", "危地马拉", "古巴"],
+        en: ["Spain", "Mexico", "Argentina", "Colombia", "Peru", "Venezuela", "Chile", "Ecuador", "Guatemala", "Cuba"]
+      }
+    },
+    regions: {
+      zh: ["欧洲", "北美洲", "南美洲", "中美洲"],
+      en: ["Europe", "North America", "South America", "Central America"]
+    },
+    family: {
+      zh: "印欧语系",
+      en: "Indo-European"
+    },
+    script: {
+      zh: "拉丁字母",
+      en: "Latin alphabet"
+    },
+    tags: {
+      zh: ["拉丁语族", "职场热门", "旅游实用"],
+      en: ["Romance languages", "Popular for careers", "Travel practical"]
+    },
+    studyTime: {
+      zh: "8个月",
+      en: "8 months"
+    },
+    usage: {
+      zh: ["旅游", "商务", "文化"],
+      en: ["Travel", "Business", "Culture"]
+    },
+    resources: {
+      zh: ["影视资源", "音乐文化", "语言交换"],
+      en: ["Film & TV resources", "Music culture", "Language exchange"]
+    },
+
+    // Cultural information
+    culturalInfo: {
+      history: {
+        zh: "西班牙语起源于伊比利亚半岛的卡斯蒂利亚地区，经过数世纪的发展，在15-16世纪随着西班牙的海外扩张传播到美洲、非洲和亚洲。今天，西班牙语是世界上使用人数第二多的母语，也是联合国六种官方语言之一。",
+        en: "Spanish originated in the Castile region of the Iberian Peninsula. After centuries of development, it spread to the Americas, Africa, and Asia during Spain's overseas expansion in the 15th-16th centuries. Today, Spanish is the world's second most spoken native language and one of the six official languages of the United Nations."
+      },
+      traditions: {
+        zh: ["弗拉明戈舞", "斗牛", "午睡文化", "圣诞节庆", "圣地亚哥朝圣之路", "塞维利亚圣周"],
+        en: ["Flamenco dance", "Bullfighting", "Siesta culture", "Christmas celebrations", "Camino de Santiago", "Seville Holy Week"]
+      },
+      festivals: {
+        zh: ["圣费尔明节", "番茄节", "圣周", "万圣节", "三王节", "复活节"],
+        en: ["San Fermín Festival", "La Tomatina", "Holy Week", "All Saints' Day", "Three Kings Day", "Easter"]
+      },
+      cuisine: {
+        zh: ["海鲜饭", "伊比利亚火腿", "橄榄油", "塔帕斯", "玉米饼", "墨西哥卷饼"],
+        en: ["Paella", "Iberian ham", "Olive oil", "Tapas", "Tortillas", "Burritos"]
+      },
+      arts: {
+        zh: ["高迪建筑", "毕加索绘画", "洛尔卡诗歌", "塞万提斯文学", "戈雅绘画", "米罗艺术"],
+        en: ["Gaudí architecture", "Picasso paintings", "Lorca poetry", "Cervantes literature", "Goya paintings", "Miró art"]
+      },
+      modernCulture: {
+        zh: ["足球文化", "拉美音乐", "电影产业", "电视剧", "流行音乐", "现代建筑"],
+        en: ["Football culture", "Latin American music", "Film industry", "TV series", "Pop music", "Modern architecture"]
+      }
+    },
+
+    // Language metadata
+    metadata: {
+      iso639_1: "es",
+      family: {
+        zh: "印欧语系",
+        en: "Indo-European"
+      },
+      branch: {
+        zh: "罗曼语族",
+        en: "Romance"
+      },
+      writingSystem: {
+        zh: ["拉丁字母"],
+        en: ["Latin alphabet"]
+      }
+    },
+
+    // Learning guide
+    learningGuide: {
+      learningPath: [
+        {
+          title: {
+            zh: "语音基础",
+            en: "Phonetic Foundations"
+          },
+          description: {
+            zh: "掌握西班牙语发音规则和语调模式",
+            en: "Master Spanish pronunciation rules and intonation patterns"
+          },
+          level: {
+            zh: "初级",
+            en: "Beginner"
+          },
+          estimatedHours: 20,
+          skills: {
+            zh: ["字母发音", "重音规则", "语调练习", "卷舌音", "连读规则"],
+            en: ["Letter pronunciation", "Stress rules", "Intonation practice", "Rolled R", "Liaison rules"]
+          }
+        },
+        {
+          title: {
+            zh: "基础语法",
+            en: "Basic Grammar"
+          },
+          description: {
+            zh: "学习动词变位和基本句型结构",
+            en: "Learn verb conjugations and basic sentence structures"
+          },
+          level: {
+            zh: "初级",
+            en: "Beginner"
+          },
+          estimatedHours: 40,
+          skills: {
+            zh: ["动词变位", "性别协调", "基本时态", "疑问句", "否定句"],
+            en: ["Verb conjugation", "Gender agreement", "Basic tenses", "Questions", "Negations"]
+          }
+        },
+        {
+          title: {
+            zh: "日常词汇",
+            en: "Daily Vocabulary"
+          },
+          description: {
+            zh: "掌握500-1000个高频生活词汇",
+            en: "Master 500-1000 high-frequency everyday words"
+          },
+          level: {
+            zh: "初级",
+            en: "Beginner"
+          },
+          estimatedHours: 30,
+          skills: {
+            zh: ["家庭词汇", "食物饮料", "数字时间", "方位交通", "颜色形容"],
+            en: ["Family vocabulary", "Food and drinks", "Numbers and time", "Directions and transport", "Colors and descriptions"]
+          }
+        },
+        {
+          title: {
+            zh: "中级语法",
+            en: "Intermediate Grammar"
+          },
+          description: {
+            zh: "学习复杂时态和虚拟语气",
+            en: "Learn complex tenses and subjunctive mood"
+          },
+          level: {
+            zh: "中级",
+            en: "Intermediate"
+          },
+          estimatedHours: 60,
+          skills: {
+            zh: ["完成时态", "虚拟语气", "条件句", "被动语态", "间接引语"],
+            en: ["Perfect tenses", "Subjunctive mood", "Conditional sentences", "Passive voice", "Indirect speech"]
+          }
+        },
+        {
+          title: {
+            zh: "高级应用",
+            en: "Advanced Applications"
+          },
+          description: {
+            zh: "商务、学术和专业领域西班牙语",
+            en: "Business, academic, and professional Spanish"
+          },
+          level: {
+            zh: "高级",
+            en: "Advanced"
+          },
+          estimatedHours: 80,
+          skills: {
+            zh: ["商务写作", "学术阅读", "演讲技巧", "文学欣赏", "跨文化交流"],
+            en: ["Business writing", "Academic reading", "Presentation skills", "Literary appreciation", "Cross-cultural communication"]
+          }
+        }
+      ],
+      learningMethods: [
+        {
+          title: {
+            zh: "沉浸式学习",
+            en: "Immersive Learning"
+          },
+          description: {
+            zh: "通过多媒体内容创造语言环境",
+            en: "Create language environment through multimedia content"
+          },
+          techniques: {
+            zh: ["西语电影", "拉美音乐", "播客收听", "新闻阅读", "社交媒体"],
+            en: ["Spanish films", "Latin music", "Podcast listening", "News reading", "Social media"]
+          }
+        },
+        {
+          title: {
+            zh: "交流练习",
+            en: "Communication Practice"
+          },
+          description: {
+            zh: "与母语者互动提高口语流利度",
+            en: "Interact with native speakers to improve fluency"
+          },
+          techniques: {
+            zh: ["语言交换", "在线对话", "角色扮演", "情景模拟", "发音纠正"],
+            en: ["Language exchange", "Online conversation", "Role-playing", "Scenario simulation", "Pronunciation correction"]
+          }
+        },
+        {
+          title: {
+            zh: "系统学习",
+            en: "Systematic Learning"
+          },
+          description: {
+            zh: "结构化的语法和词汇学习",
+            en: "Structured grammar and vocabulary study"
+          },
+          techniques: {
+            zh: ["语法练习", "词汇卡片", "习题集", "模拟考试", "定期复习"],
+            en: ["Grammar exercises", "Vocabulary flashcards", "Workbooks", "Mock exams", "Regular review"]
+          }
+        }
+      ],
+      learningTools: [
+        {
+          category: {
+            zh: "在线课程",
+            en: "Online Courses"
+          },
+          tools: {
+            zh: ["Duolingo", "Babbel", "Rosetta Stone", "FluentU", "SpanishPod101"],
+            en: ["Duolingo", "Babbel", "Rosetta Stone", "FluentU", "SpanishPod101"]
+          }
+        },
+        {
+          category: {
+            zh: "词典工具",
+            en: "Dictionary Tools"
+          },
+          tools: {
+            zh: ["WordReference", "Linguee", "SpanishDict", "Reverso", "Google Translate"],
+            en: ["WordReference", "Linguee", "SpanishDict", "Reverso", "Google Translate"]
+          }
+        },
+        {
+          category: {
+            zh: "媒体资源",
+            en: "Media Resources"
+          },
+          tools: {
+            zh: ["Netflix西语", "YouTube西语", "Spotify播客", "BBC Mundo", "El País"],
+            en: ["Netflix Spanish", "YouTube Spanish", "Spotify Podcasts", "BBC Mundo", "El País"]
+          }
+        }
+      ]
+    },
+
+    // Learning time estimate
+    learningTimeEstimate: {
+      beginner: {
+        zh: "3-6个月",
+        en: "3-6 months"
+      },
+      intermediate: {
+        zh: "1-2年",
+        en: "1-2 years"
+      },
+      advanced: {
+        zh: "2-3年",
+        en: "2-3 years"
+      },
+      totalHours: 600,
+      basic: 150,
+      intermediateHours: 300,
+      advancedHours: 450
+    },
+
+    // Difficulty analysis
+    difficultyAnalysis: {
+      grammar: 3,
+      pronunciation: 2,
+      writing: 2,
+      vocabulary: 2
+    },
+
+    // Learning resources
+    learningResources: {
+      apps: [
+        {
+          name: "Duolingo",
+          description: {
+            zh: "游戏化学习平台",
+            en: "Gamified learning platform"
+          },
+          price: {
+            zh: "免费",
+            en: "Free"
+          }
+        },
+        {
+          name: "Babbel",
+          description: {
+            zh: "实用对话训练",
+            en: "Practical conversation training"
+          },
+          price: {
+            zh: "订阅制",
+            en: "Subscription"
+          }
+        },
+        {
+          name: "Busuu",
+          description: {
+            zh: "AI辅助学习",
+            en: "AI-assisted learning"
+          },
+          price: {
+            zh: "订阅制",
+            en: "Subscription"
+          }
+        }
+      ],
+      books: [
+        {
+          title: "Madrigal's Magic Key to Spanish",
+          author: "Margarita Madrigal",
+          level: {
+            zh: "初级",
+            en: "Beginner"
+          }
+        },
+        {
+          title: "Practice Makes Perfect Spanish Grammar",
+          author: "Dorothy Richmond",
+          level: {
+            zh: "中级",
+            en: "Intermediate"
+          }
+        },
+        {
+          title: "Advanced Spanish Grammar",
+          author: "Luis Aragones",
+          level: {
+            zh: "高级",
+            en: "Advanced"
+          }
+        }
+      ],
+      websites: [
+        {
+          name: "SpanishDict",
+          url: "https://spanishdict.com",
+          description: {
+            zh: "最全面的西语学习网站",
+            en: "Most comprehensive Spanish learning website"
+          }
+        },
+        {
+          name: "Conjuguemos",
+          url: "https://conjuguemos.com",
+          description: {
+            zh: "动词变位练习专站",
+            en: "Dedicated verb conjugation practice site"
+          }
+        },
+        {
+          name: "News in Slow Spanish",
+          url: "https://newsinslowspanish.com",
+          description: {
+            zh: "慢速西语新闻",
+            en: "Slow Spanish news"
+          }
+        }
+      ]
+    },
+
+    // Career opportunities
+    careerOpportunities: {
+      industries: {
+        zh: ["国际贸易", "旅游酒店", "教育培训", "翻译口译", "新闻传媒", "医疗保健"],
+        en: ["International trade", "Tourism and hospitality", "Education and training", "Translation and interpretation", "News media", "Healthcare"]
+      },
+      averageSalary: {
+        zh: "40,000-80,000美元",
+        en: "$40,000-80,000"
+      },
+      jobGrowth: {
+        zh: "增长率15%",
+        en: "15% growth rate"
+      },
+      remoteWork: true
+    },
+
+    // Travel advantages
+    travelAdvantages: {
+      countries: {
+        zh: ["西班牙", "墨西哥", "阿根廷", "哥伦比亚", "秘鲁", "智利"],
+        en: ["Spain", "Mexico", "Argentina", "Colombia", "Peru", "Chile"]
+      },
+      businessHubs: {
+        zh: ["马德里", "巴塞罗那", "墨西哥城", "布宜诺斯艾利斯", "利马", "圣地亚哥"],
+        en: ["Madrid", "Barcelona", "Mexico City", "Buenos Aires", "Lima", "Santiago"]
+      },
+      culturalSites: {
+        zh: ["阿尔罕布拉宫", "马丘比丘", "圣家族大教堂", "弗拉明戈表演", "墨西哥玛雅遗址"],
+        en: ["Alhambra Palace", "Machu Picchu", "Sagrada Familia", "Flamenco performances", "Mayan ruins in Mexico"]
+      }
+    }
+  },
+
+  // TODO: Add remaining languages (French, Japanese, German, Chinese, Korean, Portuguese, Russian, Arabic)
+}
