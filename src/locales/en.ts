@@ -116,7 +116,7 @@ export const en: TranslationKeys = {
       historyTag: 'History',
       mainLanguages: 'Main Languages',
       culturalFeatures: 'Cultural Features',
-      exploreCulture: 'Explore Culture',
+      exploreCulture: 'Explore More Culture',
     },
     learningMethods: {
       badge: 'Expert Recommended',

@@ -116,7 +116,7 @@ export const zh: TranslationKeys = {
       historyTag: '历史',
       mainLanguages: '主要语言',
       culturalFeatures: '文化特色',
-      exploreCulture: '探索文化',
+      exploreCulture: '探索更多文化',
     },
     learningMethods: {
       badge: '专家推荐方法',

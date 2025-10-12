@@ -478,7 +478,7 @@ const CulturePreviewSection = ({ t }: { t: any }) => {
         <div className="text-center">
           <Link href="/culture">
             <Button className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 px-8 py-3">
-              探索更多文化
+              {t.homepage.culture.exploreCulture}
               <Globe className="w-4 h-4 ml-2" />
             </Button>
           </Link>
