@@ -3,8 +3,10 @@
 import * as React from "react"
 import { ArrowRight, Globe, Brain, GraduationCap, Wrench, Star, Users, BookOpen, Clock, Target, MapPin, Lightbulb, ChevronLeft, ChevronRight, Rocket, Download, TrendingUp, Trophy, Gamepad2, MessageCircle, Camera } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { Header } from "@/components/header"
 import { useTranslation } from "@/hooks/useTranslation"
+import { cultureArticles } from "@/lib/data/culture-articles"
 
 // UI Components
 const Button = React.forwardRef<
@@ -237,10 +239,12 @@ const CultureCard = ({ region }: { region: any }) => {
   return (
     <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300">
       <div className="relative h-48 overflow-hidden">
-        <img
+        <Image
           src={region.image}
           alt={region.name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
         <div className="absolute bottom-4 left-4 text-white">
@@ -293,8 +297,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <Globe className="w-6 h-6 text-purple-400" />
-              <span className="text-lg font-bold">Language World</span>
+              <Image
+                src="/wordora-icon.png"
+                alt="Wordora logo"
+                width={24}
+                height={24}
+                className="w-6 h-6"
+              />
+              <span className="text-lg font-bold">Wordora</span>
             </div>
             <p className="text-gray-400 text-sm">
               Personalized language learning guidance and in-depth cultural exploration experience. Making every learning journey a bridge to a broader world.
@@ -351,7 +361,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center">
           <p className="text-gray-400 text-sm">
-            © 2024 Language World. All rights reserved.
+            © 2024 Wordora. All rights reserved.
           </p>
         </div>
       </div>
@@ -361,36 +371,27 @@ const Footer = () => {
 
 // Culture Preview Section with horizontal scrolling
 const CulturePreviewSection = ({ t }: { t: any }) => {
+  const { locale } = useTranslation()
   const scrollContainerRef = React.useRef<HTMLDivElement>(null)
   const [canScrollLeft, setCanScrollLeft] = React.useState(false)
   const [canScrollRight, setCanScrollRight] = React.useState(true)
 
-  const cultureArticles = [
-    {
-      title: "Japanese Cherry Blossom Season: The Poetic Fusion of Language and Nature",
-      type: "Travel",
-      region: "Japan",
-      image: "https://images.unsplash.com/photo-1522383225653-ed111181a951?w=800",
-      description: "Explore unique Japanese vocabulary for describing spring and experience the deep meaning of cherry blossom culture",
-      readTime: "5 min"
-    },
-    {
-      title: "Spanish Flamenco: The Language Art Behind Passionate Dance",
-      type: "Music",
-      region: "Spain",
-      image: "https://images.unsplash.com/photo-1494783367193-149034c05e8f?w=800",
-      description: "Learn Spanish expressions in flamenco music and experience the perfect fusion of music and language",
-      readTime: "7 min"
-    },
-    {
-      title: "French Coffee Culture: From 'Café' to Life Philosophy",
-      type: "History",
-      region: "France",
-      image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800",
-      description: "Dive into Parisian café culture and learn the subtleties of French social expressions",
-      readTime: "6 min"
-    }
-  ]
+  // 从真实数据中获取前6篇文章
+  const displayArticles = cultureArticles.slice(0, 6).map(article => ({
+    title: locale === 'zh' ? article.title.zh : article.title.en,
+    type: article.theme === 'art' ? (locale === 'zh' ? '艺术' : 'Art') :
+          article.theme === 'tradition' ? (locale === 'zh' ? '传统' : 'Tradition') :
+          article.theme === 'food' ? (locale === 'zh' ? '美食' : 'Food') :
+          (locale === 'zh' ? '生活方式' : 'Lifestyle'),
+    region: article.region === 'east-asia' ? (locale === 'zh' ? '东亚' : 'East Asia') :
+            article.region === 'europe' ? (locale === 'zh' ? '欧洲' : 'Europe') :
+            article.region === 'middle-east' ? (locale === 'zh' ? '中东' : 'Middle East') :
+            (locale === 'zh' ? '其他' : 'Other'),
+    image: article.coverImage,
+    description: locale === 'zh' ? article.summary.zh : article.summary.en,
+    readTime: "5 min",
+    slug: article.slug
+  }))
 
   const checkScroll = () => {
     if (scrollContainerRef.current) {
@@ -445,31 +446,39 @@ const CulturePreviewSection = ({ t }: { t: any }) => {
 
           <div ref={scrollContainerRef} className="overflow-x-auto pb-4 hide-scrollbar" style={{ scrollbarWidth: 'none' }}>
             <div className="flex gap-6 px-12">
-              {cultureArticles.map((article, index) => (
-                <Card key={index} className="flex-shrink-0 w-80 hover:shadow-xl transition-all overflow-hidden">
-                  <div className="relative h-48">
-                    <img src={article.image} alt={article.title} className="w-full h-full object-cover" />
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-white/90 backdrop-blur rounded-full text-sm font-medium">
-                        {article.type}
-                      </span>
-                    </div>
-                  </div>
-                  <CardContent className="p-6">
-                    <h3 className="font-semibold text-lg mb-2 line-clamp-2">{article.title}</h3>
-                    <p className="text-gray-600 text-sm mb-4 line-clamp-2">{article.description}</p>
-                    <div className="flex items-center justify-between text-sm text-gray-500">
-                      <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4" />
-                        {article.region}
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Clock className="w-4 h-4" />
-                        {article.readTime}
+              {displayArticles.map((article, index) => (
+                <Link key={index} href={`/culture/${article.slug}`}>
+                  <Card className="flex-shrink-0 w-[320px] h-[400px] hover:shadow-xl transition-all overflow-hidden cursor-pointer flex flex-col">
+                    <div className="relative h-48 flex-shrink-0">
+                      <Image
+                        src={article.image}
+                        alt={article.title}
+                        fill
+                        sizes="(max-width: 768px) 85vw, 320px"
+                        className="object-cover"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <span className="px-3 py-1 bg-white/90 backdrop-blur rounded-full text-sm font-medium">
+                          {article.type}
+                        </span>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                    <CardContent className="px-6 pt-5 pb-6 flex flex-col flex-1">
+                      <h3 className="font-semibold text-lg mb-3 line-clamp-2 min-h-[56px]">{article.title}</h3>
+                      <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-1">{article.description}</p>
+                      <div className="flex items-center justify-between text-sm text-gray-500">
+                        <div className="flex items-center gap-2">
+                          <MapPin className="w-4 h-4" />
+                          {article.region}
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Clock className="w-4 h-4" />
+                          {article.readTime}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
               ))}
             </div>
           </div>
@@ -854,12 +863,17 @@ export default function HomePage() {
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
           {/* Background */}
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-fixed"
-            style={{
-              backgroundImage: `linear-gradient(135deg, rgba(124, 58, 237, 0.9) 0%, rgba(16, 185, 129, 0.8) 100%), url('https://images.unsplash.com/photo-1742415105376-43d3a5fd03fc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx8fDE3NTgxMDYyODR8MA&ixlib=rb-4.1.0&q=80&w=1080')`
-            }}
-          />
+          <div className="absolute inset-0">
+            <Image
+              src="https://images.unsplash.com/photo-1742415105376-43d3a5fd03fc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx8fDE3NTgxMDYyODR8MA&ixlib=rb-4.1.0&q=80&w=1600"
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-600/90 via-purple-600/80 to-emerald-500/80" />
+          </div>
 
           {/* Content */}
           <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -920,8 +934,8 @@ export default function HomePage() {
 
           {/* Decorative elements */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-white/10 rounded-full opacity-20 blur-3xl"></div>
-            <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-white/10 rounded-full opacity-20 blur-3xl"></div>
+            <div className="hidden md:block absolute top-1/4 left-1/4 w-64 h-64 bg-white/10 rounded-full opacity-20 blur-3xl"></div>
+            <div className="hidden md:block absolute bottom-1/3 right-1/4 w-96 h-96 bg-white/10 rounded-full opacity-20 blur-3xl"></div>
           </div>
         </section>
 

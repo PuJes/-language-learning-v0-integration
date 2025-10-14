@@ -2,10 +2,11 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Globe, Menu, ArrowLeft, Languages } from "lucide-react"
+import { Menu, ArrowLeft, Languages } from "lucide-react"
 import { usePathname } from "next/navigation"
 import { useTranslation } from "@/hooks/useTranslation"
 import type { Locale } from "@/types/i18n"
+import Image from "next/image"
 
 // UI Components
 const Button = React.forwardRef<
@@ -60,7 +61,6 @@ const themeConfig = {
   default: {
     bg: 'bg-background/90',
     border: 'border-border',
-    logoColor: 'text-purple-600',
     gradient: 'from-purple-600 to-cyan-600',
     linkHover: 'hover:text-purple-600',
     buttonGradient: 'from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600'
@@ -68,7 +68,6 @@ const themeConfig = {
   rose: {
     bg: 'bg-white/90',
     border: 'border-pink-100',
-    logoColor: 'text-rose-500',
     gradient: 'from-rose-500 to-violet-500',
     linkHover: 'hover:text-rose-500',
     buttonGradient: 'from-rose-400 to-violet-400 hover:from-rose-500 hover:to-violet-500'
@@ -76,7 +75,6 @@ const themeConfig = {
   culture: {
     bg: 'bg-white',
     border: 'border-gray-200',
-    logoColor: 'text-purple-600',
     gradient: 'from-purple-600 to-cyan-600',
     linkHover: 'hover:text-purple-600',
     buttonGradient: 'from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600'
@@ -176,7 +174,14 @@ export const Header: React.FC<HeaderProps> = ({
             )}
 
             <div className="flex items-center space-x-2">
-              <Globe className={`w-8 h-8 ${config.logoColor}`} />
+              <Image
+                src="/wordora-icon.png"
+                alt="Wordora logo"
+                width={32}
+                height={32}
+                priority
+                className="w-8 h-8"
+              />
               {customTitle ? (
                 <div>
                   <h1 className="text-xl font-bold text-gray-900">{customTitle}</h1>

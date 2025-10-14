@@ -24,7 +24,7 @@ export const en: TranslationKeys = {
     featureInProgress: 'We are preparing this section. Please stay tuned!',
   },
   header: {
-    title: 'Language World',
+    title: 'Wordora',
     switchLanguage: 'Switch Language',
   },
   homepage: {
@@ -176,7 +176,7 @@ export const en: TranslationKeys = {
     contact: 'Contact',
     partners: 'Partners',
     privacyPolicy: 'Privacy Policy',
-    copyright: '© 2024 Language World. All rights reserved.',
+    copyright: '© 2024 Wordora. All rights reserved.',
   },
   languages: {
     spanish: 'Spanish',

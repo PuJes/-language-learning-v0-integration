@@ -9,10 +9,20 @@ import { cn } from '@/lib/utils'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Language World - Personalized Language Learning Platform',
+  title: 'Wordora - Personalized Language Learning Platform',
   description: 'Through AI-powered recommendation system, we provide personalized language recommendations based on your background, cultural interests, and learning goals.',
-  keywords: ['language learning', 'AI', 'personalized recommendation', 'multilingual', 'cultural exchange', 'language world', 'learning platform'],
-  authors: [{ name: 'Language World Team' }],
+  keywords: ['language learning', 'AI', 'personalized recommendation', 'multilingual', 'cultural exchange', 'wordora', 'learning platform'],
+  authors: [{ name: 'Wordora Team' }],
+  icons: {
+    icon: [
+      {
+        url: '/wordora-icon.png',
+        type: 'image/png',
+      },
+    ],
+    shortcut: '/wordora-icon.png',
+    apple: '/wordora-icon.png',
+  },
 }
 
 export const viewport = {

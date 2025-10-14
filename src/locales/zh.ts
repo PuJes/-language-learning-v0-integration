@@ -24,7 +24,7 @@ export const zh: TranslationKeys = {
     featureInProgress: '我们正在为您准备这一内容，敬请关注！',
   },
   header: {
-    title: '语言世界',
+    title: 'Wordora',
     switchLanguage: '切换语言',
   },
   homepage: {
@@ -176,7 +176,7 @@ export const zh: TranslationKeys = {
     contact: '联系方式',
     partners: '合作伙伴',
     privacyPolicy: '隐私政策',
-    copyright: '© 2024 语言世界. 保留所有权利.',
+    copyright: '© 2024 Wordora. 保留所有权利.',
   },
   languages: {
     spanish: '西班牙语',

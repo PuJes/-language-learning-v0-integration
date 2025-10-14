@@ -2,6 +2,80 @@ import type { Language } from '@/types'
 
 export const languages: Language[] = [
   {
+    id: "english",
+    code: "en",
+    name: "English",
+    nameEn: "English",
+    nameZh: "英语",
+    nativeName: "English",
+    flag: "🇺🇸",
+    description: {
+      zh: "全球通用语言，国际商务和科技交流的桥梁",
+      en: "Global lingua franca, bridge for international business and technology"
+    },
+    difficulty: 1,
+    speakers: {
+      total: 1500000000,
+      native: 380000000,
+      countries: {
+        zh: ["美国", "英国", "加拿大", "澳大利亚", "新西兰", "爱尔兰", "南非", "印度", "新加坡", "菲律宾"],
+        en: ["United States", "United Kingdom", "Canada", "Australia", "New Zealand", "Ireland", "South Africa", "India", "Singapore", "Philippines"]
+      }
+    },
+    regions: {
+      zh: ["北美洲", "欧洲", "大洋洲", "亚洲", "非洲"],
+      en: ["North America", "Europe", "Oceania", "Asia", "Africa"]
+    },
+    family: {
+      zh: "印欧语系",
+      en: "Indo-European"
+    },
+    script: {
+      zh: "拉丁字母",
+      en: "Latin alphabet"
+    },
+    tags: {
+      zh: ["日耳曼语族", "国际通用", "商务科技"],
+      en: ["Germanic languages", "International", "Business & tech"]
+    },
+    studyTime: {
+      zh: "6个月",
+      en: "6 months"
+    },
+    usage: {
+      zh: ["国际商务", "科技交流", "学术研究"],
+      en: ["International business", "Technology", "Academic research"]
+    },
+    resources: {
+      zh: ["海量资源", "影视内容", "在线课程"],
+      en: ["Abundant resources", "Film & TV content", "Online courses"]
+    },
+    difficultyAnalysis: {
+      grammar: 2,
+      pronunciation: 2,
+      writing: 1,
+      vocabulary: 2
+    },
+    learningTimeEstimate: {
+      beginner: {
+        zh: "2-4个月",
+        en: "2-4 months"
+      },
+      intermediate: {
+        zh: "8个月-1年",
+        en: "8 months-1 year"
+      },
+      advanced: {
+        zh: "1.5-2年",
+        en: "1.5-2 years"
+      },
+      totalHours: 500,
+      basic: 120,
+      intermediateHours: 250,
+      advancedHours: 400
+    }
+  },
+  {
     id: "spanish",
     code: "es",
     name: "Spanish",

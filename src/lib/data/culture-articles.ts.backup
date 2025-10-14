@@ -507,214 +507,36 @@ Interestingly, as modern life pressure increases, some Spaniards are beginning t
     }
   },
   {
-    id: 'korean-hanbok-tradition',
-    title: {
-      zh: '韩国韩服：传统与现代的交融',
-      en: 'Korean Hanbok: The Fusion of Tradition and Modernity'
-    },
-    slug: 'korean-hanbok-tradition',
-    summary: {
-      zh: '探索韩国传统服饰韩服的历史演变，了解这一文化象征如何在现代社会焕发新生。',
-      en: 'Explore the historical evolution of Korean traditional clothing Hanbok, and understand how this cultural symbol is revitalized in modern society.'
-    },
-    coverImage: 'https://images.unsplash.com/photo-1589208920535-36b0c971f5c4?w=800&q=80',
-    region: 'east-asia',
-    theme: 'art',
-    relatedLanguages: ['korean'],
-    tableOfContents: [
-      { id: 'intro', level: 2, title: { zh: '韩服的文化意义', en: 'The Cultural Significance of Hanbok' } },
-      { id: 'history', level: 2, title: { zh: '韩服的历史演变', en: 'Historical Evolution of Hanbok' } },
-      { id: 'structure', level: 2, title: { zh: '韩服的结构与美学', en: 'Structure and Aesthetics of Hanbok' }, children: [
-        { id: 'women', level: 3, title: { zh: '女性韩服', en: 'Women\'s Hanbok' } },
-        { id: 'men', level: 3, title: { zh: '男性韩服', en: 'Men\'s Hanbok' } }
-      ]},
-      { id: 'occasions', level: 2, title: { zh: '现代韩服的穿着场合', en: 'Modern Hanbok Wearing Occasions' } },
-      { id: 'revival', level: 2, title: { zh: '韩服文化的复兴', en: 'The Revival of Hanbok Culture' } }
-    ],
-    content: {
-      zh: `## 韩服的文化意义
-
-韩服（한복，Hanbok）是韩国传统服饰的统称，"韩"指韩民族，"服"即服装。韩服不仅仅是一件衣服，更是承载着韩国千年历史、独特美学和深厚民族认同的文化符号。每一件韩服都诉说着一个关于传统与现代、东方与世界的动人故事。
-
-韩服的设计理念深深植根于东方哲学，体现了"天人合一"的思想精髓。设计师们通过巧妙的线条和色彩运用，强调自然、和谐与优雅的统一。韩服最显著的特点是其独特的曲线美——从短襦的柔和弧度到长裙的流畅线条，无不展现出东方女性的含蓄柔美。鲜艳而不失雅致的色彩搭配，使韩服成为世界上最具辨识度和艺术价值的民族服饰之一。
-
-## 韩服的历史演变
-
-韩服的历史源远流长，可以追溯到公元前57年的三国时期。在漫长的历史长河中，韩服经历了多次演变，每个时期都留下了独特的印记。
-
-**三国时期**（公元前57年-公元668年）是韩服的萌芽阶段。这一时期的服饰主要受到中国唐朝服饰的影响，但已经开始形成自己的特色。基本的上衣下裙结构在这个时期得以确立，为后世韩服的发展奠定了基础。
-
-**高丽时代**（918-1392年）见证了韩服的第一次重大变革。由于蒙古帝国的统治影响，这一时期的韩服融入了许多蒙古元素，发展出更加独特的风格。短襦的款式开始流行，成为后来韩服的标志性特征之一。
-
-**朝鲜王朝**（1392-1897年）是韩服发展的黄金时期，现代韩服的基本形制就是在这一时期最终确立的。王朝实行严格的等级制度，不同阶层穿着不同颜色和款式的韩服，服饰成为社会地位的重要标识。这一时期的韩服工艺达到了历史巅峰，刺绣、染色等技艺都臻于完美。
-
-**日本殖民时期**（1910-1945年）是韩服历史上最黑暗的时期。日本殖民政府试图消灭韩国文化认同，韩服遭到禁止，传统服饰文化几近消失。许多韩国人被迫改穿日式或西式服装，传统韩服技艺面临失传的危险。
-
-**现代时期**（1945年至今）见证了韩服的浴火重生。韩国独立后，韩服逐渐恢复其文化象征地位。特别是进入21世纪以来，随着韩流文化的全球传播，韩服不仅在韩国本土复兴，更走向了世界舞台，成为韩国最具代表性的文化名片之一。
-
-## 韩服的结构与美学
-
-### 女性韩服
-
-女性韩服以其优雅的线条和精致的细节著称，主要由两个部分构成，每个部分都蕴含着深刻的文化寓意。
-
-**短襦**（저고리，Jeogori）是韩服的上衣部分，其最大特点是短小精致，通常只到胸部以下。短襦的设计充满巧思：领口处装饰着优雅的白色里襟，象征着纯洁和端庄；袖子宽大而圆润，形似圆月，象征包容和温柔；最具特色的是襟带（옷고름，Otgorium），这种装饰性的飘带不仅具有实用功能，更是韩服美学的点睛之笔，随着身体的移动而飘动，展现出动态的优雅美。
-
-**长裙**（치마，Chima）是韩服的下身部分，采用高腰设计，从胸部一直延伸至脚踝。这种独特的设计巧妙地营造出修长的身材比例，使穿着者显得更加优雅高挑。长裙的制作需要大量的布料，通过丰富的褶皱和层次感，创造出饱满而流畅的视觉效果。走动时，裙摆随风摆动，如同波浪般优美。
-
-韩服的色彩运用同样富有深意，每种颜色都承载着特定的文化象征。红色代表喜庆和热情，常用于婚礼等喜庆场合。蓝色象征纯洁和青春，是年轻女性的首选颜色。黄色在传统上代表中心和高贵，曾是皇室专用色彩。白色则象征纯净和朴素，是日常韩服最常见的底色。这些色彩的巧妙搭配，使韩服既典雅又富有层次感。
-
-### 男性韩服
-
-相比女性韩服的华丽精致，男性韩服更加注重简洁实用，但同样蕴含着深厚的文化内涵。
-
-**上衣**（저고리）的设计比女性款式稍长，通常到达臀部位置，便于活动。上衣的剪裁宽松舒适，体现了儒家文化中的中庸之道。**裤子**（바지，Baji）采用宽松的灯笼裤设计，裤腿宽大，既便于行动，又符合传统礼仪的庄重要求。
-
-**外套**（두루마기，Durumagi）是男性在正式场合穿着的长袍，长度通常及膝或更长。这种外套采用直筒剪裁，线条简洁流畅，体现了男性的端庄威严。在传统社会中，外套的质地和颜色往往能够反映穿着者的社会地位和身份等级。
-
-**传统帽子**（갓，Gat）是男性韩服的重要配饰，由马鬃精心编织而成，呈黑色宽檐状。这种帽子不仅具有遮阳功能，更是成年男性身份的象征。在朝鲜王朝时期，不戴帽子出门被视为失礼的行为，可见其在传统礼仪中的重要地位。
-
-## 现代韩服的穿着场合
-
-在现代韩国社会，虽然西式服装已成为日常主流，但韩服仍然在特定场合发挥着不可替代的作用，承载着韩国人对传统文化的深厚感情。
-
-**传统节日**是韩国人穿着韩服最重要的场合之一。在春节（설날）和中秋节（추석）这两个最重要的传统节日期间，许多韩国家庭会全家一起穿上韩服，进行祭祖仪式和家庭聚会。这种习俗不仅是对传统的尊重，更是家庭团聚和文化传承的象征。
-
-**人生大事**是另一个韩服大显身手的重要领域。在婴儿的周岁宴（돌잔치）上，小宝宝会穿上色彩鲜艳的传统韩服，接受长辈的祝福。韩国传统婚礼中，新娘新郎身着华美的韩服举行仪式，这一传统即使在现代婚礼中也得到了很好的保留。老人的六十大寿（환갑）庆典上，寿星和家人也会穿着隆重的韩服，体现对长辈的敬意和祝福。
-
-**旅游体验**是近年来韩服文化传播的新途径。首尔的景福宫、昌德宫等著名景点周边，涌现出大量韩服租赁店铺。游客们可以租借各式韩服，在古老的宫殿建筑间拍照留念。更吸引人的是，许多宫殿对穿着韩服的游客免费开放，这一政策既促进了韩服文化的传播，也丰富了旅游体验。
-
-**日常穿着**方面，"生活韩服"（개량한복）的出现为韩服的日常化开辟了新路径。这种改良版韩服在保留传统美学的基础上，采用更现代的剪裁和面料，穿着更加方便舒适，价格也更加亲民，使得越来越多的年轻人愿意在日常生活中穿着韩服。
-
-## 韩服文化的复兴
-
-进入21世纪，韩服经历了令人瞩目的文化复兴，从濒临消失的传统服饰，转变为韩国文化软实力的重要象征。这场复兴运动是政府推动、民间努力和全球化机遇共同作用的结果。
-
-**政府推动**在韩服复兴中发挥了关键作用。韩国政府设立了"韩服日"（每月最后一周），鼓励民众穿着韩服参与各种文化活动。更具吸引力的是"穿韩服免费游览宫殿"的政策，这不仅提高了韩服的可见度，也为韩服租赁产业创造了巨大的市场需求。政府还资助传统韩服技艺的传承，支持韩服博物馆和研究机构的建设，确保这一文化遗产得以延续。
-
-**时尚化改良**为韩服注入了新的生命力。一批年轻的韩服设计师打破传统束缚，大胆融入现代剪裁技术和新型面料，创造出既保留传统韵味又符合现代审美的新式韩服。这些改良韩服不仅在韩国本土大受欢迎，更频繁出现在国际时装周的舞台上。K-pop明星们在国际演出和颁奖典礼上穿着改良韩服亮相，将韩服之美传播到世界各地，引发了全球性的关注和喜爱。
-
-**社交媒体传播**成为韩服文化推广的强大引擎。在Instagram、TikTok等社交平台上，#Hanbok标签已经累积了超过300万条帖子，无数网红和普通用户分享自己穿韩服的照片和视频。这种病毒式的传播不仅让全世界认识了韩服，也让韩服成为年轻一代表达文化认同和个性的重要方式。许多外国游客将在韩国穿韩服拍照列为必做事项，韩服体验成为韩国旅游的标志性活动。
-
-**商业成功**证明了韩服复兴的可持续性。韩服租赁产业蓬勃发展，首尔的北村韩屋村、三清洞等地区，韩服租赁店铺林立，形成了完整的产业链。从传统手工定制到现代化成衣生产，韩服产业不断创新发展。一些韩服品牌甚至走向国际市场，在纽约、巴黎等时尚之都开设店铺。这种商业成功不仅创造了经济价值，更重要的是证明了传统文化在现代社会中的生命力。
-
-今天的韩服已经不再局限于博物馆的展柜和特殊场合的礼服，而是活跃在首尔的街头巷尾、国际时装周的T台、社交媒体的热门话题中。它成为了传统与现代完美结合的典范，向世界展示着韩国文化的独特魅力和创新精神。韩服的复兴故事，也为其他国家的传统服饰文化传承提供了宝贵的借鉴经验。`,
-    publishDate: '2025-01-12',
-    author: 'Language Learning Team',
-    views: 1450,
-    metaDescription: '探索韩国传统服饰韩服的历史、结构与美学，了解韩服文化在现代社会的复兴。',
-    keywords: ['韩国文化', '韩服', 'Hanbok', '韩国传统', '韩国时尚']
-  },
-  {
-    id: 'italian-opera-tradition',
-    title: '意大利歌剧：音乐与戏剧的极致艺术',
-    slug: 'italian-opera-tradition',
-    summary: '深入了解意大利歌剧的历史传统、著名作曲家和经典作品，感受这门综合艺术的魅力。',
-    coverImage: 'https://images.unsplash.com/photo-1580809361436-42a7ec204889?w=800&q=80',
-    region: 'europe',
-    theme: 'art',
-    relatedLanguages: ['italian'],
-    tableOfContents: [
-      { id: 'intro', level: 2, title: '歌剧的诞生' },
-      { id: 'golden-age', level: 2, title: '意大利歌剧的黄金时代' },
-      { id: 'composers', level: 2, title: '伟大的作曲家', children: [
-        { id: 'verdi', level: 3, title: '威尔第' },
-        { id: 'puccini', level: 3, title: '普契尼' }
-      ]},
-      { id: 'famous-works', level: 2, title: '经典歌剧作品' },
-      { id: 'modern', level: 2, title: '当代歌剧院' }
-    ],
-    content: `## 歌剧的诞生
-
-歌剧（Opera）是西方音乐史上最辉煌的艺术成就之一，它诞生于16世纪末文艺复兴时期的意大利佛罗伦萨。1598年，一群被称为"卡梅拉塔"（Camerata）的艺术家和学者聚集在佛罗伦萨贵族巴尔迪伯爵的府邸，他们怀着复兴古希腊戏剧传统的理想，尝试创造一种全新的艺术形式——将音乐与戏剧完美融合。在这种追求下，人类历史上第一部真正意义的歌剧《达芙妮》诞生了，虽然这部作品的乐谱已经失传，但它开启了歌剧艺术四百多年的辉煌历程。
-
-"Opera"一词在意大利语中的原意是"作品"或"劳动成果"，这个简单的词汇却精准地概括了这门艺术的本质——它是音乐、戏剧、诗歌、舞蹈、美术、舞台设计等多种艺术形式的完美结合与综合呈现。在歌剧的舞台上，华丽的服装、精美的布景、动人的音乐、富有戏剧性的情节交织在一起，为观众创造出一个如梦如幻的艺术世界。
-
-1637年，一个革命性的时刻到来了。威尼斯建立了世界上第一座向公众开放的歌剧院——圣卡西亚诺剧院（Teatro San Cassiano）。在此之前，歌剧仅是王公贵族在宫廷中欣赏的奢侈品，普通民众无缘领略。圣卡西亚诺剧院的开放标志着歌剧从贵族的专属艺术转变为大众可以接触的文化形式，这一转变对歌剧的发展产生了深远的影响，促使作曲家们创作出更加通俗易懂、情感丰富的作品以吸引更广泛的观众。
-
-## 意大利歌剧的黄金时代
-
-18至19世纪是意大利歌剧发展的黄金时代，这一时期涌现出众多杰出的作曲家和不朽的经典作品。歌剧艺术在这个时期走向成熟，形成了几大重要流派，每个流派都有其独特的艺术风格和美学追求。
-
-**正歌剧**（Opera Seria）是18世纪最主要的歌剧形式，它代表着歌剧艺术的最高雅典范。正歌剧通常取材于古希腊罗马神话或历史故事，主题严肃高贵，探讨权力、荣誉、忠诚等宏大命题。正歌剧的音乐以高度炫技性的咏叹调为特色，为歌唱家提供了充分展示声音技巧的空间。著名的阉人歌手在这一时期达到巅峰，他们独特的嗓音和精湛的技艺令整个欧洲为之疯狂。
-
-**喜歌剧**（Opera Buffa）在18世纪中叶兴起，为歌剧艺术注入了新的活力。与正歌剧的严肃崇高形成鲜明对比，喜歌剧取材于日常生活，以轻松幽默的情节和平民化的人物形象赢得观众喜爱。罗西尼的《塞维利亚的理发师》是喜歌剧的经典代表，剧中充满机智诙谐的对白和欢快活泼的音乐，至今仍是世界各大歌剧院的保留剧目。喜歌剧的出现使歌剧走下了高高在上的神坛，真正成为贴近民众生活的艺术形式。
-
-**浪漫主义歌剧**在19世纪达到顶峰，这一时期的歌剧强调情感的深度表达和戏剧性的冲突。作曲家们开始关注人物的内心世界，音乐成为刻画人物性格和情感变化的重要手段。威尔第是浪漫主义歌剧的集大成者，他的作品不仅具有高度的艺术价值，更与意大利的民族独立运动紧密相连。威尔第的音乐成为意大利民族精神的象征，将歌剧艺术推向了前所未有的高度。
-
-## 伟大的作曲家
-
-### 威尔第（Giuseppe Verdi，1813-1901）
-
-朱塞佩·威尔第是意大利歌剧史上最伟大的作曲家，他的一生与19世纪意大利的命运紧密相连。威尔第出生在意大利北部的一个小村庄，从贫寒的家庭成长为享誉世界的音乐大师，他的一生充满传奇色彩。
-
-威尔第的代表作包括《茶花女》（La Traviata）、《弄臣》（Rigoletto）、《阿依达》（Aida）和《奥赛罗》（Otello）等。这些作品展现了威尔第卓越的戏剧天赋和深刻的人文关怀。他笔下的人物栩栩如生，无论是《茶花女》中为爱牺牲的薇奥莱塔，还是《弄臣》中为女儿复仇的驼背弄臣，都具有强烈的人性魅力和戏剧张力。
-
-威尔第的艺术特点在于深刻的人物刻画和激动人心的合唱。他善于用音乐刻画人物的内心世界，通过旋律的起伏和和声的变化，精准地表达人物复杂的情感。威尔第的合唱作品气势恢宏、情感充沛，具有强大的感染力。他创作的《纳布科》中的合唱"飞吧，思想，乘着金色的翅膀"（Va, pensiero）在意大利统一运动期间成为民族解放的象征，至今仍被视为意大利的非官方国歌，每当这首歌响起，意大利人都会心潮澎湃。
-
-威尔第的音乐不仅仅是艺术创作，更是意大利民族精神的体现。在意大利争取独立和统一的斗争中，威尔第的歌剧成为鼓舞人民斗志的精神武器。人们甚至将"VERDI"这个名字作为口号——它恰好是"意大利国王维托里奥·埃曼努埃莱"（Vittorio Emanuele Re D'Italia）的首字母缩写，成为民族独立运动的暗号。
-
-### 普契尼（Giacomo Puccini，1858-1924）
-
-贾科莫·普契尼是继威尔第之后意大利最伟大的歌剧作曲家，他将意大利歌剧传统推向了新的艺术高峰。普契尼出生在托斯卡纳的一个音乐世家，从小就展现出非凡的音乐天赋。
-
-普契尼的代表作包括《波西米亚人》（La Bohème）、《托斯卡》（Tosca）、《蝴蝶夫人》（Madama Butterfly）和《图兰朵》（Turandot）。这些作品以其优美动人的旋律和深刻的情感表达，征服了全世界的观众。《波西米亚人》描绘了巴黎拉丁区艺术家们的波西米亚生活，音乐充满青春气息和浪漫情怀。《托斯卡》是一部激情四溢的爱情悲剧，其中的咏叹调"星光灿烂"（E lucevan le stelle）堪称男高音的试金石。
-
-普契尼的艺术风格属于真实主义（Verismo）流派，他的作品描绘真实的人生和情感，摒弃了早期歌剧的矫揉造作。普契尼特别擅长创作优美动人的旋律，他的音乐流畅自然，易于记忆，却又不失深度和艺术性。他还大胆运用东方元素，《蝴蝶夫人》中融入了日本音乐的特色，《图兰朵》则采用了中国民歌《茉莉花》的旋律，展现了他对异国文化的敏锐感受和创新精神。
-
-普契尼的《图兰朵》是他一生的最后力作，遗憾的是他在作品完成前去世了。剧中的咏叹调"今夜无人入睡"（Nessun Dorma）成为歌剧史上最著名、最动人的男高音咏叹调之一，被无数男高音歌唱家视为展示实力的巅峰之作。每当这首咏叹调响起，观众都会被那激昂的旋律和深情的演唱所震撼。
-
-## 经典歌剧作品
-
-**《茶花女》**（La Traviata）是威尔第创作于1853年的杰作，也是世界上演次数最多的歌剧。这部作品改编自法国作家小仲马的同名小说，讲述了巴黎名妓薇奥莱塔与贵族青年阿尔弗雷多之间凄美的爱情悲剧。薇奥莱塔为了阿尔弗雷多的家族名誉，忍痛与爱人分手，最终在贫病交加中香消玉殒。剧中的"饮酒歌"轻快欢乐，而"永别了，过去的欢乐"则催人泪下，形成强烈的情感对比。这部歌剧深刻揭示了社会的虚伪和爱情的真挚，至今仍然感动着世界各地的观众。
-
-**《蝴蝶夫人》**（Madama Butterfly）是普契尼1904年首演的作品，讲述了日本艺伎巧巧桑与美国海军军官平克顿之间的悲剧故事。天真的巧巧桑深爱着平克顿，为他放弃了一切，甚至改信基督教，但平克顿只是把这段感情当作异国之旅的消遣。当平克顿抛弃她回国另娶后，忠贞的巧巧桑带着儿子苦苦等待三年。最后当真相揭晓时，绝望的巧巧桑选择了自尽。剧中的咏叹调"晴朗的一天"（Un bel dì, vedremo）表达了巧巧桑对爱情的痴迷幻想，感人至深。这部歌剧不仅展现了东西方文化的碰撞，更深刻批判了殖民主义和文化霸权。
-
-**《弄臣》**（Rigoletto）是威尔第1851年创作的中期杰作，改编自法国作家维克多·雨果的戏剧《国王寻乐》。剧中的主人公里戈莱托是一个驼背的宫廷弄臣，他用尖刻的言辞嘲讽贵族，却极力保护自己纯洁的女儿吉尔达不受宫廷腐败的污染。当吉尔达被好色的公爵诱骗后，里戈莱托决心复仇，却在阴错阳差中亲手杀死了为救公爵而牺牲的女儿。剧中的咏叹调"善变的女人"（La donna è mobile）旋律优美动听，是男高音的经典唱段，也是全剧情感转折的关键时刻。
-
-## 当代歌剧院
-
-意大利拥有世界上最负盛名的歌剧院，这些历史悠久的剧院不仅是建筑艺术的瑰宝，更是歌剧文化的圣地，承载着意大利歌剧的辉煌传统。
-
-**米兰斯卡拉歌剧院**（Teatro alla Scala）建于1778年，是世界公认的歌剧圣殿。这座宏伟的歌剧院位于米兰市中心，以其完美的音响效果和华丽的装饰闻名于世。斯卡拉歌剧院按照传统在每年12月7日（米兰守护神圣安布罗焦的纪念日）举行新演出季的开幕式，这一天成为全球歌剧界最重要的盛事。能在斯卡拉歌剧院登台演出，是每位歌唱家梦寐以求的荣耀。这里见证了无数歌剧史上的经典时刻，也培养了众多世界级的歌唱家和指挥家。
-
-**威尼斯凤凰歌剧院**（Teatro La Fenice）建于1792年，是意大利歌剧历史上最重要的剧院之一。"凤凰"这个名字极具象征意义——剧院在历史上曾两次毁于火灾，但每次都如凤凰涅槃般浴火重生，以更加辉煌的姿态重新开放。这里曾是罗西尼、贝里尼、多尼采蒂等作曲家许多重要作品的首演地，威尔第的《茶花女》和《弄臣》也在这里首次与观众见面。凤凰歌剧院不仅是建筑瑰宝，更承载着意大利歌剧发展的重要历史记忆。
-
-**罗马歌剧院**（Teatro dell'Opera di Roma）建于1880年，是意大利首都最重要的文化地标之一。这座歌剧院见证了普契尼《托斯卡》的全球首演，这部以罗马为背景的歌剧在罗马首演具有特殊的意义。罗马歌剧院特别以其夏季在卡拉卡拉浴场废墟中举办的露天歌剧演出而闻名，观众在古罗马遗址中欣赏歌剧，历史与艺术完美交融，创造出无与伦比的独特体验。
-
-**维罗纳竞技场**（Arena di Verona）是一座建于公元1世纪的古罗马圆形剧场，如今已成为世界上最大的露天歌剧演出场地。这座可以容纳15,000名观众的宏伟建筑，每年夏季都会举办盛大的歌剧节。在璀璨的星空下，坐在两千年前的石阶上，观看大型歌剧演出的壮观场面，这种体验在全世界都是独一无二的。维罗纳歌剧节特别以上演大型歌剧如《阿依达》而著称，数百名演员和群众演员的宏大场面令人叹为观止。
-
-今天，意大利歌剧依然活跃在世界舞台的中心位置，继续创作新的作品，探索新的艺术可能性。同时，这些历史悠久的歌剧院也精心保护和传承着歌剧艺术的传统精髓。从米兰到罗马，从威尼斯到维罗纳，意大利的歌剧文化不仅是意大利的骄傲，更是全人类共同的文化遗产，继续感动和启发着世界各地的观众。`,
-    publishDate: '2025-01-11',
-    author: 'Language Learning Team',
-    views: 890,
-    metaDescription: '探索意大利歌剧的历史、伟大作曲家和经典作品，了解这门综合艺术的魅力。',
-    keywords: ['意大利歌剧', '意大利文化', '威尔第', '普契尼', '古典音乐']
-  },
-  {
     id: 'chinese-calligraphy-art',
-    title: '中国书法：笔墨之间的哲学',
+    title: {
+      zh: '中国书法：笔墨之间的哲学',
+      en: 'Chinese Calligraphy: Philosophy Between Brush and Ink'
+    },
     slug: 'chinese-calligraphy-art',
-    summary: '探索中国书法艺术的历史演变、五大书体和审美理念，理解汉字之美背后的文化内涵。',
+    summary: {
+      zh: '探索中国书法艺术的历史演变、五大书体和审美理念，理解汉字之美背后的文化内涵。',
+      en: 'Explore the historical evolution of Chinese calligraphy art, the five major scripts, and aesthetic principles to understand the cultural significance behind the beauty of Chinese characters.'
+    },
     coverImage: 'https://images.unsplash.com/photo-1619468129361-605ebea04b44?w=800&q=80',
     region: 'east-asia',
     theme: 'art',
     relatedLanguages: ['chinese'],
     tableOfContents: [
-      { id: 'intro', level: 2, title: '书法的文化地位' },
-      { id: 'history', level: 2, title: '书法的历史演变' },
-      { id: 'five-scripts', level: 2, title: '五大书体', children: [
-        { id: 'seal', level: 3, title: '篆书' },
-        { id: 'clerical', level: 3, title: '隶书' },
-        { id: 'regular', level: 3, title: '楷书' },
-        { id: 'running', level: 3, title: '行书' },
-        { id: 'cursive', level: 3, title: '草书' }
+      { id: 'intro', level: 2, title: { zh: '书法的文化地位', en: 'Cultural Status of Calligraphy' } },
+      { id: 'history', level: 2, title: { zh: '书法的历史演变', en: 'Historical Evolution of Calligraphy' } },
+      { id: 'five-scripts', level: 2, title: { zh: '五大书体', en: 'Five Major Scripts' }, children: [
+        { id: 'seal', level: 3, title: { zh: '篆书', en: 'Seal Script' } },
+        { id: 'clerical', level: 3, title: { zh: '隶书', en: 'Clerical Script' } },
+        { id: 'regular', level: 3, title: { zh: '楷书', en: 'Regular Script' } },
+        { id: 'running', level: 3, title: { zh: '行书', en: 'Running Script' } },
+        { id: 'cursive', level: 3, title: { zh: '草书', en: 'Cursive Script' } }
       ]},
-      { id: 'masters', level: 2, title: '历代书法大师' },
-      { id: 'tools', level: 2, title: '文房四宝' },
-      { id: 'modern', level: 2, title: '当代书法艺术' }
+      { id: 'masters', level: 2, title: { zh: '历代书法大师', en: 'Calligraphy Masters Through the Ages' } },
+      { id: 'tools', level: 2, title: { zh: '文房四宝', en: 'The Four Treasures of the Study' } },
+      { id: 'modern', level: 2, title: { zh: '当代书法艺术', en: 'Contemporary Calligraphy Art' } }
     ],
-    content: `## 书法的文化地位
+    content: {
+      zh: `## 书法的文化地位
 
 中国书法是中华文化的瑰宝，被誉为"无声的音乐、纸上的舞蹈"。在世界艺术史上，书法作为一种独立的艺术形式，是中国对人类文明的独特贡献。当西方艺术家用画笔在画布上挥洒创意时，中国文人则用毛笔在宣纸上书写着文字与艺术的完美结合。书法不仅仅是书写汉字的技艺，更是一种融合了哲学、美学、文学和个人修养的综合性艺术。
 
@@ -809,33 +631,142 @@ Interestingly, as modern life pressure increases, some Spaniards are beginning t
 **艺术市场**的繁荣为书法艺术的发展提供了经济支撑。近年来，名家书法作品的拍卖价格不断攀升，一些顶级作品甚至达到天价。书法培训产业蓬勃发展，从儿童启蒙到成人进修，各个层次的书法教育都有巨大的市场需求。书法文创产品的开发也方兴未艾，从书法字体的数字化到各种书法衍生产品，书法艺术正在以多种形式融入现代生活。
 
 中国书法作为活着的艺术传统，在当代依然充满旺盛的生命力。它既保持着数千年积累的深厚传统，又不断适应时代的变化，探索新的发展可能。从北京到纽约，从东京到巴黎，越来越多的人被书法艺术的独特魅力所吸引。书法不仅是中国的文化瑰宝，更正在成为世界了解中国、欣赏东方美学的重要窗口。在笔墨纸砚的世界里，古老的艺术传统与现代精神完美交融，继续书写着中华文化的辉煌篇章。`,
+      en: `## Cultural Status of Calligraphy
+
+Chinese calligraphy is a treasure of Chinese culture, praised as "silent music and dance on paper." In world art history, calligraphy as an independent art form is China's unique contribution to human civilization. While Western artists wield brushes on canvas to express creativity, Chinese literati use brushes on rice paper to write the perfect fusion of text and art. Calligraphy is not merely the skill of writing Chinese characters, but a comprehensive art that integrates philosophy, aesthetics, literature, and personal cultivation.
+
+Calligraphy holds an irreplaceable and lofty position in Chinese culture as an important way to cultivate body and mind. Through daily practice, calligraphers develop high levels of concentration and patience, finding inner peace in the world of brush, ink, paper, and inkstone. The ancients said "handwriting reveals character" - a person's personality, cultivation, and knowledge are all revealed between the strokes. Calligraphy is also a vivid embodiment of philosophical thought, with the brush and ink containing Taoist views of "harmony between heaven and humanity," Confucian wisdom of "the doctrine of the mean," and Buddhist spiritual realm of "meditation."
+
+In traditional culture, calligraphy is an essential cultivation for literati, alongside qin (musical instrument), chess, and painting, known as the "four arts." A true literatus must not only be good at poetry and prose, but also have excellent handwriting. Calligraphy is both a practical writing tool and an elegant art form, perfectly achieving the unity of practicality and aesthetics. This unique artistic charm makes calligraphy one of the most representative art forms of Chinese culture.
+
+## Historical Evolution of Calligraphy
+
+The history of Chinese calligraphy has a long history, having undergone thousands of years of development and evolution to form a complete and unique art system. Each historical period has added new connotations and styles to the development of calligraphy art.
+
+**Shang and Zhou Periods** (16th century BC - 3rd century BC) was the embryonic period of Chinese character writing. Oracle bone script, as China's earliest mature Chinese character system, was carved on turtle shells and animal bones, recording divination and important events during the Shang Dynasty. Although these ancient characters were crude, they already showed the beauty of lines and structural rigor. Bronze inscriptions were characters cast or engraved on bronze vessels, with thicker and more powerful strokes and more standardized character forms. Although the characters of this period cannot yet be called true calligraphy art, they have laid the foundation for the development of calligraphy in later generations.
+
+**Qin and Han Periods** (221 BC - 220 AD) was a key turning point in calligraphy development. After Qin Shi Huang unified China, he also unified the writing system, promoting small seal script as the official standard font. Small seal script has smooth and flowing strokes and symmetrical and neat structure, marking the standardization of Chinese characters. However, small seal script was slow to write and unsuitable for daily use. Driven by this need, clerical script emerged. Clerical script broke the circular turning strokes of seal script and changed to square folding strokes, greatly increasing writing speed. The Han Dynasty was the golden age of clerical script, with famous steles such as "Cao Quan Stele" showcasing the unique beauty of clerical script's "silkworm head and swallow tail," marking an important transformation of Chinese characters from ancient to modern script.
+
+**Wei, Jin, Northern and Southern Dynasties** (220-589) was called the era of calligraphy art's self-awareness. This period of social upheaval was an era of brilliant cultural and artistic flourishing. Calligraphers began to consciously pursue artistic beauty, and calligraphy rose from a practical tool to an independent art form. Wang Xizhi emerged during this period, and his calligraphy reached unprecedented artistic heights, establishing aesthetic standards for later generations. Wang Xizhi creatively developed running and cursive scripts, enabling calligraphy to achieve extremely high artistic levels while maintaining practicality. His "Lantingji Xu" (Preface to the Orchid Pavilion) is praised as "the best running script in the world" and remains a model for calligraphers to copy and study.
+
+**Tang and Song Periods** (618-1279) was a prosperous period for calligraphy art. Tang Dynasty regular script reached mature perfection, with masters like Ouyang Xun, Yan Zhenqing, and Liu Gongquan emerging. Yan Zhenqing's "Yan style" is vigorous and powerful with magnificent momentum; Liu Gongquan's "Liu style" is strong and upright with elegant beauty. The regular script styles they created have had far-reaching influence and remain important models for learning calligraphy. The Song Dynasty advocated the "yi" (meaning) calligraphy style, with the "Four Masters of Song" (Su Shi, Huang Tingjian, Mi Fu, Cai Xiang) emphasizing personal expression. Calligraphy no longer merely pursued rules but focused more on expressing emotions and manifesting personality.
+
+**Ming and Qing to Present** (1368 - present) is a period of personalized development of calligraphy art. Ming Dynasty calligrapher Dong Qichang advocated archaism, pursuing an elegant calligraphy style. The Qing Dynasty saw the emergence of the stele learning movement, with calligraphers drawing nourishment from ancient steles and creating new aesthetic directions. Entering modern times, calligraphy faces new challenges and opportunities, constantly exploring innovation while inheriting tradition, presenting a diversified development trend.
+
+## Five Major Scripts
+
+Chinese calligraphy has formed five major scripts during its long development process, each with its unique aesthetic characteristics and cultural connotations. These five major scripts are seal script, clerical script, regular script, running script, and cursive script. They have both historical sequential relationships and independent development, together constituting the complete system of Chinese calligraphy art.
+
+### Seal Script
+
+Seal script is the most ancient script, divided into two categories: large seal and small seal. Large seal mainly refers to bronze inscriptions from the Shang and Zhou periods, with bold and powerful strokes and ancient and solemn structure. Small seal is the font organized and standardized by Li Si and others in the Qin Dynasty, and was the official standard font after Qin Shi Huang unified the writing system. The greatest characteristic of seal script is uniform strokes, smooth and flowing lines, and symmetrical and neat character forms, giving a sense of dignified elegance.
+
+Li Si's "Yishan Stele" is a representative work of small seal script. Although the original stele has been lost, copies through the ages still display the elegant style of small seal. Seal script is mainly applied in modern times to seal carving and plaque inscriptions, and its ancient and solemn characteristics make it very suitable for expressing a dignified atmosphere. Learning seal script can deepen understanding of the origin and evolution of Chinese characters and is very helpful for understanding the structural principles of Chinese characters.
+
+### Clerical Script
+
+Clerical script was born at the transition from Qin to Han and was the main script of the Han Dynasty. The most notable characteristic of clerical script is "silkworm head and swallow tail" - horizontal strokes start rounded like a silkworm head and end spread like a swallow tail. Clerical script's horizontal strokes are thick and heavy, while vertical strokes are relatively thin, with an overall flat and square shape appearing stable and generous.
+
+"Cao Quan Stele" and "Yiying Stele" in Han Dynasty stele inscriptions are classics of clerical script, the former graceful and elegant, the latter dignified and substantial, each with distinctive features. Clerical script has epoch-making significance in the history of Chinese calligraphy, marking an important transformation of Chinese characters from ancient to modern script and laying the foundation for the development of regular, running, and cursive scripts. Clerical script has an unfolded structure and beautiful strokes, with both artistic beauty and ease of writing, and is therefore deeply loved by calligraphers through the ages.
+
+### Regular Script
+
+Regular script, also called "standard script" or "true script," is the most standardized and standard font. The characteristic of regular script is clear strokes and rigorous structure, with each stroke clearly explained and strict rules. Regular script reached mature perfection in the Tang Dynasty, with masters like Ouyang Xun, Yan Zhenqing, and Liu Gongquan emerging. The "Ou style," "Yan style," and "Liu style" they established became models for later learning. Yuan Dynasty Zhao Mengfu's regular script is graceful and round with a unique style.
+
+Regular script is the foundation of learning calligraphy; beginners must start with regular script to build a solid foundation. By learning regular script, one can master the correct structure of Chinese characters and basic brush techniques, laying a solid foundation for learning other scripts. Regular script is not only an important component of calligraphy art but also the standard font for daily writing, with extremely high practical value.
+
+### Running Script
+
+Running script is between regular and cursive script and is the most practical script. The characteristic of running script is smooth and natural, with appropriate connections between strokes, writing faster than regular script but not as difficult to recognize as cursive script. Running script maintains the readability of text while possessing artistic beauty, thus becoming the most popular script.
+
+Wang Xizhi's "Lantingji Xu" is praised as "the best running script in the world" and is the highest model of running script. This work has exquisite brush techniques, beautiful structure, and sincere emotion, and is regarded as a treasure by calligraphers through the ages. Yan Zhenqing's "Jizhi Wengao" (Draft of a Requiem to My Nephew) is called "the second best running script in the world," with vigorous brush strokes throughout and passionate emotion, another peak in running script. The advantage of running script lies in the perfect combination of practicality and art, suitable for both daily writing and artistic creation.
+
+### Cursive Script
+
+Cursive script is the most simplified and artistically strong script. The characteristic of cursive script is continuous strokes, unpredictable changes, with strong dynamic and rhythmic sense. Cursive script can be divided into three types: draft cursive, modern cursive, and wild cursive. Draft cursive retains more clerical script traces, modern cursive is more fluid and free, while wild cursive reaches a state of self-forgetfulness.
+
+Tang Dynasty Zhang Xu and Huai Su are representatives of wild cursive, their cursive script vigorous with magnificent momentum, developing the abstract beauty of calligraphy to the extreme. Zhang Xu was called the "Sage of Cursive," and his cursive script creation was often after drunkenness, completely driven by intuition and emotion, reaching a state of unity between person and writing. Cursive script requires extremely high skill from calligraphers; without a deep foundation and superb technique, cursive script can easily become wild and chaotic, difficult to recognize. But it is precisely this high difficulty and high artistry that makes cursive script the highest realm of calligraphy art.
+
+## Calligraphy Masters Through the Ages
+
+Chinese calligraphy history is full of stars, with countless outstanding calligraphy masters emerging. They not only created immortal artistic works but also established artistic models for later generations, promoting the continuous development of calligraphy art.
+
+**Wang Xizhi** (303-361) is revered as the "Sage of Calligraphy" and is the greatest calligrapher in Chinese calligraphy history. He lived during the Eastern Jin Dynasty, born into a prominent family, and received a good education from childhood. Wang Xizhi learned from many sources and excelled in clerical, cursive, regular, and running scripts, especially reaching unprecedented heights in running and cursive scripts. His representative work "Lantingji Xu" is praised as "the best running script in the world," with 28 lines and 324 characters throughout, every character a gem, regarded as a treasure by emperors and calligraphers through the ages. Wang Xizhi established aesthetic standards for calligraphy, his calligraphy having both rules and rich changes, both rigorous and natural, with extremely far-reaching influence on later generations.
+
+**Yan Zhenqing** (709-785) was one of the greatest calligraphers of the Tang Dynasty. He was not only an outstanding artist but also a loyal patriot. Yan Zhenqing established the unique "Yan style" regular script, characterized by vigorous strength and magnificent momentum, with thick and powerful strokes and an open and grand structure. His representative work "Jizhi Wengao" is called "the second best running script in the world." This work was completed in one breath by Yan Zhenqing in grief and indignation, with alterations visible throughout, but this reveals true feelings and has moving artistic appeal. Yan Zhenqing's calligraphy integrated Confucian righteousness into the brush, forming a unique artistic style.
+
+**Su Shi** (1037-1101) was a great Song Dynasty writer, calligrapher, and painter. Su Shi was the first of the "Four Masters of Song" (Su Shi, Huang Tingjian, Mi Fu, Cai Xiang), and his calligraphy valued meaning over form, emphasizing personal expression and emotional expression. Su Shi believed calligraphy should be "dignified mixed with graceful beauty, strong containing gentle grace," pursuing an artistic realm that is vigorous yet gentle. His representative work "Huangzhou Hanshi Tie" (Cold Food Observance) is called "the third best running script in the world," with bold brush work throughout and sincere emotion, representing the Song Dynasty's meaning-oriented calligraphy style.
+
+**Mi Fu** (1051-1107) was also one of the "Four Masters of Song," excelling in running script. Mi Fu's calligraphy is natural and free, with sharp and crisp brush use and steep structure, having a strong personal style. He was not only a calligrapher but also an connoisseur and collector, deeply studying works by ancient masters. Mi Fu created the famous "Mi dot landscape" painting method in painting, applying calligraphy brush and ink techniques to painting, embodying the characteristic of Chinese art "calligraphy and painting share the same source."
+
+**Zhao Mengfu** (1254-1322) was the most outstanding calligrapher of the Yuan Dynasty. He was a descendant of the Song royal family and served as an official in the Yuan Dynasty; this special status gave his calligraphy a quality of transcending the mundane world. Zhao Mengfu was a representative of archaism, advocating learning from Jin and Tang calligraphy and pursuing an elegant and peaceful artistic style. Zhao Mengfu's regular and running scripts both reached high levels, his characters graceful and round with rigorous rules, having far-reaching influence on later generations.
+
+## The Four Treasures of the Study
+
+Calligraphy creation cannot be separated from special tools, which are elegantly called the "Four Treasures of the Study" - brush, ink, paper, and inkstone. The Four Treasures of the Study are not only writing tools but also artworks carrying deep cultural connotations, and their craftsmanship itself is a refined art.
+
+**Brush** is the foremost of the "Four Treasures of the Study." Chinese brushes come in many varieties and can be divided into goat hair, wolf hair, and mixed hair based on materials. Goat hair is soft, suitable for writing large characters and running-cursive scripts; wolf hair is strong, suitable for writing small regular script; mixed hair balances hardness and softness and is most widely used. "Hu brushes" produced in Huzhou, Zhejiang are the finest among brushes, with exquisite craftsmanship and careful material selection, deeply loved by calligraphers. Choosing a brush needs to be based on script characteristics and personal habits. A good brush should possess the "four virtues" of sharp, even, round, and firm - meaning a sharp tip, even bristles, full belly, and strong nature.
+
+**Ink** is the soul of calligraphy art. Traditional ink is divided into two types: pine soot ink and oil soot ink. Pine soot ink has a darker color, suitable for writing large characters; oil soot ink has a shiny color, suitable for writing small regular script. Ink making is a complex craft; good ink requires many processes and careful production using natural materials. Huizhou in Anhui Province (now Huangshan City) is the center of Chinese ink making, with Hui ink famous for its fine texture and pure ink color. Modern ink sticks are also available as a convenient choice, but traditional calligraphers still prefer using ink sticks to grind, believing this process itself is part of cultivating character.
+
+**Paper**, with Xuan paper being the most famous. Xuan paper is produced in Xuancheng, Anhui Province, hence the name. Xuan paper is divided into raw Xuan and cooked Xuan. Raw Xuan has strong ink absorption, and ink easily diffuses, suitable for freehand calligraphy and ink wash painting; cooked Xuan has been processed with weaker ink absorption, suitable for writing regular script and meticulous painting. The characteristics of Xuan paper are good ink moistening, uniform fibers, flexible texture, and long-lasting preservation. High-quality Xuan paper can be preserved for a thousand years without rotting, which is an important reason why ancient Chinese calligraphy and painting can be passed down to the present.
+
+**Inkstone** is a tool for grinding ink sticks and is the most collectible among the Four Treasures of the Study. China's four famous inkstones are Duan inkstone, She inkstone, Tao inkstone, and Cheng clay inkstone. Duan inkstone is produced in Zhaoqing, Guangdong, with fine stone quality and fast ink grinding with good ink color; She inkstone is produced in She County, Anhui, with dense stone quality that stores water without drying; Tao inkstone is produced in Taozhou, Gansu, with moist stone quality; Cheng clay inkstone is fired from special clay. A good inkstone is not only practical but often beautifully carved, itself a work of art, with high ornamental and collectible value.
+
+## Contemporary Calligraphy Art
+
+Entering modern society, Chinese calligraphy faces unprecedented challenges and opportunities. Between tradition and modernity, inheritance and innovation, contemporary calligraphy is searching for new development directions.
+
+**Inheritance and Innovation** is the theme of contemporary calligraphy development. Traditional calligraphers adhere to ancient methods, emphasizing copying classics and following rules, believing that only by deeply entering tradition can one grasp the essence of calligraphy. Modern calligraphers boldly explore new forms of expression, combining calligraphy with modern art concepts to create works with contemporary characteristics. Fusion school attempts to build bridges between Chinese and Western art, combining calligraphy brush and ink techniques with Western abstract art, opening new artistic territories. This diversified development trend has injected new vitality into calligraphy art.
+
+**Digital Age Challenges** is a reality contemporary calligraphy must face. With the popularization of computer typing, people have fewer and fewer opportunities to write Chinese characters by hand, which poses a severe challenge to the inheritance of calligraphy art. However, crisis also breeds opportunity, and the importance of calligraphy education has therefore received more attention. The Chinese government has incorporated calligraphy into compulsory courses for primary and secondary schools, and more and more young people are beginning to re-recognize the value of calligraphy. Many people have discovered that in the fast-paced modern life, practicing calligraphy can bring peace to the soul, and this unique value makes calligraphy still irreplaceable in the digital age.
+
+**International Communication** has opened new horizons for calligraphy art. With the rise of Chinese cultural influence, calligraphy is receiving more and more attention internationally. Confucius Institutes promote calligraphy culture globally, holding calligraphy courses and exhibitions. International calligraphy exhibitions are increasing, and calligraphy enthusiasts from different countries experience the charm of Chinese culture through this unique art form. Many foreigners are enthusiastic about learning calligraphy; they not only learn techniques but also deeply understand the philosophical thoughts and cultural connotations behind calligraphy.
+
+**Art Market** prosperity provides economic support for the development of calligraphy art. In recent years, auction prices for famous calligraphy works have been rising, with some top works even reaching astronomical prices. The calligraphy training industry is booming, from children's enlightenment to adult advancement, with huge market demand at all levels of calligraphy education. The development of calligraphy cultural and creative products is also flourishing, from digitization of calligraphy fonts to various calligraphy derivative products, calligraphy art is integrating into modern life in various forms.
+
+Chinese calligraphy, as a living art tradition, still maintains vigorous vitality in contemporary times. It maintains the deep tradition accumulated over thousands of years while constantly adapting to the changes of the times, exploring new development possibilities. From Beijing to New York, from Tokyo to Paris, more and more people are attracted by the unique charm of calligraphy art. Calligraphy is not only a treasure of Chinese culture but is also becoming an important window for the world to understand China and appreciate Eastern aesthetics. In the world of brush, ink, paper, and inkstone, ancient art traditions and modern spirit perfectly blend, continuing to write the glorious chapter of Chinese culture.`
+    },
     publishDate: '2025-01-10',
     author: 'Language Learning Team',
     views: 1680,
-    metaDescription: '探索中国书法艺术的历史、五大书体、历代大师和文房四宝，理解汉字之美。',
-    keywords: ['中国书法', '中国文化', '汉字', '书法艺术', '文房四宝']
+    metaDescription: {
+      zh: '探索中国书法艺术的历史、五大书体、历代大师和文房四宝，理解汉字之美。',
+      en: 'Explore the history of Chinese calligraphy art, five major scripts, masters through the ages, and the Four Treasures of the Study to understand the beauty of Chinese characters.'
+    },
+    keywords: {
+      zh: ['中国书法', '中国文化', '汉字', '书法艺术', '文房四宝'],
+      en: ['Chinese Calligraphy', 'Chinese Culture', 'Chinese Characters', 'Calligraphy Art', 'Four Treasures of the Study']
+    }
   },
   {
     id: 'german-beer-culture',
-    title: '德国啤酒文化：纯净法则与啤酒节传统',
+    title: {
+      zh: '德国啤酒文化：纯净法则与啤酒节传统',
+      en: 'German Beer Culture: Purity Law and Beer Festival Traditions'
+    },
     slug: 'german-beer-culture',
-    summary: '探索德国深厚的啤酒文化传统，了解世界著名的慕尼黑啤酒节和德国啤酒纯净法的历史。',
+    summary: {
+      zh: '探索德国深厚的啤酒文化传统，了解世界著名的慕尼黑啤酒节和德国啤酒纯净法的历史。',
+      en: 'Explore Germany\'s deep-rooted beer culture traditions, learn about the world-famous Oktoberfest and the history of German beer purity law.'
+    },
     coverImage: 'https://images.unsplash.com/photo-1618885472179-5e474019f2a9?w=800&q=80',
     region: 'europe',
     theme: 'food',
     relatedLanguages: ['german'],
     tableOfContents: [
-      { id: 'intro', level: 2, title: '啤酒在德国文化中的地位' },
-      { id: 'reinheitsgebot', level: 2, title: '啤酒纯净法：500年的传统' },
-      { id: 'beer-types', level: 2, title: '德国啤酒的种类', children: [
-        { id: 'pilsner', level: 3, title: '皮尔森啤酒' },
-        { id: 'weizen', level: 3, title: '小麦啤酒' }
+      { id: 'intro', level: 2, title: { zh: '啤酒在德国文化中的地位', en: 'The Status of Beer in German Culture' } },
+      { id: 'reinheitsgebot', level: 2, title: { zh: '啤酒纯净法：500年的传统', en: 'Reinheitsgebot: 500 Years of Tradition' } },
+      { id: 'beer-types', level: 2, title: { zh: '德国啤酒的种类', en: 'Types of German Beer' }, children: [
+        { id: 'pilsner', level: 3, title: { zh: '皮尔森啤酒', en: 'Pilsner Beer' } },
+        { id: 'weizen', level: 3, title: { zh: '小麦啤酒', en: 'Wheat Beer' } }
       ]},
-      { id: 'oktoberfest', level: 2, title: '慕尼黑啤酒节' },
-      { id: 'beer-gardens', level: 2, title: '啤酒花园文化' },
-      { id: 'modern', level: 2, title: '现代德国啤酒产业' }
+      { id: 'oktoberfest', level: 2, title: { zh: '慕尼黑啤酒节', en: 'Oktoberfest' } },
+      { id: 'beer-gardens', level: 2, title: { zh: '啤酒花园文化', en: 'Beer Garden Culture' } },
+      { id: 'modern', level: 2, title: { zh: '现代德国啤酒产业', en: 'Modern German Beer Industry' } }
     ],
-    content: `## 啤酒在德国文化中的地位
+    content: {
+      zh: `## 啤酒在德国文化中的地位
 
 德国被誉为"啤酒之乡"，啤酒（Bier）不仅是饮料，更是德国文化认同的重要组成部分。德国人均啤酒消费量位居世界前列，每年约100升。
 
@@ -994,33 +925,48 @@ Interestingly, as modern life pressure increases, some Spaniards are beginning t
 - 啤酒侍酒师认证课程
 
 德国啤酒文化不仅是传统的延续，更在现代社会中不断创新，成为连接传统与未来的文化纽带。`,
+      en: `[English translation to be added]`
+    },
     publishDate: '2025-01-09',
     author: 'Language Learning Team',
     views: 1320,
-    metaDescription: '深入了解德国啤酒文化，探索啤酒纯净法、慕尼黑啤酒节和啤酒花园传统。',
-    keywords: ['德国啤酒', '德国文化', '慕尼黑啤酒节', '啤酒纯净法', 'Oktoberfest']
+    metaDescription: {
+      zh: '深入了解德国啤酒文化，探索啤酒纯净法、慕尼黑啤酒节和啤酒花园传统。',
+      en: 'Explore German beer culture in depth, discover the beer purity law, Oktoberfest, and beer garden traditions.'
+    },
+    keywords: {
+      zh: ['德国啤酒', '德国文化', '慕尼黑啤酒节', '啤酒纯净法', 'Oktoberfest'],
+      en: ['German Beer', 'German Culture', 'Oktoberfest', 'Reinheitsgebot', 'Beer Purity Law']
+    }
   },
   {
     id: 'portuguese-fado-music',
-    title: '葡萄牙法朵音乐：忧郁灵魂的歌声',
+    title: {
+      zh: '葡萄牙法朵音乐：忧郁灵魂的歌声',
+      en: 'Portuguese Fado Music: The Melancholic Soul\'s Voice'
+    },
     slug: 'portuguese-fado-music',
-    summary: '探索葡萄牙传统音乐法朵的历史和文化内涵，了解这种被列入世界非物质文化遗产的独特艺术形式。',
+    summary: {
+      zh: '探索葡萄牙传统音乐法朵的历史和文化内涵，了解这种被列入世界非物质文化遗产的独特艺术形式。',
+      en: 'Explore the history and cultural essence of Portuguese traditional music Fado, learn about this unique art form inscribed on the UNESCO Intangible Cultural Heritage list.'
+    },
     coverImage: 'https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=800&q=80',
     region: 'europe',
     theme: 'art',
     relatedLanguages: ['portuguese'],
     tableOfContents: [
-      { id: 'intro', level: 2, title: '什么是法朵？' },
-      { id: 'history', level: 2, title: '法朵的历史起源' },
-      { id: 'saudade', level: 2, title: 'Saudade：葡萄牙独有的情感' },
-      { id: 'styles', level: 2, title: '法朵的两大流派', children: [
-        { id: 'lisbon', level: 3, title: '里斯本法朵' },
-        { id: 'coimbra', level: 3, title: '科英布拉法朵' }
+      { id: 'intro', level: 2, title: { zh: '什么是法朵？', en: 'What is Fado?' } },
+      { id: 'history', level: 2, title: { zh: '法朵的历史起源', en: 'Historical Origins of Fado' } },
+      { id: 'saudade', level: 2, title: { zh: 'Saudade：葡萄牙独有的情感', en: 'Saudade: A Uniquely Portuguese Emotion' } },
+      { id: 'styles', level: 2, title: { zh: '法朵的两大流派', en: 'Two Major Fado Styles' }, children: [
+        { id: 'lisbon', level: 3, title: { zh: '里斯本法朵', en: 'Lisbon Fado' } },
+        { id: 'coimbra', level: 3, title: { zh: '科英布拉法朵', en: 'Coimbra Fado' } }
       ]},
-      { id: 'legends', level: 2, title: '法朵传奇歌手' },
-      { id: 'modern', level: 2, title: '当代法朵的传承与创新' }
+      { id: 'legends', level: 2, title: { zh: '法朵传奇歌手', en: 'Legendary Fado Singers' } },
+      { id: 'modern', level: 2, title: { zh: '当代法朵的传承与创新', en: 'Contemporary Fado: Preservation and Innovation' } }
     ],
-    content: `## 什么是法朵？
+    content: {
+      zh: `## 什么是法朵？
 
 **法朵（Fado）** 是葡萄牙最具代表性的传统音乐形式，被誉为"葡萄牙的灵魂之声"。2011年，联合国教科文组织将法朵列入人类非物质文化遗产名录。
 
@@ -1205,34 +1151,49 @@ Interestingly, as modern life pressure increases, some Spaniards are beginning t
 - 被认为是与探戈、蓝调并列的世界级音乐形式
 
 今天，法朵不仅是葡萄牙的文化遗产，更是连接过去与未来、传统与创新的桥梁。无论在里斯本的小酒馆还是国际音乐厅，法朵的忧郁歌声继续诉说着人类共通的情感——爱、失落与希望。`,
+      en: `[English translation to be added]`
+    },
     publishDate: '2025-01-08',
     author: 'Language Learning Team',
     views: 950,
-    metaDescription: '探索葡萄牙传统音乐法朵的历史、Saudade情感和著名歌手，了解这一世界非物质文化遗产。',
-    keywords: ['葡萄牙法朵', '葡萄牙文化', 'Fado', 'Saudade', '世界遗产']
+    metaDescription: {
+      zh: '探索葡萄牙传统音乐法朵的历史、Saudade情感和著名歌手，了解这一世界非物质文化遗产。',
+      en: 'Explore the history of Portuguese traditional Fado music, the emotion of Saudade, and legendary singers, learn about this UNESCO Intangible Cultural Heritage.'
+    },
+    keywords: {
+      zh: ['葡萄牙法朵', '葡萄牙文化', 'Fado', 'Saudade', '世界遗产'],
+      en: ['Portuguese Fado', 'Portuguese Culture', 'Fado Music', 'Saudade', 'UNESCO Heritage']
+    }
   },
   {
     id: 'russian-ballet-tradition',
-    title: '俄罗斯芭蕾：舞蹈艺术的巅峰',
+    title: {
+      zh: '俄罗斯芭蕾：舞蹈艺术的巅峰',
+      en: 'Russian Ballet: The Pinnacle of Dance Art'
+    },
     slug: 'russian-ballet-tradition',
-    summary: '探索俄罗斯古典芭蕾的辉煌历史、著名舞团和经典剧目，了解这门艺术如何成为俄罗斯文化的骄傲。',
+    summary: {
+      zh: '探索俄罗斯古典芭蕾的辉煌历史、著名舞团和经典剧目，了解这门艺术如何成为俄罗斯文化的骄傲。',
+      en: 'Explore the glorious history of Russian classical ballet, famous companies and classic repertoire, learn how this art became Russia\'s cultural pride.'
+    },
     coverImage: 'https://images.unsplash.com/photo-1508807526345-15e9b5f4eaff?w=800&q=80',
     region: 'europe',
     theme: 'art',
     relatedLanguages: ['russian'],
     tableOfContents: [
-      { id: 'intro', level: 2, title: '俄罗斯芭蕾的黄金时代' },
-      { id: 'history', level: 2, title: '从皇家舞蹈到人民艺术' },
-      { id: 'choreographers', level: 2, title: '伟大的编舞家', children: [
-        { id: 'petipa', level: 3, title: '马里乌斯·佩蒂帕' },
-        { id: 'fokine', level: 3, title: '米哈伊尔·福金' }
+      { id: 'intro', level: 2, title: { zh: '俄罗斯芭蕾的黄金时代', en: 'The Golden Age of Russian Ballet' } },
+      { id: 'history', level: 2, title: { zh: '从皇家舞蹈到人民艺术', en: 'From Imperial Dance to People\'s Art' } },
+      { id: 'choreographers', level: 2, title: { zh: '伟大的编舞家', en: 'Great Choreographers' }, children: [
+        { id: 'petipa', level: 3, title: { zh: '马里乌斯·佩蒂帕', en: 'Marius Petipa' } },
+        { id: 'fokine', level: 3, title: { zh: '米哈伊尔·福金', en: 'Michel Fokine' } }
       ]},
-      { id: 'ballets', level: 2, title: '经典芭蕾剧目' },
-      { id: 'theaters', level: 2, title: '世界级芭蕾舞团' },
-      { id: 'training', level: 2, title: '瓦加诺娃教学法' },
-      { id: 'modern', level: 2, title: '当代俄罗斯芭蕾' }
+      { id: 'ballets', level: 2, title: { zh: '经典芭蕾剧目', en: 'Classic Ballet Repertoire' } },
+      { id: 'theaters', level: 2, title: { zh: '世界级芭蕾舞团', en: 'World-Class Ballet Companies' } },
+      { id: 'training', level: 2, title: { zh: '瓦加诺娃教学法', en: 'Vaganova Method' } },
+      { id: 'modern', level: 2, title: { zh: '当代俄罗斯芭蕾', en: 'Contemporary Russian Ballet' } }
     ],
-    content: `## 俄罗斯芭蕾的黄金时代
+    content: {
+      zh: `## 俄罗斯芭蕾的黄金时代
 
 俄罗斯芭蕾（Русский балет）被公认为世界芭蕾艺术的巅峰。从18世纪引入俄国宫廷，到19世纪末达到黄金时代，俄罗斯芭蕾创造了无数不朽的经典作品。
 
@@ -1534,35 +1495,50 @@ Interestingly, as modern life pressure increases, some Spaniards are beginning t
 芭蕾仍是俄罗斯文化认同的重要组成部分。在莫斯科或圣彼得堡观看芭蕾表演，不仅是艺术享受，更是对俄罗斯文化精髓的深刻体验。
 
 俄罗斯芭蕾历经数百年风雨，依然是世界舞蹈艺术的灯塔，继续启发和感动着全球观众。`,
+      en: `[English translation to be added]`
+    },
     publishDate: '2025-01-07',
     author: 'Language Learning Team',
     views: 1150,
-    metaDescription: '探索俄罗斯芭蕾的辉煌历史、著名舞团、经典剧目和瓦加诺娃教学法。',
-    keywords: ['俄罗斯芭蕾', '俄罗斯文化', '古典芭蕾', '马林斯基', '大剧院']
+    metaDescription: {
+      zh: '探索俄罗斯芭蕾的辉煌历史、著名舞团、经典剧目和瓦加诺娃教学法。',
+      en: 'Explore the glorious history of Russian ballet, famous companies, classic repertoire, and the Vaganova method.'
+    },
+    keywords: {
+      zh: ['俄罗斯芭蕾', '俄罗斯文化', '古典芭蕾', '马林斯基', '大剧院'],
+      en: ['Russian Ballet', 'Russian Culture', 'Classical Ballet', 'Mariinsky', 'Bolshoi Theatre']
+    }
   },
   {
     id: 'arabic-calligraphy-art',
-    title: '阿拉伯书法：信仰与艺术的完美结合',
+    title: {
+      zh: '阿拉伯书法：信仰与艺术的完美结合',
+      en: 'Arabic Calligraphy: Perfect Union of Faith and Art'
+    },
     slug: 'arabic-calligraphy-art',
-    summary: '探索伊斯兰世界最重要的艺术形式——阿拉伯书法，了解其宗教意义、艺术风格和当代发展。',
+    summary: {
+      zh: '探索伊斯兰世界最重要的艺术形式——阿拉伯书法，了解其宗教意义、艺术风格和当代发展。',
+      en: 'Explore the most important art form in the Islamic world—Arabic calligraphy, learn about its religious significance, artistic styles, and contemporary development.'
+    },
     coverImage: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80',
     region: 'middle-east',
     theme: 'art',
     relatedLanguages: ['arabic'],
     tableOfContents: [
-      { id: 'intro', level: 2, title: '阿拉伯书法的神圣地位' },
-      { id: 'history', level: 2, title: '从文字到艺术的演变' },
-      { id: 'styles', level: 2, title: '主要书法风格', children: [
-        { id: 'kufic', level: 3, title: '库法体' },
-        { id: 'naskh', level: 3, title: '纳斯赫体' },
-        { id: 'thuluth', level: 3, title: '苏鲁斯体' }
+      { id: 'intro', level: 2, title: { zh: '阿拉伯书法的神圣地位', en: 'The Sacred Status of Arabic Calligraphy' } },
+      { id: 'history', level: 2, title: { zh: '从文字到艺术的演变', en: 'Evolution from Script to Art' } },
+      { id: 'styles', level: 2, title: { zh: '主要书法风格', en: 'Major Calligraphic Styles' }, children: [
+        { id: 'kufic', level: 3, title: { zh: '库法体', en: 'Kufic Script' } },
+        { id: 'naskh', level: 3, title: { zh: '纳斯赫体', en: 'Naskh Script' } },
+        { id: 'thuluth', level: 3, title: { zh: '苏鲁斯体', en: 'Thuluth Script' } }
       ]},
-      { id: 'tools', level: 2, title: '书法工具与技法' },
-      { id: 'applications', level: 2, title: '书法的应用' },
-      { id: 'masters', level: 2, title: '历代书法大师' },
-      { id: 'modern', level: 2, title: '当代阿拉伯书法' }
+      { id: 'tools', level: 2, title: { zh: '书法工具与技法', en: 'Calligraphy Tools and Techniques' } },
+      { id: 'applications', level: 2, title: { zh: '书法的应用', en: 'Applications of Calligraphy' } },
+      { id: 'masters', level: 2, title: { zh: '历代书法大师', en: 'Master Calligraphers Through History' } },
+      { id: 'modern', level: 2, title: { zh: '当代阿拉伯书法', en: 'Contemporary Arabic Calligraphy' } }
     ],
-    content: `## 阿拉伯书法的神圣地位
+    content: {
+      zh: `## 阿拉伯书法的神圣地位
 
 **阿拉伯书法**（الخط العربي，al-khaṭṭ al-ʿarabī）在伊斯兰文化中占据至高无上的地位，被誉为"笔的艺术"或"精神的几何"。
 
@@ -1941,11 +1917,19 @@ Interestingly, as modern life pressure increases, some Spaniards are beginning t
 - 促进国际保护和传承
 
 阿拉伯书法历经1400年发展，从实用文字工具升华为崇高艺术，不仅是伊斯兰文明的视觉语言,更是人类共同的文化财富。在当代，它继续在传统与创新之间寻找平衡，为世界艺术贡献独特的美学视角。`,
+      en: `[English translation to be added]`
+    },
     publishDate: '2025-01-06',
     author: 'Language Learning Team',
     views: 880,
-    metaDescription: '探索阿拉伯书法的历史、主要风格、书法大师和当代发展，了解伊斯兰艺术的精髓。',
-    keywords: ['阿拉伯书法', '伊斯兰艺术', '阿拉伯文化', '书法艺术', '古兰经']
+    metaDescription: {
+      zh: '探索阿拉伯书法的历史、主要风格、书法大师和当代发展，了解伊斯兰艺术的精髓。',
+      en: 'Explore the history of Arabic calligraphy, major styles, master calligraphers, and contemporary development, learn about the essence of Islamic art.'
+    },
+    keywords: {
+      zh: ['阿拉伯书法', '伊斯兰艺术', '阿拉伯文化', '书法艺术', '古兰经'],
+      en: ['Arabic Calligraphy', 'Islamic Art', 'Arabic Culture', 'Calligraphy Art', 'Quran']
+    }
   },
 {
   id: 'korean-hanbok-tradition',
