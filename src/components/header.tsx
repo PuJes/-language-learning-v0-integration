@@ -159,7 +159,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className={`${positionClass} ${config.bg} backdrop-blur-md border-b ${config.border}`}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Left section */}
           <div className="flex items-center space-x-4">
@@ -190,7 +190,7 @@ export const Header: React.FC<HeaderProps> = ({
                   )}
                 </div>
               ) : (
-                <span className={`text-xl font-bold bg-gradient-to-r ${config.gradient} bg-clip-text text-transparent`}>
+                <span className={`text-sm md:text-base font-bold bg-gradient-to-r ${config.gradient} bg-clip-text text-transparent`}>
                   {t.header.title}
                 </span>
               )}
@@ -199,34 +199,46 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Center navigation - hidden on culture page with custom title */}
           {!customTitle && (
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center gap-x-3 xl:gap-x-6 2xl:gap-x-8 text-sm xl:text-base">
               <Link
                 href="/"
-                className={`text-foreground ${config.linkHover} transition-colors ${pathname === '/' ? 'font-semibold' : ''}`}
+                className={`whitespace-nowrap text-foreground ${config.linkHover} transition-colors ${pathname === '/' ? 'font-semibold' : ''}`}
               >
                 {t.common.home}
               </Link>
               <Link
                 href="/survey"
-                className={`text-foreground ${config.linkHover} transition-colors ${pathname === '/survey' ? 'font-semibold' : ''}`}
+                className={`whitespace-nowrap text-foreground ${config.linkHover} transition-colors ${pathname === '/survey' ? 'font-semibold' : ''}`}
               >
                 {t.common.languageRecommendation}
               </Link>
               <Link
-                href="/culture"
-                className={`text-foreground ${config.linkHover} transition-colors ${pathname === '/culture' ? 'font-semibold' : ''}`}
-              >
-                {t.common.cultureExploration}
-              </Link>
-              <Link
                 href="/languages"
-                className={`text-foreground ${config.linkHover} transition-colors ${pathname?.startsWith('/languages') ? 'font-semibold' : ''}`}
+                className={`whitespace-nowrap text-foreground ${config.linkHover} transition-colors ${pathname?.startsWith('/languages') ? 'font-semibold' : ''}`}
               >
                 {t.common.languageList}
               </Link>
               <Link
+                href="/learning-methods"
+                className={`whitespace-nowrap text-foreground ${config.linkHover} transition-colors ${pathname?.startsWith('/learning-methods') ? 'font-semibold' : ''}`}
+              >
+                {t.learningMethods.pageTitle}
+              </Link>
+              <Link
+                href="/resources"
+                className={`whitespace-nowrap text-foreground ${config.linkHover} transition-colors ${pathname?.startsWith('/resources') ? 'font-semibold' : ''}`}
+              >
+                {t.common.resources}
+              </Link>
+              <Link
+                href="/culture"
+                className={`whitespace-nowrap text-foreground ${config.linkHover} transition-colors ${pathname === '/culture' ? 'font-semibold' : ''}`}
+              >
+                {t.common.cultureExploration}
+              </Link>
+              <Link
                 href="/coming-soon"
-                className={`text-foreground ${config.linkHover} transition-colors ${pathname === '/coming-soon' ? 'font-semibold' : ''}`}
+                className={`whitespace-nowrap text-foreground ${config.linkHover} transition-colors ${pathname === '/coming-soon' ? 'font-semibold' : ''}`}
               >
                 {t.common.aboutUs}
               </Link>
@@ -244,7 +256,7 @@ export const Header: React.FC<HeaderProps> = ({
             <Button
               variant="ghost"
               size="sm"
-              className="md:hidden"
+              className="lg:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <Menu className="w-5 h-5" />
@@ -254,12 +266,14 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Mobile Menu */}
         {isMenuOpen && !customTitle && (
-          <div className="md:hidden absolute top-16 left-0 right-0 bg-card/95 backdrop-blur-md border-b border-border shadow-lg">
+          <div className="lg:hidden absolute top-16 left-0 right-0 bg-card/95 backdrop-blur-md border-b border-border shadow-lg">
             <nav className="container mx-auto px-4 py-4 space-y-2">
               <Link href="/" className={`block py-2 text-foreground ${config.linkHover} transition-colors`}>{t.common.home}</Link>
               <Link href="/survey" className={`block py-2 text-foreground ${config.linkHover} transition-colors`}>{t.common.languageRecommendation}</Link>
-              <Link href="/culture" className={`block py-2 text-foreground ${config.linkHover} transition-colors`}>{t.common.cultureExploration}</Link>
               <Link href="/languages" className={`block py-2 text-foreground ${config.linkHover} transition-colors`}>{t.common.languageList}</Link>
+              <Link href="/learning-methods" className={`block py-2 text-foreground ${config.linkHover} transition-colors`}>{t.learningMethods.pageTitle}</Link>
+              <Link href="/resources" className={`block py-2 text-foreground ${config.linkHover} transition-colors`}>{t.common.resources}</Link>
+              <Link href="/culture" className={`block py-2 text-foreground ${config.linkHover} transition-colors`}>{t.common.cultureExploration}</Link>
               <Link href="/coming-soon" className={`block py-2 text-foreground ${config.linkHover} transition-colors`}>
                 {t.common.aboutUs}
               </Link>

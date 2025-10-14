@@ -283,3 +283,27 @@ export interface V0ComponentMeta {
   dependencies: string[]
   props?: Record<string, unknown>
 }
+
+export type {
+  LearningResource,
+  ResourceFiltersState,
+  ResourceSortBy,
+  ResourceCategory,
+  SkillFocus,
+  PriceType,
+  Platform,
+  InstallablePlatform,
+  Tutorial as ResourceTutorial,
+  UserReview as ResourceReview,
+} from './learning-resources'
+
+export {
+  RESOURCE_CATEGORY_LABELS,
+  SKILL_FOCUS_LABELS,
+  PRICE_LABELS,
+  PLATFORM_LABELS,
+  getResourceCategoryLabel,
+  getSkillFocusLabel,
+  getPriceLabel,
+  getPlatformLabel,
+} from './learning-resources'

@@ -152,28 +152,28 @@ export interface LearningResource {
 ## 八、实现步骤 (建议拆解)
 
 ### Phase 1: 基础设施 (1.5-2h)
-1. [ ] 创建 `src/types/learning-resources.ts`。
-2. [ ] 更新 `src/types/index.ts` 导出。
-3. [ ] 新建 `src/lib/data/learning-resources.ts` 初始数据(20+条)。
+1. [x] 创建 `src/types/learning-resources.ts`。
+2. [x] 更新 `src/types/index.ts` 导出。
+3. [x] 新建 `src/lib/data/learning-resources.ts` 初始数据(20+条)。
 
 ### Phase 2: 国际化与工具 (1.5h)
-4. [ ] 更新 `src/locales/zh.ts` / `en.ts` → 文案、标签、FAQ 字段。
-5. [ ] 扩展 `src/lib/utils/i18n-data.ts` → `getLocalizedResources`, `filterResources`。
+4. [x] 更新 `src/locales/zh.ts` / `en.ts` → 文案、标签、FAQ 字段。
+5. [x] 扩展 `src/lib/utils/i18n-data.ts` → `getLocalizedResources`, `filterResources`。
 
 ### Phase 3: UI 组件 (3h)
-6. [ ] 实现 `ResourceCard`。
-7. [ ] 实现 `ResourceFilters`。
-8. [ ] 新增 `ResourceReviews` 组件,展示评分与评论列表。
-9. [ ] 可选: `ResourceHighlights` / `FeaturedSection`。
+6. [x] 实现 `ResourceCard`。
+7. [x] 实现 `ResourceFilters`。
+8. [x] 新增 `ResourceReviews` 组件,展示评分与评论列表。
+9. [x] 可选: `ResourceHighlights` / `FeaturedSection`。
 
 ### Phase 4: 页面开发 (4h)
-10. [ ] 创建 `src/app/resources/page.tsx`。
-11. [ ] 构建筛选交互 + 排序。
-12. [ ] 添加特辑、FAQ 与用户反馈区块。
-13. [ ] 接入 SEO metadata。
+10. [x] 创建 `src/app/resources/page.tsx`。
+11. [x] 构建筛选交互 + 排序。
+12. [x] 添加特辑、FAQ 与用户反馈区块。
+13. [x] 接入 SEO metadata。
 
 ### Phase 5: 集成与验收 (2h)
-14. [ ] 更新导航(`src/components/header.tsx`)与首页宣传位(`src/app/page.tsx` 可选)。
+14. [x] 更新导航(`src/components/header.tsx`)与首页宣传位(`src/app/page.tsx` 可选)。
 15. [ ] 手动双语检查 + 响应式验证,重点确认用户反馈区的本地化。
 16. [ ] 跑 `npm run lint`。
 

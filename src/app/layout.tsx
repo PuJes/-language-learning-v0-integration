@@ -9,7 +9,11 @@ import { cn } from '@/lib/utils'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Wordora - Personalized Language Learning Platform',
+  metadataBase: new URL('https://easiestlanguage.site'),
+  title: {
+    default: 'Wordora - Personalized Language Learning Platform',
+    template: '%s | Wordora',
+  },
   description: 'Through AI-powered recommendation system, we provide personalized language recommendations based on your background, cultural interests, and learning goals.',
   keywords: ['language learning', 'AI', 'personalized recommendation', 'multilingual', 'cultural exchange', 'wordora', 'learning platform'],
   authors: [{ name: 'Wordora Team' }],

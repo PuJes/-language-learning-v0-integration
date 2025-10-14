@@ -11,10 +11,12 @@ export interface TranslationKeys {
     startExploring: string
     startLearning: string
     backToHome: string
+    back: string
     learnMore: string
     viewDetails: string
     exploreMore: string
     viewAll: string
+    resources: string
     readTime: string
     difficulty: string
     popularity: string
@@ -318,5 +320,101 @@ export interface TranslationKeys {
     compareLanguages: string
     startLearning: string
     exploreLanguage: string
+  }
+  // Learning Methods page
+  learningMethods: {
+    pageTitle: string
+    pageSubtitle: string
+    filterByType: string
+    filterByChallenge: string
+    filterByLevel: string
+    filterByLanguage: string
+    allTypes: string
+    allChallenges: string
+    allLevels: string
+    allLanguages: string
+    reset: string
+    methodsFound: string
+    noMethodsFound: string
+    readingTime: string
+    solvesProblems: string
+    suitableFor: string
+    backToMethods: string
+    methodType: string
+    learningLevel: string
+    difficulty: string
+    expectedResults: string
+    methodPrinciple: string
+    implementationSteps: string
+    recommendedTools: string
+    videoTutorials: string
+    relatedMethods: string
+    tableOfContents: string
+    free: string
+    freemium: string
+    paid: string
+    platforms: string
+    rating: string
+    visitWebsite: string
+    sortBy: string
+    newest: string
+    readTime: string
+  }
+  // Resources page
+  resources: {
+    pageTitle: string
+    pageSubtitle: string
+    filterByCategory: string
+    filterBySkill: string
+    filterByLevel: string
+    filterByLanguage: string
+    filterByPrice: string
+    allCategories: string
+    allSkills: string
+    allLevels: string
+    allLanguages: string
+    allPrices: string
+    reset: string
+    searchPlaceholder: string
+    activeFilters: string
+    clearAllFilters: string
+    removeFilter: string
+    resourcesFound: string
+    noResourcesFound: string
+    platforms: string
+    supportedLanguages: string
+    idealFor: string
+    highlights: string
+    limitations: string
+    userReviews: string
+    submitReview: string
+    viewWebsite: string
+    download: string
+    tutorials: string
+    featured: string
+    sortBy: string
+    newest: string
+    highestRated: string
+    mostTutorials: string
+    free: string
+    freemium: string
+    paid: string
+    subscription: string
+    averageRating: string
+    basedOnReviews: string
+    updatedAt: string
+    noReviewsYet: string
+    beFirstToReview: string
+    loadMoreReviews: string
+    stats: {
+      totalResources: string
+      languagesCovered: string
+      categories: string
+      updatedThisWeek: string
+    }
+    featuredSectionTitle: string
+    featuredSectionSubtitle: string
+    faqTitle: string
+    faqSubtitle: string
   }
 }
