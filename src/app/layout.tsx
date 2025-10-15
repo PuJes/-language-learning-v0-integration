@@ -1,12 +1,9 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { cn } from '@/lib/utils'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://easiestlanguage.site'),
@@ -53,7 +50,7 @@ gtag('js', new Date());
 gtag('config', 'G-8W1P7Z2D9D');`}
         </Script>
       </head>
-      <body className={cn(inter.className, "antialiased bg-gray-50")}>
+      <body className={cn("antialiased bg-gray-50 font-sans")}>
         <div className="min-h-screen flex flex-col">
           {/* Header */}
           <Header />
