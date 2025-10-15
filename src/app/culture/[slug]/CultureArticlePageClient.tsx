@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from 'react'
 import { useTranslation } from '@/hooks/useTranslation'
-import { cultureArticles } from '@/lib/data/culture-articles'
 import { REGION_LABELS, THEME_LABELS } from '@/types/culture'
-import { getLocalizedArticleBySlug, type LocalizedCultureArticle } from '@/lib/utils/i18n-data'
+import { cultureArticles } from '@/lib/data/culture-articles'
+import { getLocalizedArticleBySlug } from '@/lib/utils/i18n-data'
+import type { LocalizedCultureArticle } from '@/lib/utils/i18n-data'
 import { ArticleTableOfContents, MobileArticleTableOfContents } from '@/components/article-table-of-contents'
 import { LanguageLearningCTA } from '@/components/language-learning-cta'
 import { RelatedArticles } from '@/components/related-articles'
@@ -16,25 +17,23 @@ import remarkGfm from 'remark-gfm'
 import { languages } from '@/lib/data/languages'
 
 type CultureArticlePageClientProps = {
+  initialArticle: LocalizedCultureArticle
   slug: string
 }
 
-export default function CultureArticlePageClient({ slug }: CultureArticlePageClientProps) {
+export default function CultureArticlePageClient({ initialArticle, slug }: CultureArticlePageClientProps) {
   const { t, locale } = useTranslation()
-  const [article, setArticle] = useState<LocalizedCultureArticle | null>(null)
+  const [article, setArticle] = useState<LocalizedCultureArticle>(initialArticle)
   const [currentSection, setCurrentSection] = useState<string>('')
 
   useEffect(() => {
-    if (slug) {
-      const foundArticle = getLocalizedArticleBySlug(cultureArticles, slug, locale)
-      setArticle(foundArticle || null)
+    const localizedArticle = getLocalizedArticleBySlug(cultureArticles, slug, locale)
+    if (localizedArticle) {
+      setArticle(localizedArticle)
     }
   }, [slug, locale])
 
-  // 监听滚动，高亮当前章节
   useEffect(() => {
-    if (!article) return
-
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
@@ -56,39 +55,11 @@ export default function CultureArticlePageClient({ slug }: CultureArticlePageCli
     return () => observer.disconnect()
   }, [article])
 
-  if (!article) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <p className="text-muted-foreground">
-          {t.culture.articleNotFound}
-        </p>
-      </div>
-    )
-  }
-
   // 获取关联语言信息
   const relatedLanguages = article.relatedLanguages
     .map(langId => languages.find(l => l.id === langId))
     .filter(Boolean)
 
-  // 为markdown内容添加id
-  const processMarkdown = (content: string) => {
-    return content.replace(/^## (.+)$/gm, (match, title) => {
-      const id = article.tableOfContents.find(
-        item => item.title === title.trim()
-      )?.id
-      return id ? `<h2 id="${id}">${title}</h2>` : match
-    }).replace(/^### (.+)$/gm, (match, title) => {
-      let id = ''
-      article.tableOfContents.forEach(item => {
-        if (item.children) {
-          const child = item.children.find(c => c.title === title.trim())
-          if (child) id = child.id
-        }
-      })
-      return id ? `<h3 id="${id}">${title}</h3>` : match
-    })
-  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -195,7 +166,7 @@ export default function CultureArticlePageClient({ slug }: CultureArticlePageCli
                         </h2>
                       )
                     },
-                    h3: ({ children, ...props }) => {
+                    h3: ({ children, _node, ...props }) => {
                       const text = String(children)
                       let id = ''
                       article.tableOfContents.forEach(item => {
@@ -205,11 +176,73 @@ export default function CultureArticlePageClient({ slug }: CultureArticlePageCli
                         }
                       })
                       return (
-                        <h3 id={id} {...props}>
+                        <h3 id={id || undefined} {...props}>
                           {children}
                         </h3>
                       )
                     },
+                    p: ({ children, _node, ...props }) => (
+                      <p className="leading-relaxed text-base md:text-lg text-muted-foreground" {...props}>
+                        {children}
+                      </p>
+                    ),
+                    ul: ({ children, _node, ...props }) => (
+                      <ul className="list-disc pl-6 space-y-2" {...props}>
+                        {children}
+                      </ul>
+                    ),
+                    ol: ({ children, _node, ...props }) => (
+                      <ol className="list-decimal pl-6 space-y-2" {...props}>
+                        {children}
+                      </ol>
+                    ),
+                    li: ({ children, _node, ...props }) => (
+                      <li className="text-muted-foreground" {...props}>
+                        {children}
+                      </li>
+                    ),
+                    strong: ({ children, ...props }) => (
+                      <strong className="font-semibold text-foreground" {...props}>
+                        {children}
+                      </strong>
+                    ),
+                    blockquote: ({ children, ...props }) => (
+                      <blockquote className="border-l-4 border-primary/40 pl-4 italic text-muted-foreground" {...props}>
+                        {children}
+                      </blockquote>
+                    ),
+                    table: ({ children, ...props }) => (
+                      <div className="overflow-x-auto">
+                        <table className="min-w-full border border-border text-sm" {...props}>
+                          {children}
+                        </table>
+                      </div>
+                    ),
+                    thead: ({ children, ...props }) => (
+                      <thead className="bg-muted" {...props}>
+                        {children}
+                      </thead>
+                    ),
+                    tbody: ({ children, ...props }) => (
+                      <tbody {...props}>
+                        {children}
+                      </tbody>
+                    ),
+                    tr: ({ children, ...props }) => (
+                      <tr className="border-b border-border" {...props}>
+                        {children}
+                      </tr>
+                    ),
+                    td: ({ children, ...props }) => (
+                      <td className="px-4 py-2 align-top text-muted-foreground" {...props}>
+                        {children}
+                      </td>
+                    ),
+                    th: ({ children, ...props }) => (
+                      <th className="px-4 py-2 text-left font-semibold text-foreground" {...props}>
+                        {children}
+                      </th>
+                    ),
                   }}
                 >
                   {article.content}

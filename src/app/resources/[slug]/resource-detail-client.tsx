@@ -1,9 +1,9 @@
 'use client'
 
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from '@/hooks/useTranslation'
-import type { LearningResource } from '@/types/learning-resources'
-import { getLocalizedResourceBySlug } from '@/lib/utils/i18n-data'
+import { learningResources } from '@/lib/data/learning-resources'
+import { getLocalizedResourceBySlug, type LocalizedResource } from '@/lib/utils/i18n-data'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -14,37 +14,41 @@ import { cn } from '@/lib/utils'
 import { useRouter } from 'next/navigation'
 
 interface ResourceDetailClientProps {
-  resource: LearningResource
+  slug: string
+  initialResource: LocalizedResource
 }
 
-export function ResourceDetailClient({ resource }: ResourceDetailClientProps) {
+const priceColorClasses: Record<string, string> = {
+  green: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300',
+  blue: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300',
+  orange: 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300',
+  purple: 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300',
+}
+
+export function ResourceDetailClient({ slug, initialResource }: ResourceDetailClientProps) {
   const { t, locale } = useTranslation()
   const router = useRouter()
+  const [resource, setResource] = useState<LocalizedResource>(initialResource)
 
-  const localizedResource = useMemo(
-    () => getLocalizedResourceBySlug([resource], resource.slug, locale),
-    [resource, locale]
-  )
+  useEffect(() => {
+    const localized = getLocalizedResourceBySlug(learningResources, slug, locale)
+    if (localized) {
+      setResource(localized)
+    }
+  }, [locale, slug])
 
-  if (!localizedResource) {
-    return null
-  }
-
-  const categoryMeta = RESOURCE_CATEGORY_LABELS[localizedResource.category]
-  const priceMeta = PRICE_LABELS[localizedResource.price]
-  const priceColorClasses: Record<string, string> = {
-    green: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300',
-    blue: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300',
-    orange: 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300',
-    purple: 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300',
-  }
-
-  const platformIcons = {
+  const platformIcons = useMemo(() => ({
     web: <Globe className="h-4 w-4" />,
     ios: <Smartphone className="h-4 w-4" />,
     android: <Smartphone className="h-4 w-4" />,
     desktop: <Monitor className="h-4 w-4" />,
-  }
+  }), [])
+
+  const categoryMeta = RESOURCE_CATEGORY_LABELS[resource.category]
+  const priceMeta = PRICE_LABELS[resource.price]
+  const supportedLanguagesLabel = resource.languages.includes('all')
+    ? t.resources.allLanguages
+    : resource.languages.join(', ')
 
   return (
     <div className="min-h-screen bg-background">
@@ -66,36 +70,36 @@ export function ResourceDetailClient({ resource }: ResourceDetailClientProps) {
                 {priceMeta[locale]}
               </Badge>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">{localizedResource.name}</h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">{localizedResource.description}</p>
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">{resource.name}</h1>
+            <p className="text-lg text-muted-foreground leading-relaxed">{resource.description}</p>
             <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Star className="h-4 w-4 text-yellow-500 fill-yellow-400" />
                 <span className="font-semibold text-foreground">
-                  {localizedResource.ratings?.average ? localizedResource.ratings.average.toFixed(1) : '—'}
+                  {resource.ratings?.average ? resource.ratings.average.toFixed(1) : '—'}
                 </span>
-                {localizedResource.ratings?.basedOn && (
+                {resource.ratings?.basedOn && (
                   <span>
-                    {t.resources.basedOnReviews.replace('{count}', localizedResource.ratings.basedOn.toLocaleString())}
+                    {t.resources.basedOnReviews.replace('{count}', resource.ratings.basedOn.toLocaleString())}
                   </span>
                 )}
               </div>
               <div className="flex items-center gap-2">
                 <CalendarClock className="h-4 w-4" />
-                <span>{t.resources.updatedAt}: {localizedResource.updatedAt}</span>
+                <span>{t.resources.updatedAt}: {resource.updatedAt}</span>
               </div>
             </div>
             <div className="flex flex-wrap gap-3">
               <Button asChild size="lg">
-                <a href={localizedResource.websiteUrl} target="_blank" rel="noopener noreferrer">
+                <a href={resource.websiteUrl} target="_blank" rel="noopener noreferrer">
                   {t.resources.viewWebsite}
                   <ExternalLink className="ml-2 h-4 w-4" />
                 </a>
               </Button>
-              {localizedResource.downloadLinks && Object.values(localizedResource.downloadLinks).length > 0 && (
+              {resource.downloadLinks && Object.values(resource.downloadLinks).length > 0 && (
                 <Button asChild size="lg" variant="outline">
                   <a
-                    href={Object.values(localizedResource.downloadLinks)[0] ?? localizedResource.websiteUrl}
+                    href={Object.values(resource.downloadLinks)[0] ?? resource.websiteUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -116,7 +120,7 @@ export function ResourceDetailClient({ resource }: ResourceDetailClientProps) {
               <div>
                 <h2 className="text-xl font-semibold mb-3">{t.resources.highlights}</h2>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  {localizedResource.highlights.map((item, index) => (
+                  {resource.highlights.map((item, index) => (
                     <li key={index} className="flex items-start gap-2">
                       <span className="mt-1 h-2 w-2 rounded-full bg-primary" />
                       <span>{item}</span>
@@ -127,7 +131,7 @@ export function ResourceDetailClient({ resource }: ResourceDetailClientProps) {
               <div>
                 <h3 className="text-lg font-semibold mb-2">{t.resources.idealFor}</h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  {localizedResource.idealFor.map((item, index) => (
+                  {resource.idealFor.map((item, index) => (
                     <li key={index} className="flex items-start gap-2">
                       <span className="mt-1 h-2 w-2 rounded-full bg-emerald-500" />
                       <span>{item}</span>
@@ -135,11 +139,11 @@ export function ResourceDetailClient({ resource }: ResourceDetailClientProps) {
                   ))}
                 </ul>
               </div>
-              {localizedResource.limitations && (
+              {resource.limitations && (
                 <div>
                   <h3 className="text-lg font-semibold mb-2">{t.resources.limitations}</h3>
                   <ul className="space-y-2 text-sm text-muted-foreground">
-                    {localizedResource.limitations.map((item, index) => (
+                    {resource.limitations.map((item, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <span className="mt-1 h-2 w-2 rounded-full bg-amber-500" />
                         <span>{item}</span>
@@ -148,11 +152,11 @@ export function ResourceDetailClient({ resource }: ResourceDetailClientProps) {
                   </ul>
                 </div>
               )}
-              {localizedResource.tutorials && localizedResource.tutorials.length > 0 && (
+              {resource.tutorials && resource.tutorials.length > 0 && (
                 <div>
                   <h3 className="text-lg font-semibold mb-2">{t.resources.tutorials}</h3>
                   <ul className="space-y-2 text-sm">
-                    {localizedResource.tutorials.map((tutorial, index) => (
+                    {resource.tutorials.map((tutorial, index) => (
                       <li key={index}>
                         <a
                           href={tutorial.url}
@@ -174,7 +178,7 @@ export function ResourceDetailClient({ resource }: ResourceDetailClientProps) {
               <div>
                 <p className="font-semibold text-foreground mb-1">{t.resources.platforms}</p>
                 <div className="flex flex-wrap gap-2">
-                  {localizedResource.platforms.map(platform => (
+                  {resource.platforms.map(platform => (
                     <Badge key={platform} variant="outline" className="gap-2">
                       {platformIcons[platform]}
                       <span>{PLATFORM_LABELS[platform][locale]}</span>
@@ -184,12 +188,12 @@ export function ResourceDetailClient({ resource }: ResourceDetailClientProps) {
               </div>
               <div>
                 <p className="font-semibold text-foreground mb-1">{t.resources.supportedLanguages}</p>
-                <p>{localizedResource.languages.includes('all') ? t.resources.allLanguages : localizedResource.languages.join(', ')}</p>
+                <p>{supportedLanguagesLabel}</p>
               </div>
               <div>
                 <p className="font-semibold text-foreground mb-1">{t.resources.filterBySkill}</p>
                 <div className="flex flex-wrap gap-2">
-                  {localizedResource.skillFocus.map(skill => (
+                  {resource.skillFocus.map(skill => (
                     <Badge key={skill} variant="secondary" className="gap-1">
                       <span>{SKILL_FOCUS_LABELS[skill].icon}</span>
                       <span>{SKILL_FOCUS_LABELS[skill][locale]}</span>
@@ -203,7 +207,7 @@ export function ResourceDetailClient({ resource }: ResourceDetailClientProps) {
 
         <section className="space-y-4">
           <h2 className="text-xl font-semibold">{t.resources.userReviews}</h2>
-          <ResourceReviews resource={localizedResource} />
+          <ResourceReviews resource={resource} />
         </section>
       </div>
     </div>

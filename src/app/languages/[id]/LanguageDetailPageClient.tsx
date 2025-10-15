@@ -12,9 +12,11 @@ import { languages } from '@/lib/data/languages'
 import { enhancedLanguageData } from '@/data/enhanced-languages-new' // Using new bilingual format
 import { useTranslation } from '@/hooks/useTranslation'
 import { getLocalizedLanguageById, localizeLanguage } from '@/lib/utils/i18n-data'
+import type { LocalizedLanguage } from '@/lib/utils/i18n-data'
 
 type LanguageDetailPageClientProps = {
   languageId: string
+  initialLanguage: LocalizedLanguage
 }
 
 // UI Components (same as homepage)
@@ -71,23 +73,27 @@ const CardContent = React.forwardRef<
 ))
 CardContent.displayName = "CardContent"
 
-
-
-
-export default function LanguageDetailPageClient({ languageId }: LanguageDetailPageClientProps) {
+export default function LanguageDetailPageClient({ languageId, initialLanguage }: LanguageDetailPageClientProps) {
   const { t, locale } = useTranslation()
+  const [language, setLanguage] = React.useState<LocalizedLanguage | null>(initialLanguage)
 
-  // Get base language data (always has correct structure)
-  const baseLanguage = getLocalizedLanguageById(languages, languageId, locale)
+  React.useEffect(() => {
+    const baseLanguage = getLocalizedLanguageById(languages, languageId, locale)
+    if (!baseLanguage) {
+      setLanguage(null)
+      return
+    }
 
-  // Merge with enhanced data if available (now properly localized)
-  const enhancedData = enhancedLanguageData[languageId]
-  const language = baseLanguage && enhancedData
-    ? {
-        ...baseLanguage,
-        ...localizeLanguage(enhancedData, locale) // ✅ Properly localize enhanced data first!
-      }
-    : baseLanguage
+    const enhancedData = enhancedLanguageData[languageId]
+    const localizedLanguage = enhancedData
+      ? {
+          ...baseLanguage,
+          ...localizeLanguage(enhancedData, locale),
+        }
+      : baseLanguage
+
+    setLanguage(localizedLanguage)
+  }, [languageId, locale])
 
   if (!language) {
     return (

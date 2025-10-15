@@ -2,6 +2,10 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import CultureArticlePageClient from './CultureArticlePageClient'
 import { cultureArticles } from '@/lib/data/culture-articles'
+import { getLocalizedArticleBySlug } from '@/lib/utils/i18n-data'
+import type { Locale } from '@/types/i18n'
+
+const DEFAULT_LOCALE: Locale = 'zh'
 
 type CultureArticleParams = {
   params: {
@@ -26,11 +30,11 @@ export async function generateMetadata({ params }: CultureArticleParams): Promis
 }
 
 export default function CultureArticlePage({ params }: CultureArticleParams) {
-  const articleExists = cultureArticles.some(item => item.slug === params.slug)
+  const article = getLocalizedArticleBySlug(cultureArticles, params.slug, DEFAULT_LOCALE)
 
-  if (!articleExists) {
+  if (!article) {
     notFound()
   }
 
-  return <CultureArticlePageClient slug={params.slug} />
+  return <CultureArticlePageClient initialArticle={article} slug={params.slug} />
 }

@@ -3,7 +3,10 @@ import { notFound } from 'next/navigation'
 import { learningMethods } from '@/lib/data/learning-methods'
 import { getLocalizedMethodBySlug, getRelatedMethods } from '@/lib/utils/i18n-data'
 import { METHOD_TYPE_LABELS, CHALLENGE_LABELS, LEVEL_LABELS } from '@/types/learning-methods'
+import type { Locale } from '@/types/i18n'
 import { MethodDetailClient } from './method-detail-client'
+
+const DEFAULT_LOCALE: Locale = 'zh'
 
 export async function generateStaticParams() {
   return learningMethods.map(method => ({
@@ -17,7 +20,7 @@ export async function generateMetadata({
   params: { slug: string }
 }): Promise<Metadata> {
   const { slug } = params
-  const locale = 'zh'
+  const locale = DEFAULT_LOCALE
   const method = getLocalizedMethodBySlug(learningMethods, slug, locale)
 
   if (!method) {
@@ -83,16 +86,19 @@ export default async function MethodDetailPage({
 }) {
   const { slug } = params
 
-  // Default to Chinese locale (can be improved with cookie/header reading)
-  const locale = 'zh'
-
-  const method = getLocalizedMethodBySlug(learningMethods, slug, locale)
+  const method = getLocalizedMethodBySlug(learningMethods, slug, DEFAULT_LOCALE)
   if (!method) {
     notFound()
   }
 
   const originalMethod = learningMethods.find(m => m.slug === slug)!
-  const relatedMethods = getRelatedMethods(originalMethod, learningMethods, locale, 3)
+  const relatedMethods = getRelatedMethods(originalMethod, learningMethods, DEFAULT_LOCALE, 3)
 
-  return <MethodDetailClient method={method} relatedMethods={relatedMethods} />
+  return (
+    <MethodDetailClient
+      slug={slug}
+      initialMethod={method}
+      initialRelatedMethods={relatedMethods}
+    />
+  )
 }

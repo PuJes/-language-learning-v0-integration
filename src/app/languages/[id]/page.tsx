@@ -2,6 +2,10 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import LanguageDetailPageClient from './LanguageDetailPageClient'
 import { languages } from '@/lib/data/languages'
+import { getLocalizedLanguageById } from '@/lib/utils/i18n-data'
+import type { Locale } from '@/types/i18n'
+
+const DEFAULT_LOCALE: Locale = 'zh'
 
 type LanguageParams = {
   params: {
@@ -29,11 +33,11 @@ export async function generateMetadata({ params }: LanguageParams): Promise<Meta
 }
 
 export default function LanguageDetailPage({ params }: LanguageParams) {
-  const languageExists = languages.some(lang => lang.id === params.id)
+  const language = getLocalizedLanguageById(languages, params.id, DEFAULT_LOCALE)
 
-  if (!languageExists) {
+  if (!language) {
     notFound()
   }
 
-  return <LanguageDetailPageClient languageId={params.id} />
+  return <LanguageDetailPageClient initialLanguage={language} languageId={params.id} />
 }

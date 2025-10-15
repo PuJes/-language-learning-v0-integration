@@ -1,7 +1,13 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { useTranslation } from '@/hooks/useTranslation'
-import type { LocalizedMethodArticle } from '@/lib/utils/i18n-data'
+import { learningMethods } from '@/lib/data/learning-methods'
+import {
+  getLocalizedMethodBySlug,
+  getRelatedMethods,
+  type LocalizedMethodArticle,
+} from '@/lib/utils/i18n-data'
 import { METHOD_TYPE_LABELS, LEVEL_LABELS, CHALLENGE_LABELS } from '@/types/learning-methods'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -14,12 +20,31 @@ import ReactMarkdown from 'react-markdown'
 import { ArrowLeft, BookOpen, Clock, Target, Lightbulb, CheckCircle2, Video } from 'lucide-react'
 
 interface MethodDetailClientProps {
-  method: LocalizedMethodArticle
-  relatedMethods: LocalizedMethodArticle[]
+  slug: string
+  initialMethod: LocalizedMethodArticle
+  initialRelatedMethods: LocalizedMethodArticle[]
 }
 
-export function MethodDetailClient({ method, relatedMethods }: MethodDetailClientProps) {
+export function MethodDetailClient({
+  slug,
+  initialMethod,
+  initialRelatedMethods,
+}: MethodDetailClientProps) {
   const { t, locale } = useTranslation()
+  const [method, setMethod] = useState<LocalizedMethodArticle>(initialMethod)
+  const [relatedMethods, setRelatedMethods] = useState<LocalizedMethodArticle[]>(initialRelatedMethods)
+
+  useEffect(() => {
+    const localizedMethod = getLocalizedMethodBySlug(learningMethods, slug, locale)
+    const originalMethod = learningMethods.find(item => item.slug === slug)
+
+    if (!localizedMethod || !originalMethod) {
+      return
+    }
+
+    setMethod(localizedMethod)
+    setRelatedMethods(getRelatedMethods(originalMethod, learningMethods, locale, 3))
+  }, [locale, slug])
 
   return (
     <div className="min-h-screen bg-background">

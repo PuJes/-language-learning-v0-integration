@@ -2,6 +2,10 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { learningResources } from '@/lib/data/learning-resources'
 import { ResourceDetailClient } from './resource-detail-client'
+import { getLocalizedResourceBySlug } from '@/lib/utils/i18n-data'
+import type { Locale } from '@/types/i18n'
+
+const DEFAULT_LOCALE: Locale = 'zh'
 
 type Params = {
   params: {
@@ -24,11 +28,11 @@ export function generateMetadata({ params }: Params): Metadata {
 }
 
 export default function ResourceDetailPage({ params }: Params) {
-  const resource = learningResources.find(item => item.slug === params.slug)
+  const resource = getLocalizedResourceBySlug(learningResources, params.slug, DEFAULT_LOCALE)
 
   if (!resource) {
     notFound()
   }
 
-  return <ResourceDetailClient resource={resource} />
+  return <ResourceDetailClient slug={params.slug} initialResource={resource} />
 }
