@@ -1,8 +1,9 @@
 import type { NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
 
-const WWW_HOST = 'www.easiestlanguage.site'
-const PRIMARY_HOST = 'easiestlanguage.site'
+const PRIMARY_HOST = (process.env.PRIMARY_DOMAIN ?? 'easiestlanguage.site').toLowerCase()
+const ROOT_HOST = PRIMARY_HOST.replace(/^www\./, '')
+const WWW_HOST = `www.${ROOT_HOST}`
 
 export function middleware(request: NextRequest) {
   const host = request.headers.get('host')
@@ -16,7 +17,7 @@ export function middleware(request: NextRequest) {
   // Redirect www subdomain to the primary (non-www) domain.
   if (hostWithoutPort === WWW_HOST) {
     const redirectUrl = request.nextUrl.clone()
-    redirectUrl.hostname = PRIMARY_HOST
+    redirectUrl.hostname = ROOT_HOST
     redirectUrl.protocol = 'https'
     return NextResponse.redirect(redirectUrl, 301)
   }
