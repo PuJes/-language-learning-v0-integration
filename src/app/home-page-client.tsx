@@ -1,10 +1,9 @@
 'use client'
 
 import * as React from "react"
-import { ArrowRight, Globe, Brain, GraduationCap, Wrench, Star, Users, BookOpen, Clock, Target, MapPin, Lightbulb, ChevronLeft, ChevronRight, Rocket, TrendingUp, Trophy, Gamepad2, MessageCircle, Camera } from "lucide-react"
+import { ArrowRight, Globe, Brain, GraduationCap, Wrench, Star, Users, Clock, MapPin, Lightbulb, ChevronLeft, ChevronRight, Rocket, TrendingUp, Trophy, Gamepad2, MessageCircle, Camera } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { Badge } from "@/components/ui/badge"
 import { useTranslation } from "@/hooks/useTranslation"
 import { cultureArticles } from "@/lib/data/culture-articles"
 import { learningMethods } from "@/lib/data/learning-methods"
@@ -566,7 +565,7 @@ const LearningMethodsSection = ({ t, locale }: { t: any; locale: Locale }) => {
   }, [])
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-gradient-to-br from-slate-50 to-slate-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 text-purple-700 font-medium mb-6">
@@ -615,86 +614,94 @@ const LearningMethodsSection = ({ t, locale }: { t: any; locale: Locale }) => {
                 return (
                   <Card
                     key={method.id}
-                    className="flex-shrink-0 w-72 md:w-80 hover:shadow-xl transition-all border border-purple-100/70 bg-white/80 backdrop-blur-sm rounded-2xl"
+                    className="group flex h-[420px] w-[320px] flex-shrink-0 flex-col overflow-hidden rounded-3xl border-none bg-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl md:w-[340px]"
                   >
-                    <CardContent className="flex h-full flex-col gap-5 p-8 pt-10">
-                      <div className="flex items-center justify-between gap-3">
-                        <Badge className="flex items-center gap-2 rounded-full bg-purple-100 text-purple-700 px-3 py-1 font-medium">
-                          <span>{typeMeta.icon}</span>
-                          <span>{typeMeta[locale]}</span>
-                        </Badge>
-                        <Badge variant="outline" className="rounded-full border-purple-200 text-purple-700">
-                          {levelLabel}
-                        </Badge>
+                    <div className="relative h-32 bg-gradient-to-br from-purple-500/80 via-indigo-500/70 to-cyan-500/70">
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.35),transparent_55%)]" />
+                      <div className="relative flex h-full flex-col justify-between p-5 text-white">
+                        <div className="flex items-start justify-between gap-3">
+                          <span className="inline-flex items-center gap-2 rounded-full bg-white/20 px-3 py-1 text-sm font-semibold backdrop-blur">
+                            <span>{typeMeta.icon}</span>
+                            <span>{typeMeta[locale]}</span>
+                          </span>
+                          <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide backdrop-blur">
+                            {levelLabel}
+                          </span>
+                        </div>
+                        <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-white/90">
+                          <div className="flex items-center gap-2">
+                            <Clock className="h-4 w-4" />
+                            <span>{method.readingTime} {t.learningMethods.readingTime}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            {Array.from({ length: method.methodInfo.difficulty }).map((_, starIndex) => (
+                              <Star key={starIndex} className="h-4 w-4 fill-current text-amber-300" />
+                            ))}
+                            <span className="ml-1 text-xs">
+                              {t.common.difficulty}: {method.methodInfo.difficulty}/5
+                            </span>
+                          </div>
+                        </div>
                       </div>
+                    </div>
 
-                      <h3 className="text-lg md:text-xl font-semibold leading-snug line-clamp-2">{method.title}</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">{method.summary}</p>
+                    <CardContent className="flex flex-1 flex-col gap-4 p-6 pt-6">
+                      <h3 className="text-lg font-semibold leading-snug text-slate-900 line-clamp-2 min-h-[52px]">
+                        {method.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed text-slate-600 line-clamp-3 flex-1">
+                        {method.summary}
+                      </p>
 
                       <div className="flex flex-wrap gap-2 text-xs">
                         {languageLabels.map((label, index) => (
                           <span
                             key={`${method.id}-lang-${index}`}
-                            className="px-2 py-1 rounded-full bg-purple-50 text-purple-700 font-medium"
+                            className="rounded-full bg-slate-100 px-3 py-1 font-medium text-slate-700"
                           >
                             {label}
                           </span>
                         ))}
                         {hasMoreLanguages && (
-                          <span className="px-2 py-1 rounded-full bg-purple-50 text-purple-700 font-medium">
+                          <span className="rounded-full border border-dashed border-slate-300 px-3 py-1 font-medium text-slate-600">
                             +{method.relatedLanguages.length - 3}
                           </span>
                         )}
                       </div>
 
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-2 text-xs">
                         {displayedChallenges.map(challenge => {
                           const challengeMeta = CHALLENGE_LABELS[challenge as keyof typeof CHALLENGE_LABELS]
                           if (!challengeMeta) return null
                           return (
-                            <Badge key={`${method.id}-${challenge}`} variant="secondary" className="gap-1 text-xs">
+                            <span
+                              key={`${method.id}-${challenge}`}
+                              className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-3 py-1 text-slate-600"
+                            >
                               <span>{challengeMeta.icon}</span>
                               <span>{challengeMeta[locale]}</span>
-                            </Badge>
+                            </span>
                           )
                         })}
                         {remainingChallenges > 0 && (
-                          <Badge variant="outline" className="text-xs">
+                          <span className="rounded-full border border-dashed border-slate-300 px-3 py-1 text-slate-500">
                             +{remainingChallenges}
-                          </Badge>
+                          </span>
                         )}
                       </div>
 
-                      <div className="pt-4 border-t">
-                        <p className="text-xs text-muted-foreground italic line-clamp-2">
-                          💡 {method.methodInfo.expectedResults}
-                        </p>
-                      </div>
+                      <p className="rounded-2xl border border-slate-100 bg-slate-50/60 px-4 py-3 text-xs italic text-slate-500">
+                        💡 {method.methodInfo.expectedResults}
+                      </p>
 
-                      <div className="mt-auto flex flex-wrap items-center justify-between gap-3 pt-4">
-                        <div className="flex flex-wrap items-center gap-4 text-xs text-gray-500">
-                          <div className="flex items-center gap-2">
-                            <Clock className="h-3 w-3" />
-                            <span>{method.readingTime} {t.learningMethods.readingTime}</span>
-                          </div>
-                          <div className="flex items-center gap-1 text-amber-500">
-                            {Array.from({ length: method.methodInfo.difficulty }).map((_, starIndex) => (
-                              <Star key={starIndex} className="h-3 w-3 fill-current" />
-                            ))}
-                            <span className="ml-1 text-gray-500">
-                              {t.common.difficulty}: {method.methodInfo.difficulty}/5
-                            </span>
-                          </div>
-                        </div>
-                        <Button
+                      <div className="mt-auto pt-4">
+                        <Link
                           href={`/learning-methods/${method.slug}`}
-                          variant="outline"
-                          size="sm"
-                          className="border-purple-200 text-purple-700 hover:bg-purple-50"
+                          className="inline-flex items-center gap-2 font-semibold text-purple-600 transition-colors hover:text-purple-700"
                         >
-                          {t.common.learnMore}
-                          <BookOpen className="h-3 w-3 ml-2" />
-                        </Button>
+                          <span>{t.common.learnMore}</span>
+                          <ArrowRight className="h-4 w-4" />
+                        </Link>
                       </div>
                     </CardContent>
                   </Card>
@@ -840,60 +847,75 @@ const ResourceToolsSection = ({ t }: { t: any }) => {
             <div className="flex gap-6 px-12">
               {tools.map((tool, index) => {
                 const IconComponent = tool.icon
+                const trendColor = tool.trend === "Rising" ? "text-emerald-600" : "text-slate-400"
                 return (
-                  <Card key={index} className="flex-shrink-0 w-72 hover:shadow-xl transition-all">
-                    <CardContent className="p-6 pt-8">
-                      <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-purple-500 to-cyan-500 text-white flex items-center justify-center font-bold text-sm">
-                            {tool.ranking}
-                          </div>
-                          <div>
-                            <h3 className="font-semibold">{tool.name}</h3>
-                            <span className="text-xs text-gray-500">{tool.category}</span>
-                          </div>
+                  <Card
+                    key={index}
+                    className="group flex h-[400px] w-[320px] flex-shrink-0 flex-col overflow-hidden rounded-3xl border-none bg-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+                  >
+                    <div className="relative h-32 bg-gradient-to-br from-purple-500/80 via-indigo-500/70 to-cyan-500/70">
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.35),transparent_60%)]" />
+                      <div className="relative flex h-full items-end justify-between p-5 text-white">
+                        <div>
+                          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/70">
+                            {t.homepage.resources.rankLabel ?? 'Ranking'}
+                          </span>
+                          <div className="mt-2 text-3xl font-bold leading-none">{tool.ranking}</div>
+                          <div className="mt-1 text-sm font-medium text-white/80">{tool.category}</div>
                         </div>
-                        <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center">
-                          <IconComponent className={`h-4 w-4 ${tool.color}`} />
-                        </div>
-                      </div>
-
-                      <div className="flex items-center gap-3 mb-3 text-sm">
-                        <div className="flex items-center gap-1">
-                          <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                          <span>{tool.rating}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Users className="h-3 w-3" />
-                          <span>{tool.users}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <TrendingUp className={`h-3 w-3 ${tool.trend === 'Rising' ? 'text-green-500' : 'text-gray-500'}`} />
-                          <span className="text-xs">{tool.trend}</span>
+                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 backdrop-blur">
+                          <IconComponent className="h-6 w-6 text-white" />
                         </div>
                       </div>
+                    </div>
 
-                      <p className="text-gray-600 text-sm mb-4 line-clamp-2">{tool.description}</p>
+                    <CardContent className="flex flex-1 flex-col gap-4 p-6 pt-6">
+                      <h3 className="text-lg font-semibold text-slate-900">{tool.name}</h3>
 
-                      <div className="flex flex-wrap gap-1 mb-4">
-                        {tool.features.slice(0, 2).map((feature, i) => (
-                          <span key={i} className="px-2 py-1 border rounded text-xs">
+                      <div className="flex flex-wrap items-center gap-4 text-sm font-medium text-slate-600">
+                        <span className="flex items-center gap-1.5 text-amber-500">
+                          <Star className="h-4 w-4 fill-current" />
+                          {tool.rating}
+                        </span>
+                        <span className="flex items-center gap-1.5 text-purple-700">
+                          <Users className="h-4 w-4" />
+                          {tool.users}
+                        </span>
+                        <span className={`flex items-center gap-1.5 ${trendColor}`}>
+                          <TrendingUp className="h-4 w-4" />
+                          {tool.trend}
+                        </span>
+                      </div>
+
+                      <p className="flex-1 text-sm leading-relaxed text-slate-600 line-clamp-3">
+                        {tool.description}
+                      </p>
+
+                      <div className="flex flex-wrap gap-2">
+                        {tool.features.slice(0, 3).map((feature, i) => (
+                          <span
+                            key={i}
+                            className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700"
+                          >
                             {feature}
                           </span>
                         ))}
-                        {tool.features.length > 2 && (
-                          <span className="px-2 py-1 border rounded text-xs">
-                            +{tool.features.length - 2}
+                        {tool.features.length > 3 && (
+                          <span className="rounded-full border border-dashed border-slate-300 px-3 py-1 text-xs font-medium text-slate-600">
+                            +{tool.features.length - 3}
                           </span>
                         )}
                       </div>
 
-                      <Button variant="outline" size="sm" className="w-full" asChild>
-                        <Link href="/resources">
-                          {t.common.learnMore}
-                          <ArrowRight className="h-4 w-4 ml-2" />
+                      <div className="mt-auto pt-4">
+                        <Link
+                          href="/resources"
+                          className="inline-flex items-center gap-2 font-semibold text-purple-600 transition-colors hover:text-purple-700"
+                        >
+                          <span>{t.common.learnMore}</span>
+                          <ArrowRight className="h-4 w-4" />
                         </Link>
-                      </Button>
+                      </div>
                     </CardContent>
                   </Card>
                 )
@@ -903,16 +925,21 @@ const ResourceToolsSection = ({ t }: { t: any }) => {
         </div>
 
         <div className="text-center">
-          <Card className="max-w-3xl mx-auto">
-            <CardContent className="p-12 py-16">
-              <h3 className="text-3xl font-bold mb-4">{t.homepage.resources.ctaTitle}</h3>
-              <p className="text-lg text-gray-600 mb-8">
-                {t.homepage.resources.ctaSubtitle}
-              </p>
-              <Button className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 px-8 py-3" asChild>
+          <Card className="mx-auto max-w-3xl border border-purple-100 bg-gradient-to-br from-white via-cyan-50 to-purple-50 shadow-xl">
+            <CardContent className="px-10 py-12 text-center md:px-16 md:py-16 space-y-6">
+              <div className="space-y-3">
+                <h3 className="text-3xl font-bold text-gray-900">{t.homepage.resources.ctaTitle}</h3>
+                <p className="text-lg leading-relaxed text-gray-600">
+                  {t.homepage.resources.ctaSubtitle}
+                </p>
+              </div>
+              <Button
+                className="px-8 py-3 bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 shadow-md hover:shadow-lg"
+                asChild
+              >
                 <Link href="/resources">
                   {t.homepage.resources.ctaButton}
-                  <ArrowRight className="w-5 h-5 ml-2" />
+                  <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
             </CardContent>
