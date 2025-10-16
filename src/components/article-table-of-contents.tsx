@@ -3,23 +3,53 @@
 import { useEffect, useState } from 'react'
 import { type LocalizedTocItem } from '@/lib/utils/i18n-data'
 import { cn } from '@/lib/utils'
+import { useTranslation } from '@/hooks/useTranslation'
 
 interface ArticleTableOfContentsProps {
   items: LocalizedTocItem[]
-  currentSection?: string
+}
+
+function useScrollSpy(items: LocalizedTocItem[]) {
+  const [activeId, setActiveId] = useState<string>('')
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id)
+          }
+        })
+      },
+      {
+        rootMargin: '-20% 0px -70% 0px',
+        threshold: 0.1,
+      }
+    )
+
+    const headingIds = items.flatMap(item => [
+      item.id,
+      ...(item.children?.map(child => child.id) ?? []),
+    ])
+
+    headingIds.forEach(id => {
+      const element = document.getElementById(id)
+      if (element) {
+        observer.observe(element)
+      }
+    })
+
+    return () => observer.disconnect()
+  }, [items])
+
+  return { activeId, setActiveId }
 }
 
 export function ArticleTableOfContents({
   items,
-  currentSection,
 }: ArticleTableOfContentsProps) {
-  const [activeId, setActiveId] = useState<string>('')
-
-  useEffect(() => {
-    if (currentSection) {
-      setActiveId(currentSection)
-    }
-  }, [currentSection])
+  const { t } = useTranslation()
+  const { activeId, setActiveId } = useScrollSpy(items)
 
   // 滚动到指定章节
   const scrollToSection = (id: string) => {
@@ -41,7 +71,7 @@ export function ArticleTableOfContents({
   return (
     <nav className="sticky top-24 space-y-2">
       <h3 className="font-semibold text-sm text-muted-foreground mb-4">
-        目录
+        {t.culture.tableOfContents}
       </h3>
       <ul className="space-y-2 border-l-2 border-muted pl-4">
         {items.map(item => (
@@ -88,16 +118,10 @@ export function ArticleTableOfContents({
 // 移动端抽屉式目录
 export function MobileArticleTableOfContents({
   items,
-  currentSection,
 }: ArticleTableOfContentsProps) {
   const [isOpen, setIsOpen] = useState(false)
-  const [activeId, setActiveId] = useState<string>('')
-
-  useEffect(() => {
-    if (currentSection) {
-      setActiveId(currentSection)
-    }
-  }, [currentSection])
+  const { t } = useTranslation()
+  const { activeId, setActiveId } = useScrollSpy(items)
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
@@ -156,7 +180,7 @@ export function MobileArticleTableOfContents({
       >
         <div className="p-6 overflow-y-auto h-full">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="font-semibold text-lg">目录</h3>
+            <h3 className="font-semibold text-lg">{t.culture.tableOfContents}</h3>
             <button
               onClick={() => setIsOpen(false)}
               className="text-muted-foreground hover:text-foreground"
