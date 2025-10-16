@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import './globals.css'
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
 import { cn } from '@/lib/utils'
+import { HeaderStatic } from '@/components/header-static'
+import { FooterStatic } from '@/components/footer-static'
+import { getServerLocale } from '@/lib/locale-server'
+import { LocaleHydrator } from '@/components/locale-hydrator'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://easiestlanguage.site'),
@@ -31,13 +33,16 @@ export const viewport = {
   initialScale: 1.0,
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const locale = getServerLocale()
+  const htmlLang = locale === 'zh' ? 'zh-CN' : 'en'
+
   return (
-    <html lang="en">
+    <html lang={htmlLang}>
       <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-8W1P7Z2D9D"
@@ -53,7 +58,7 @@ gtag('config', 'G-8W1P7Z2D9D');`}
       <body className={cn("antialiased bg-gray-50 font-sans")}>
         <div className="min-h-screen flex flex-col">
           {/* Header */}
-          <Header />
+          <HeaderStatic />
 
           {/* Main Content */}
           <main className="flex-1 pt-16">
@@ -61,8 +66,10 @@ gtag('config', 'G-8W1P7Z2D9D');`}
           </main>
 
           {/* Footer */}
-          <Footer />
+          <FooterStatic />
         </div>
+
+        <LocaleHydrator locale={locale} />
 
         {/* Global components like Toast notifications can be added here */}
       </body>

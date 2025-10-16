@@ -17,7 +17,7 @@
 - `src/app/survey/layout.tsx`、`src/app/recommendation/layout.tsx`：为测评与推荐页面提供单独的 metadata。
 
 ## 组件层
-- `src/components/header.tsx` / `footer.tsx`：全局导航、语言切换与脚部链接（当前存在与 UI 基础组件重复定义的问题）。
+- `src/components/header-static.tsx` / `footer-static.tsx`：服务器渲染的全局导航与脚部链接，内建表单调用 `setLocaleAction` 完成语言切换；`LocaleHydrator` 仅用于在客户端同步 Zustand 状态。
 - `src/components/culture-article-card.tsx`、`related-articles.tsx`、`article-table-of-contents.tsx`、`language-learning-cta.tsx`：文化与语言详情场景的专用组件。
 - `src/components/ui/*`：基于 Radix + Tailwind 的通用组件（Button / Card / Input / Select / Tabs 等），推荐统一复用。
 

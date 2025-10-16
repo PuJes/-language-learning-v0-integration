@@ -13,7 +13,7 @@
 内容与结构
 
 部分完成 | H1 层级：核心页面具备唯一 H1，但推荐页加载成功后仍缺主标题，影响可读性（v0-components/LanguageRecommendationPage.tsx:648）。
-已完成 | 内部链接：头部与底部提供清晰导航与 CTA（src/components/header.tsx:150，src/components/footer.tsx:24）。
+已完成 | 内部链接：头部与底部提供清晰导航与 CTA（src/components/header-static.tsx，src/components/footer-static.tsx）。
 未完成 | 面包屑：语言/文化/资源详情页未提供面包屑或上级链接，降低爬虫理解与用户返回路径体验（src/app/languages/[id]/page.tsx:16 等）。
 部分完成 | 图片替代文本：卡片/Logo 已设置 alt，但首页首屏背景图为纯空字符串，建议考虑 aria-hidden 或描述性文案（src/app/home-page-client.tsx:964）。
 部分完成 | 多语言一致性：页面文案可切换，但服务器端初始数据固定使用中文，导致首屏/metadata 与实际所见语言不一致（src/app/learning-methods/[slug]/page.tsx:8）。

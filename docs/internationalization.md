@@ -29,7 +29,7 @@ return <span>{t.common.languageRecommendation}</span>
 ## 新增或更新翻译
 1. **扩展翻译键**：若需要新命名空间或键，先更新 `TranslationKeys`，再同步修改 `src/locales/en.ts` 与 `src/locales/zh.ts`。
 2. **双语数据建模**：新增语言、文章等时，请使用 `BilingualText` / `BilingualArray` 字段，主要修改位置在 `src/lib/data/languages.ts` 与 `src/lib/data/culture-articles.ts`。
-3. **界面语言切换**：头部语言切换组件位于 `src/components/header.tsx`。若增加新语言，需要添加对应字典文件并调整下拉选项。
+3. **界面语言切换**：头部语言切换在 `src/components/header-static.tsx` 内通过服务端表单调用 `setLocaleAction` 写入 Cookie，并在提交时刷新页面。若增加新语言，需要添加对应字典文件、扩展切换按钮并更新 `setLocaleAction` 的可选值。
 4. **语言持久化**：`useLanguageStore` 默认将语言写入 `localStorage` 的 `language-storage` 键，无需额外配置。
 
 ## 实践注意事项

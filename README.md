@@ -135,7 +135,7 @@ npm start      # serve the build output
 3. **Localized Rendering**
    - `useTranslation()` supplies UI strings.
    - `getLocalizedLanguages` / `getLocalizedArticles` flatten bilingual datasets per active locale.
-   - Header switcher (`src/components/header.tsx`) updates `useLanguageStore` which persists to `localStorage`.
+   - Global navigation renders在服务器 (`src/components/header-static.tsx`)，头部语言切换通过服务端表单调用 `setLocaleAction` 写入 Cookie，与客户端 Zustand 同步保持一致。
 
 ## Known Gaps & Improvement Opportunities
 - **Name localisation** — `LocalizedLanguage.name` still reflects the English label. Prefer `nameZh` or an explicit mapping for Chinese views.

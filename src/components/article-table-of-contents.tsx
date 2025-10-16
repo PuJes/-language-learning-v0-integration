@@ -1,245 +1,68 @@
-'use client'
+import type { LocalizedTocItem } from '@/lib/utils/i18n-data'
 
-import { useEffect, useState } from 'react'
-import { type LocalizedTocItem } from '@/lib/utils/i18n-data'
-import { cn } from '@/lib/utils'
-import { useTranslation } from '@/hooks/useTranslation'
-
-interface ArticleTableOfContentsProps {
+type TocProps = {
   items: LocalizedTocItem[]
+  title: string
 }
 
-function useScrollSpy(items: LocalizedTocItem[]) {
-  const [activeId, setActiveId] = useState<string>('')
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id)
-          }
-        })
-      },
-      {
-        rootMargin: '-20% 0px -70% 0px',
-        threshold: 0.1,
-      }
-    )
-
-    const headingIds = items.flatMap(item => [
-      item.id,
-      ...(item.children?.map(child => child.id) ?? []),
-    ])
-
-    headingIds.forEach(id => {
-      const element = document.getElementById(id)
-      if (element) {
-        observer.observe(element)
-      }
-    })
-
-    return () => observer.disconnect()
-  }, [items])
-
-  return { activeId, setActiveId }
+function TocList({ items }: { items: LocalizedTocItem[] }) {
+  return (
+    <ul className="space-y-2">
+      {items.map(item => (
+        <li key={item.id}>
+          <a
+            href={`#${item.id}`}
+            className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
+            {item.title}
+          </a>
+          {item.children && item.children.length > 0 && (
+            <ul className="mt-2 space-y-2 pl-4">
+              {item.children.map(child => (
+                <li key={child.id}>
+                  <a
+                    href={`#${child.id}`}
+                    className="block text-xs text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {child.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
+    </ul>
+  )
 }
 
-export function ArticleTableOfContents({
-  items,
-}: ArticleTableOfContentsProps) {
-  const { t } = useTranslation()
-  const { activeId, setActiveId } = useScrollSpy(items)
-
-  // 滚动到指定章节
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      const offset = 100 // 偏移量，避免被header遮挡
-      const elementPosition = element.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - offset
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      })
-
-      setActiveId(id)
-    }
+export function ArticleTableOfContents({ items, title }: TocProps) {
+  if (items.length === 0) {
+    return null
   }
 
   return (
-    <nav className="sticky top-24 space-y-2">
-      <h3 className="font-semibold text-sm text-muted-foreground mb-4">
-        {t.culture.tableOfContents}
-      </h3>
-      <ul className="space-y-2 border-l-2 border-muted pl-4">
-        {items.map(item => (
-          <li key={item.id}>
-            <button
-              onClick={() => scrollToSection(item.id)}
-              className={cn(
-                'text-sm text-left transition-colors hover:text-primary w-full',
-                activeId === item.id
-                  ? 'text-primary font-medium'
-                  : 'text-muted-foreground'
-              )}
-            >
-              {item.title}
-            </button>
-
-            {/* H3 子标题 */}
-            {item.children && item.children.length > 0 && (
-              <ul className="mt-2 ml-4 space-y-2">
-                {item.children.map(child => (
-                  <li key={child.id}>
-                    <button
-                      onClick={() => scrollToSection(child.id)}
-                      className={cn(
-                        'text-xs text-left transition-colors hover:text-primary w-full',
-                        activeId === child.id
-                          ? 'text-primary font-medium'
-                          : 'text-muted-foreground'
-                      )}
-                    >
-                      {child.title}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))}
-      </ul>
+    <nav className="sticky top-24 space-y-4">
+      <h3 className="font-semibold text-sm text-muted-foreground">{title}</h3>
+      <TocList items={items} />
     </nav>
   )
 }
 
-// 移动端抽屉式目录
-export function MobileArticleTableOfContents({
-  items,
-}: ArticleTableOfContentsProps) {
-  const [isOpen, setIsOpen] = useState(false)
-  const { t } = useTranslation()
-  const { activeId, setActiveId } = useScrollSpy(items)
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      const offset = 100
-      const elementPosition = element.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - offset
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      })
-
-      setActiveId(id)
-      setIsOpen(false) // 关闭抽屉
-    }
+export function MobileArticleTableOfContents({ items, title }: TocProps) {
+  if (items.length === 0) {
+    return null
   }
 
   return (
-    <>
-      {/* 展开按钮 */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 bg-primary text-primary-foreground rounded-full p-4 shadow-lg lg:hidden"
-      >
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M4 6h16M4 12h16M4 18h16"
-          />
-        </svg>
-      </button>
-
-      {/* 遮罩层 */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
-
-      {/* 抽屉 */}
-      <div
-        className={cn(
-          'fixed bottom-0 left-0 right-0 bg-background rounded-t-2xl shadow-xl z-50 transition-transform duration-300 lg:hidden',
-          isOpen ? 'translate-y-0' : 'translate-y-full'
-        )}
-        style={{ maxHeight: '70vh' }}
-      >
-        <div className="p-6 overflow-y-auto h-full">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="font-semibold text-lg">{t.culture.tableOfContents}</h3>
-            <button
-              onClick={() => setIsOpen(false)}
-              className="text-muted-foreground hover:text-foreground"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </div>
-
-          <ul className="space-y-3">
-            {items.map(item => (
-              <li key={item.id}>
-                <button
-                  onClick={() => scrollToSection(item.id)}
-                  className={cn(
-                    'text-sm text-left transition-colors hover:text-primary w-full py-2',
-                    activeId === item.id
-                      ? 'text-primary font-medium'
-                      : 'text-muted-foreground'
-                  )}
-                >
-                  {item.title}
-                </button>
-
-                {item.children && item.children.length > 0 && (
-                  <ul className="mt-2 ml-4 space-y-2">
-                    {item.children.map(child => (
-                      <li key={child.id}>
-                        <button
-                          onClick={() => scrollToSection(child.id)}
-                          className={cn(
-                            'text-xs text-left transition-colors hover:text-primary w-full py-1',
-                            activeId === child.id
-                              ? 'text-primary font-medium'
-                              : 'text-muted-foreground'
-                          )}
-                        >
-                          {child.title}
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
+    <details className="lg:hidden border-b bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <summary className="flex items-center justify-between px-4 py-3 text-sm font-medium cursor-pointer">
+        <span>{title}</span>
+        <span className="text-xs text-muted-foreground">▼</span>
+      </summary>
+      <div className="px-4 pb-4">
+        <TocList items={items} />
       </div>
-    </>
+    </details>
   )
 }
