@@ -5,8 +5,7 @@ import { enhancedLanguageData } from '@/data/enhanced-languages-new'
 import { getLocalizedLanguageById, localizeLanguage } from '@/lib/utils/i18n-data'
 
 const DEFAULT_LOCALE: Locale = 'en'
-
-export const revalidate = 60 * 60 * 12 // 12 hours
+export const revalidate = 43200 // 12 hours in seconds
 
 type RouteParams = {
   params: {
