@@ -380,16 +380,16 @@ export class LanguageRecommendationEngine {
 
     // 生成理由
     const reasons = []
-    if (familyRelation < -0.1) reasons.push('母语相似性降低了学习难度')
-    if (writingSystemBase < -0.1) reasons.push(`文字系统比母语简单(${targetWriting} vs ${nativeBaseline.writing})`)
-    if (writingSystemBase > 0.1) reasons.push(`文字系统比母语复杂(${targetWriting} vs ${nativeBaseline.writing})`)
-    if (knownLanguagesCount > 0) reasons.push('已有语言学习经验提供优势')
-    if (grammar < -0.1) reasons.push(`语法结构比母语简单(${targetGrammar} vs ${nativeBaseline.grammar})`)
-    if (grammar > 0.1) reasons.push(`语法结构比母语复杂(${targetGrammar} vs ${nativeBaseline.grammar})`)
-    if (phonetics < -0.1) reasons.push(`发音系统比母语简单(${targetPronunciation} vs ${nativeBaseline.pronunciation})`)
-    if (phonetics > 0.1) reasons.push(`发音系统比母语复杂(${targetPronunciation} vs ${nativeBaseline.pronunciation})`)
-    if (overallDifficulty < baseDifficulty) reasons.push('个人背景优势使学习更容易')
-    if (overallDifficulty > baseDifficulty) reasons.push('需要克服一些额外挑战')
+    if (familyRelation < -0.1) reasons.push('Similarity to your native language lowers the learning difficulty')
+    if (writingSystemBase < -0.1) reasons.push(`Writing system is simpler than your native language (${targetWriting} vs ${nativeBaseline.writing})`)
+    if (writingSystemBase > 0.1) reasons.push(`Writing system is more complex than your native language (${targetWriting} vs ${nativeBaseline.writing})`)
+    if (knownLanguagesCount > 0) reasons.push('Previous language learning experience gives you an advantage')
+    if (grammar < -0.1) reasons.push(`Grammar structure is simpler than your native language (${targetGrammar} vs ${nativeBaseline.grammar})`)
+    if (grammar > 0.1) reasons.push(`Grammar structure is more complex than your native language (${targetGrammar} vs ${nativeBaseline.grammar})`)
+    if (phonetics < -0.1) reasons.push(`Pronunciation system is easier than your native language (${targetPronunciation} vs ${nativeBaseline.pronunciation})`)
+    if (phonetics > 0.1) reasons.push(`Pronunciation system is harder than your native language (${targetPronunciation} vs ${nativeBaseline.pronunciation})`)
+    if (overallDifficulty < baseDifficulty) reasons.push('Your background makes this language easier to learn')
+    if (overallDifficulty > baseDifficulty) reasons.push('Expect to overcome a few additional challenges')
 
     return {
       overallDifficulty,
@@ -431,7 +431,7 @@ export class LanguageRecommendationEngine {
     if (scores.culturalScore > 70) {
       primary.push({
         type: 'cultural_interest',
-        description: `与您的文化兴趣高度匹配 (${scores.culturalScore}%)`,
+        description: `Highly aligned with your cultural interests (${scores.culturalScore}%)`,
         score: scores.culturalScore,
         weight: ALGORITHM_CONFIG.weights.culturalMatch
       })
@@ -440,7 +440,7 @@ export class LanguageRecommendationEngine {
     if (scores.difficultyScore > 70) {
       primary.push({
         type: 'difficulty_match',
-        description: `难度水平符合您的学习偏好 (${scores.difficultyScore}%)`,
+        description: `Difficulty level fits your study preferences (${scores.difficultyScore}%)`,
         score: scores.difficultyScore,
         weight: ALGORITHM_CONFIG.weights.difficultyFit
       })
@@ -449,7 +449,7 @@ export class LanguageRecommendationEngine {
     if (scores.goalScore > 70) {
       primary.push({
         type: 'practical_value',
-        description: `与您的学习目标高度契合 (${scores.goalScore}%)`,
+        description: `Closely aligned with your learning goals (${scores.goalScore}%)`,
         score: scores.goalScore,
         weight: ALGORITHM_CONFIG.weights.goalAlignment
       })
@@ -459,18 +459,18 @@ export class LanguageRecommendationEngine {
     if (scores.timeScore >= 50 && scores.timeScore <= 70) {
       secondary.push({
         type: 'time_feasible',
-        description: `在您的时间范围内可以掌握 (${scores.timeScore}%)`,
+        description: `Achievable within your time expectations (${scores.timeScore}%)`,
         score: scores.timeScore,
         weight: ALGORITHM_CONFIG.weights.timeFeasibility
       })
     }
 
     if (scores.timeScore < 50) {
-      warnings.push('根据您的时间安排，可能需要更长时间才能达到预期水平')
+      warnings.push('Given your current schedule, you may need more time to reach your target level')
     }
 
     if (scores.difficultyScore < 50) {
-      warnings.push('该语言的难度可能不太符合您的偏好')
+      warnings.push("This language's difficulty may not fully match your preference")
     }
 
     return { primary, secondary, warnings }
@@ -482,28 +482,28 @@ export class LanguageRecommendationEngine {
   private generateLearningPath(language: Language, responses: SurveyResponses, difficulty: PersonalizedDifficulty): LearningPath {
     const phases = [
       {
-        name: '入门阶段',
-        duration: '1-3个月',
-        goals: ['掌握基础语法', '学习常用词汇', '进行简单对话'],
-        milestones: ['掌握500个常用词', '完成自我介绍', '理解简单对话'],
-        resources: ['基础教材', '语音练习', '词汇卡片'],
-        assessments: ['词汇测试', '发音评估', '对话练习']
+        name: 'Beginner Phase',
+        duration: '1-3 months',
+        goals: ['Master essential grammar', 'Learn common vocabulary', 'Hold basic conversations'],
+        milestones: ['Acquire 500 high-frequency words', 'Deliver a complete self-introduction', 'Understand simple dialogues'],
+        resources: ['Beginner textbook', 'Pronunciation drills', 'Vocabulary flashcards'],
+        assessments: ['Vocabulary quiz', 'Pronunciation check', 'Conversation practice']
       },
       {
-        name: '进阶阶段',
-        duration: '3-8个月',
-        goals: ['扩展词汇量', '掌握复杂语法', '提升听说能力'],
-        milestones: ['掌握2000个词汇', '进行日常对话', '理解慢速语音'],
-        resources: ['进阶教材', '听力材料', '对话练习'],
-        assessments: ['语法测试', '听力测试', '口语评估']
+        name: 'Intermediate Phase',
+        duration: '3-8 months',
+        goals: ['Expand vocabulary range', 'Command complex grammar', 'Improve listening and speaking'],
+        milestones: ['Reach 2,000-word vocabulary', 'Handle everyday conversations', 'Understand slow-paced audio'],
+        resources: ['Intermediate textbook', 'Listening materials', 'Conversation practice'],
+        assessments: ['Grammar assessment', 'Listening test', 'Speaking evaluation']
       },
       {
-        name: '精通阶段',
-        duration: '8个月以上',
-        goals: ['达到流利水平', '文化深度理解', '专业领域应用'],
-        milestones: ['掌握5000+词汇', '流利对话', '阅读原版内容'],
-        resources: ['原版材料', '文化内容', '专业资源'],
-        assessments: ['综合能力测试', '文化理解测试', '实践应用评估']
+        name: 'Advanced Phase',
+        duration: '8+ months',
+        goals: ['Reach fluent communication', 'Develop deep cultural understanding', 'Apply the language in professional domains'],
+        milestones: ['Command 5,000+ words', 'Hold fluent conversations', 'Read authentic materials'],
+        resources: ['Authentic materials', 'Cultural content', 'Specialized resources'],
+        assessments: ['Comprehensive proficiency test', 'Cultural comprehension check', 'Applied usage evaluation']
       }
     ]
 
@@ -511,7 +511,7 @@ export class LanguageRecommendationEngine {
 
     return {
       phases,
-      totalDuration: '6个月 - 2年',
+      totalDuration: '6 months – 2 years',
       difficultyProgression: phases.map(() => difficulty.overallDifficulty),
       recommendedSchedule: schedule
     }
@@ -522,13 +522,13 @@ export class LanguageRecommendationEngine {
 
     switch (timeCommitment) {
       case 'intensive':
-        return { hoursPerWeek: 10, studyDays: 6, sessionLength: 90, restDays: ['周日'] }
+        return { hoursPerWeek: 10, studyDays: 6, sessionLength: 90, restDays: ['Sunday'] }
       case 'regular':
-        return { hoursPerWeek: 5, studyDays: 4, sessionLength: 60, restDays: ['周六', '周日'] }
+        return { hoursPerWeek: 5, studyDays: 4, sessionLength: 60, restDays: ['Saturday', 'Sunday'] }
       case 'light':
-        return { hoursPerWeek: 3, studyDays: 3, sessionLength: 45, restDays: ['周末'] }
+        return { hoursPerWeek: 3, studyDays: 3, sessionLength: 45, restDays: ['Weekend'] }
       default:
-        return { hoursPerWeek: 5, studyDays: 4, sessionLength: 60, restDays: ['周六', '周日'] }
+        return { hoursPerWeek: 5, studyDays: 4, sessionLength: 60, restDays: ['Saturday', 'Sunday'] }
     }
   }
 
@@ -540,18 +540,18 @@ export class LanguageRecommendationEngine {
     const cons: string[] = []
 
     if (language.difficulty <= 2) {
-      pros.push('相对容易学习，入门门槛较低')
+      pros.push('Relatively approachable with a low barrier to entry')
     } else if (language.difficulty >= 4) {
-      cons.push('学习难度较高，需要更多时间和耐心')
+      cons.push('Challenging to master and requires more time and patience')
     }
 
     if (language.speakers?.total && language.speakers.total > 500000000) {
-      pros.push('使用人数众多，资源丰富')
+      pros.push('Large learner community with abundant resources')
     }
 
     const tags = this.getLanguageTags(language)
     if (tags.includes('商务') || tags.includes('Business') || tags.includes('Popular for careers')) {
-      pros.push('商务价值高，职业发展机会多')
+      pros.push('High business value with strong career opportunities')
     }
 
     return {
@@ -626,21 +626,21 @@ export class LanguageRecommendationEngine {
 
     const months = Math.ceil(baseHours * 60 / (dailyMinutes * 30))
 
-    if (months <= 6) return '6个月内'
-    if (months <= 12) return '1年内'
-    if (months <= 24) return '2年内'
-    return '2年以上'
+    if (months <= 6) return 'Within 6 months'
+    if (months <= 12) return 'Within 1 year'
+    if (months <= 24) return 'Within 2 years'
+    return 'More than 2 years'
   }
 
   private identifyChallengePoints(language: Language, responses: SurveyResponses): string[] {
     const challenges: string[] = []
 
-    if (language.difficulty >= 4) challenges.push('语法复杂度较高')
-    if (language.writingSystem?.includes('chinese')) challenges.push('文字系统学习')
+    if (language.difficulty >= 4) challenges.push('Complex grammar structures')
+    if (language.writingSystem?.includes('chinese')) challenges.push('Learning a new writing system')
     const languageTags = this.getLanguageTags(language)
     const hasMatchingInterest = responses.culturalInterests?.some(i => languageTags.includes(i))
     if (!hasMatchingInterest) {
-      challenges.push('文化背景理解')
+      challenges.push('Building cultural background knowledge')
     }
 
     return challenges
@@ -658,9 +658,9 @@ export class LanguageRecommendationEngine {
   private identifySupportNeeded(language: Language, responses: SurveyResponses): string[] {
     const support: string[] = []
 
-    if (responses.timeCommitment === 'light') support.push('学习计划制定')
-    if (language.difficulty >= 4) support.push('专业指导')
-    support.push('学习社区交流')
+    if (responses.timeCommitment === 'light') support.push('Structured study planning')
+    if (language.difficulty >= 4) support.push('Expert coaching or tutoring')
+    support.push('Join a learning community for support')
 
     return support
   }
