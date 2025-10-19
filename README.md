@@ -153,6 +153,19 @@ npm start      # serve the build output
 - Tailwind 4 inline theming lives in `src/app/globals.css`; updates should keep palette variables in sync with design requirements.
 - Locale preference persists under `language-storage`; clearing it resets the default locale to English.
 
+### Survey Data Storage
+- Runtime will store survey submissions in PostgreSQL when `SURVEY_DATABASE_URL`, `DATABASE_URL`, `POSTGRES_URL`, or `POSTGRES_PRISMA_URL` is present (Railway exposes one of these by default). Otherwise it falls back to `data/survey-submissions.json`.
+- The first request automatically creates a `survey_submissions` table:
+  ```sql
+  CREATE TABLE IF NOT EXISTS survey_submissions (
+    id UUID PRIMARY KEY,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    survey JSONB NOT NULL
+  );
+  ```
+- `/survey-backdata` and the `/api/survey` route both operate against the same storage layer, so no code changes are required when switching between local JSON and managed Postgres.
+- For Railway, link a Postgres service, copy the service `DATABASE_URL` into the web app environment variables, and redeploy.
+
 For further context, dive into the documentation set within `docs/`, or inspect the archived materials if you need the historical evolution of the data structures, i18n fixes, or recommendation scoring.
     <div>
       <p>用户: {user?.name}</p>

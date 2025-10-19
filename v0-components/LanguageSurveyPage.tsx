@@ -652,6 +652,8 @@ export default function LanguageSurveyPage() {
   const [isCompleted, setIsCompleted] = useState(false)
   const [selectedAnswer, setSelectedAnswer] = useState<string>("")
   const [selectedMultiple, setSelectedMultiple] = useState<string[]>([])
+  const [submissionStatus, setSubmissionStatus] = useState<'idle' | 'submitting' | 'error'>('idle')
+  const [submissionError, setSubmissionError] = useState<string | null>(null)
 
   const currentQuestion = surveyQuestions[currentQuestionIndex]
   const progress = ((currentQuestionIndex + 1) / surveyQuestions.length) * 100
@@ -770,6 +772,45 @@ export default function LanguageSurveyPage() {
     }
   }
 
+  const handleViewRecommendations = React.useCallback(async () => {
+    if (submissionStatus === 'submitting') {
+      return
+    }
+
+    setSubmissionStatus('submitting')
+    setSubmissionError(null)
+
+    try {
+      localStorage.setItem('surveyData', JSON.stringify(surveyData))
+
+      const response = await fetch('/api/survey', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(surveyData),
+      })
+
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`)
+      }
+
+      const result = (await response.json()) as { submissionId?: string } | null
+      if (result?.submissionId) {
+        localStorage.setItem('surveySubmissionId', result.submissionId)
+      } else {
+        localStorage.removeItem('surveySubmissionId')
+      }
+
+      setSubmissionStatus('idle')
+      window.location.href = '/recommendation'
+    } catch (error) {
+      console.error('Unable to submit survey', error)
+      setSubmissionStatus('error')
+      setSubmissionError('We saved your answers locally but syncing to the server failed. Please try again.')
+    }
+  }, [submissionStatus, surveyData])
+
   // Survey completion screen
   if (isCompleted) {
     return (
@@ -787,16 +828,16 @@ export default function LanguageSurveyPage() {
 
             <Button
               className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-3 rounded-xl hover:from-pink-600 hover:to-purple-600 shadow-lg"
-              onClick={() => {
-                // Store survey data in localStorage for recommendation page
-                localStorage.setItem('surveyData', JSON.stringify(surveyData))
-                // Navigate to recommendation page
-                window.location.href = '/recommendation'
-              }}
+              onClick={handleViewRecommendations}
+              disabled={submissionStatus === 'submitting'}
             >
-              View Recommendations
+              {submissionStatus === 'submitting' ? 'Submitting...' : 'View Recommendations'}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
+
+            {submissionError && (
+              <p className="mt-6 text-sm text-red-600">{submissionError}</p>
+            )}
           </div>
         </div>
       </div>

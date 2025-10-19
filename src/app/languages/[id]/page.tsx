@@ -2,15 +2,18 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import LanguageDetailPageClient from './LanguageDetailPageClient'
 import { languages } from '@/lib/data/languages'
-import { getLocalizedLanguageById } from '@/lib/utils/i18n-data'
-import type { Locale } from '@/types/i18n'
+import { getLocalizedLanguageById, localizeLanguage } from '@/lib/utils/i18n-data'
 import { createSeoMetadata } from '@/lib/seo'
-
-const DEFAULT_LOCALE: Locale = 'zh'
+import { enhancedLanguageData } from '@/data/enhanced-languages-new'
+import { resolveLocale } from '@/lib/locale-server'
+import type { Locale } from '@/types/i18n'
 
 type LanguageParams = {
   params: {
     id: string
+  }
+  searchParams?: {
+    lang?: Locale
   }
 }
 
@@ -58,14 +61,20 @@ export async function generateMetadata({ params }: LanguageParams): Promise<Meta
   })
 }
 
-export default function LanguageDetailPage({ params }: LanguageParams) {
-  const language = getLocalizedLanguageById(languages, params.id, DEFAULT_LOCALE)
+export default function LanguageDetailPage({ params, searchParams }: LanguageParams) {
+  const initialLocale = resolveLocale(searchParams)
+  const baseLocalizedLanguage = getLocalizedLanguageById(languages, params.id, initialLocale)
 
-  if (!language) {
+  if (!baseLocalizedLanguage) {
     notFound()
   }
 
   const baseLanguage = languages.find(lang => lang.id === params.id)
+  const enhanced = enhancedLanguageData[params.id]
+  const enhancedLocalized = enhanced ? localizeLanguage(enhanced, initialLocale) : undefined
+  const initialLanguage = enhancedLocalized
+    ? { ...baseLocalizedLanguage, ...enhancedLocalized }
+    : baseLocalizedLanguage
   const englishName = baseLanguage?.nameEn ?? baseLanguage?.name ?? params.id
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -94,7 +103,11 @@ export default function LanguageDetailPage({ params }: LanguageParams) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <LanguageDetailPageClient initialLanguage={language} languageId={params.id} />
+      <LanguageDetailPageClient
+        initialLanguage={initialLanguage}
+        initialLocale={initialLocale}
+        languageId={params.id}
+      />
     </>
   )
 }

@@ -366,6 +366,23 @@ export const en: TranslationKeys = {
     compareLanguages: 'Compare Languages',
     startLearning: 'Start Learning',
     exploreLanguage: 'Explore Language Details',
+    feedback: {
+      floatingButton: 'Rate this recommendation',
+      drawerHint: 'We value your feedback',
+      drawerTitle: 'Is this recommendation helpful?',
+      commentLabel: 'Optional: tell us what worked well or what could improve',
+      commentPlaceholder:
+        "For example: The recommended languages match my goals / I'd like to see more resource suggestions...",
+      success: 'Thank you for your feedback!',
+      submissionIdLabel: 'Feedback ID',
+      submitting: 'Submitting, please wait...',
+      idle: 'Your feedback will be saved with this survey and recommendation list.',
+      error: 'Submission failed, please try again later.',
+      submit: 'Submit Feedback',
+      submitted: 'Received, thank you!',
+      closeAriaLabel: 'Close feedback panel',
+      ratingRequired: 'Please select a rating between 1 and 5.',
+    },
   },
   learningMethods: {
     pageTitle: 'Learning Methods',

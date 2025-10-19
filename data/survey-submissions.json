@@ -1,0 +1,225 @@
+[
+  {
+    "answers": [
+      {
+        "questionId": "q1_user_source",
+        "answer": "search_engine",
+        "weight": 1
+      },
+      {
+        "questionId": "q2_content_interest",
+        "answer": "cultural_introduction",
+        "weight": 0.25
+      },
+      {
+        "questionId": "q3_native_language",
+        "answer": "english",
+        "weight": 1
+      },
+      {
+        "questionId": "q4_language_experience",
+        "answer": "0",
+        "weight": 1
+      },
+      {
+        "questionId": "q5_learning_purpose",
+        "answer": "travel",
+        "weight": 1
+      },
+      {
+        "questionId": "q6_time_expectation",
+        "answer": "1year",
+        "weight": 1
+      },
+      {
+        "questionId": "q7_cultural_interest",
+        "answer": "[\"southeast-asia\",\"europe\"]",
+        "weight": 1
+      },
+      {
+        "questionId": "q8_learning_style",
+        "answer": "practical",
+        "weight": 1
+      },
+      {
+        "questionId": "q9_persistence",
+        "answer": "very_strong",
+        "weight": 1
+      },
+      {
+        "questionId": "q10_difficulty_preference",
+        "answer": "2",
+        "weight": 2
+      },
+      {
+        "questionId": "q11_daily_time",
+        "answer": "intensive",
+        "weight": 1
+      }
+    ],
+    "userSource": "search_engine",
+    "contentInterest": "cultural_introduction",
+    "nativeLanguage": "english",
+    "languageExperience": "0",
+    "learningPurpose": "travel",
+    "timeExpectation": "1year",
+    "culturalInterest": [
+      "southeast-asia",
+      "europe"
+    ],
+    "learningStyle": "practical",
+    "persistence": "very_strong",
+    "difficultyPreference": "2",
+    "dailyTime": "intensive",
+    "id": "e01df44f-5a0b-4e55-8234-9b4ff2672c74",
+    "createdAt": "2025-10-19T01:33:15.639Z"
+  },
+  {
+    "answers": [
+      {
+        "questionId": "q1_user_source",
+        "answer": "social_media",
+        "weight": 1
+      },
+      {
+        "questionId": "q2_content_interest",
+        "answer": "difficulty_comparison",
+        "weight": 0.25
+      },
+      {
+        "questionId": "q3_native_language",
+        "answer": "english",
+        "weight": 1
+      },
+      {
+        "questionId": "q4_language_experience",
+        "answer": "0",
+        "weight": 1
+      },
+      {
+        "questionId": "q5_learning_purpose",
+        "answer": "career",
+        "weight": 1
+      },
+      {
+        "questionId": "q6_time_expectation",
+        "answer": "3months",
+        "weight": 1
+      },
+      {
+        "questionId": "q7_cultural_interest",
+        "answer": "[\"east-asia\"]",
+        "weight": 1
+      },
+      {
+        "questionId": "q8_learning_style",
+        "answer": "systematic",
+        "weight": 1
+      },
+      {
+        "questionId": "q9_persistence",
+        "answer": "average",
+        "weight": 1
+      },
+      {
+        "questionId": "q10_difficulty_preference",
+        "answer": "1",
+        "weight": 1
+      },
+      {
+        "questionId": "q11_daily_time",
+        "answer": "intensive",
+        "weight": 1
+      }
+    ],
+    "userSource": "social_media",
+    "contentInterest": "difficulty_comparison",
+    "nativeLanguage": "english",
+    "languageExperience": "0",
+    "learningPurpose": "career",
+    "timeExpectation": "3months",
+    "culturalInterest": [
+      "east-asia"
+    ],
+    "learningStyle": "systematic",
+    "persistence": "average",
+    "difficultyPreference": "1",
+    "dailyTime": "intensive",
+    "id": "607639f3-6c76-4cd2-82ac-fe38578d7156",
+    "createdAt": "2025-10-19T01:34:12.015Z"
+  },
+  {
+    "answers": [
+      {
+        "questionId": "q1_user_source",
+        "answer": "social_media",
+        "weight": 1
+      },
+      {
+        "questionId": "q2_content_interest",
+        "answer": "cultural_introduction",
+        "weight": 0.25
+      },
+      {
+        "questionId": "q3_native_language",
+        "answer": "english",
+        "weight": 1
+      },
+      {
+        "questionId": "q4_language_experience",
+        "answer": "0",
+        "weight": 1
+      },
+      {
+        "questionId": "q5_learning_purpose",
+        "answer": "travel",
+        "weight": 1
+      },
+      {
+        "questionId": "q6_time_expectation",
+        "answer": "6months",
+        "weight": 1
+      },
+      {
+        "questionId": "q7_cultural_interest",
+        "answer": "[\"southeast-asia\"]",
+        "weight": 1
+      },
+      {
+        "questionId": "q8_learning_style",
+        "answer": "mixed",
+        "weight": 1
+      },
+      {
+        "questionId": "q9_persistence",
+        "answer": "uncertain",
+        "weight": 1
+      },
+      {
+        "questionId": "q10_difficulty_preference",
+        "answer": "3",
+        "weight": 3
+      },
+      {
+        "questionId": "q11_daily_time",
+        "answer": "intensive",
+        "weight": 1
+      }
+    ],
+    "userSource": "social_media",
+    "contentInterest": "cultural_introduction",
+    "nativeLanguage": "english",
+    "languageExperience": "0",
+    "learningPurpose": "travel",
+    "timeExpectation": "6months",
+    "culturalInterest": [
+      "southeast-asia"
+    ],
+    "learningStyle": "mixed",
+    "persistence": "uncertain",
+    "difficultyPreference": "3",
+    "dailyTime": "intensive",
+    "id": "db5aff7b-bb24-47b0-8622-6842e429c4c6",
+    "createdAt": "2025-10-19T11:49:44.935Z"
+  }
+]

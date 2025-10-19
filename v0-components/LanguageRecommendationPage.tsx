@@ -16,7 +16,9 @@ import {
   Brain,
   Trophy,
   ChevronRight,
+  X,
 } from "lucide-react"
+import { useTranslation } from "@/hooks/useTranslation"
 
 // Import algorithm and data
 import { getLanguageRecommendations } from '../src/lib/recommendation/recommendation-algorithm'
@@ -487,12 +489,24 @@ export default function LanguageRecommendationPage() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [selectedLanguage, setSelectedLanguage] = useState<string | null>(null)
+  const [surveySubmissionId, setSurveySubmissionId] = useState<string | null>(null)
+  const [feedbackRating, setFeedbackRating] = useState<number>(0)
+  const [hoverRating, setHoverRating] = useState<number>(0)
+  const [feedbackComment, setFeedbackComment] = useState<string>("")
+  const [feedbackStatus, setFeedbackStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [feedbackError, setFeedbackError] = useState<string | null>(null)
+  const [feedbackSuccessId, setFeedbackSuccessId] = useState<string | null>(null)
+  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false)
+  const { t, locale } = useTranslation()
 
   useEffect(() => {
     const initializeRecommendations = async () => {
       try {
         setLoading(true)
         setError(null)
+
+        const storedSubmissionId = localStorage.getItem('surveySubmissionId')
+        setSurveySubmissionId(storedSubmissionId ? storedSubmissionId : null)
 
         // Get survey data from localStorage
         const surveyDataStr = localStorage.getItem('surveyData')
@@ -603,12 +617,110 @@ export default function LanguageRecommendationPage() {
   const handleRetakeSurvey = () => {
     // Clear stored survey data and navigate to survey
     localStorage.removeItem('surveyData')
+    localStorage.removeItem('surveySubmissionId')
     window.location.href = '/survey'
   }
 
   const handleGoHome = () => {
     window.location.href = '/'
   }
+
+  const handleOpenFeedback = () => {
+    setIsFeedbackOpen(true)
+    setFeedbackError(null)
+    setHoverRating(0)
+    setFeedbackStatus('idle')
+    setFeedbackSuccessId(null)
+  }
+
+  const handleCloseFeedback = React.useCallback(() => {
+    setIsFeedbackOpen(false)
+    setHoverRating(0)
+
+    if (feedbackStatus === 'success') {
+      setFeedbackRating(0)
+      setFeedbackComment("")
+      setFeedbackStatus('idle')
+      setFeedbackSuccessId(null)
+    }
+  }, [feedbackStatus])
+
+  React.useEffect(() => {
+    if (!isFeedbackOpen) {
+      return
+    }
+
+    const originalOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = originalOverflow
+    }
+  }, [isFeedbackOpen])
+
+  const handleSubmitFeedback = React.useCallback(async () => {
+    if (feedbackStatus === 'submitting') {
+      return
+    }
+
+    if (feedbackRating < 1 || feedbackRating > 5) {
+      setFeedbackStatus('error')
+      setFeedbackError(t.recommendation.feedback.ratingRequired)
+      return
+    }
+
+    setFeedbackStatus('submitting')
+    setFeedbackError(null)
+
+    try {
+      const recommendedLanguagesSnapshot = recommendations.map((rec, index) => ({
+        id: rec.language.id,
+        name: rec.language.name,
+        matchScore: rec.matchScore,
+        successProbability: rec.successPrediction?.probability,
+        timeline: rec.successPrediction?.timeline,
+        rank: index + 1,
+      }))
+
+      const trimmedComment = feedbackComment.trim()
+      const response = await fetch('/api/recommendation-feedback', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          rating: feedbackRating,
+          comment: trimmedComment.length > 0 ? trimmedComment : undefined,
+          surveySubmissionId: surveySubmissionId ?? undefined,
+          selectedLanguageId: selectedLanguage,
+          recommendedLanguages: recommendedLanguagesSnapshot,
+          metadata: {
+            recommendationCount: recommendations.length,
+          },
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`)
+      }
+
+      const result = (await response.json()) as { feedbackId?: string } | null
+      setFeedbackStatus('success')
+      setFeedbackSuccessId(result?.feedbackId ?? null)
+    } catch (err) {
+      console.error('Failed to submit recommendation feedback', err)
+      setFeedbackStatus('error')
+      setFeedbackError(t.recommendation.feedback.error)
+    }
+  }, [
+    feedbackStatus,
+    feedbackRating,
+    feedbackComment,
+    surveySubmissionId,
+    selectedLanguage,
+    recommendations,
+    t,
+  ])
 
   if (loading) {
     return <LoadingComponent />
@@ -1161,8 +1273,130 @@ export default function LanguageRecommendationPage() {
               )}
             </div>
           </div>
-        </div>
       </div>
+    </div>
+
+      {!loading && !error && recommendations.length > 0 && (
+        <>
+          <button
+            type="button"
+            onClick={handleOpenFeedback}
+            className="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-amber-500/30 transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200 focus-visible:ring-offset-2"
+          >
+            <Star className="h-4 w-4" />
+            {t.recommendation.feedback.floatingButton}
+          </button>
+
+          {isFeedbackOpen && (
+            <>
+              <div
+                className="fixed inset-0 z-40 bg-slate-900/60 backdrop-blur-sm"
+                onClick={handleCloseFeedback}
+                aria-hidden="true"
+              />
+              <div
+                role="dialog"
+                aria-modal="true"
+                aria-label={t.recommendation.feedback.drawerTitle}
+                className="fixed inset-x-0 bottom-0 z-50 mx-auto w-full max-w-lg rounded-t-3xl bg-white shadow-2xl transition-all md:inset-y-0 md:right-0 md:mx-0 md:w-full md:max-w-md md:rounded-l-3xl md:rounded-tr-none"
+              >
+                <div className="flex items-center justify-between border-b border-slate-200 px-6 py-4">
+                  <div>
+                    <p className="text-sm font-semibold text-amber-600">
+                      {t.recommendation.feedback.drawerHint}
+                    </p>
+                    <h2 className="text-xl font-semibold text-slate-900">
+                      {t.recommendation.feedback.drawerTitle}
+                    </h2>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleCloseFeedback}
+                    className="rounded-full p-2 text-slate-500 transition-colors hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200"
+                    aria-label={t.recommendation.feedback.closeAriaLabel}
+                  >
+                    <X className="h-5 w-5" />
+                  </button>
+                </div>
+
+                <div className="max-h-[80vh] overflow-y-auto px-6 py-5">
+                  <div className="flex items-center justify-center gap-3 mb-6">
+                    {Array.from({ length: 5 }).map((_, index) => {
+                      const value = index + 1
+                      const isActive = value <= (hoverRating || feedbackRating)
+                      const starLabel =
+                        locale === 'zh'
+                          ? `评分 ${value} 分`
+                          : `Rate ${value} star${value > 1 ? 's' : ''}`
+                      return (
+                        <button
+                          key={value}
+                          type="button"
+                          className="p-2 rounded-full transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
+                          onMouseEnter={() => setHoverRating(value)}
+                          onMouseLeave={() => setHoverRating(0)}
+                          onFocus={() => setHoverRating(value)}
+                          onBlur={() => setHoverRating(0)}
+                          onClick={() => setFeedbackRating(value)}
+                          aria-label={starLabel}
+                          title={starLabel}
+                        >
+                          <Star
+                            className={`h-8 w-8 ${
+                              isActive ? 'text-amber-500' : 'text-gray-300'
+                            } transition-colors`}
+                            fill={isActive ? 'currentColor' : 'none'}
+                            strokeWidth={isActive ? 0 : 2}
+                          />
+                        </button>
+                      )
+                    })}
+                  </div>
+                  <label htmlFor="recommendation-feedback" className="text-sm font-medium text-gray-700">
+                    {t.recommendation.feedback.commentLabel}
+                  </label>
+                  <textarea
+                    id="recommendation-feedback"
+                    value={feedbackComment}
+                    onChange={(event) => setFeedbackComment(event.target.value)}
+                    rows={4}
+                    className="mt-2 w-full rounded-xl border border-gray-200 bg-white/80 px-4 py-3 text-sm text-gray-700 shadow-sm focus:border-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-200"
+                    placeholder={t.recommendation.feedback.commentPlaceholder}
+                  />
+
+                  <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="text-sm text-gray-500">
+                      {feedbackStatus === 'success' && (
+                        <span className="text-emerald-600">
+                          {t.recommendation.feedback.success}
+                          {feedbackSuccessId
+                            ? ` ${t.recommendation.feedback.submissionIdLabel} ${feedbackSuccessId}`
+                            : ''}
+                        </span>
+                      )}
+                      {feedbackStatus === 'submitting' && (
+                        <span>{t.recommendation.feedback.submitting}</span>
+                      )}
+                      {feedbackStatus === 'error' && feedbackError && (
+                        <span className="text-red-500">{feedbackError}</span>
+                      )}
+                    </div>
+                    <Button
+                      onClick={handleSubmitFeedback}
+                      disabled={feedbackStatus === 'submitting'}
+                      className="sm:w-auto"
+                    >
+                      {feedbackStatus === 'success'
+                        ? t.recommendation.feedback.submitted
+                        : t.recommendation.feedback.submit}
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+        </>
+      )}
 
       <Footer />
     </div>

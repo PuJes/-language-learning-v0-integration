@@ -1,22 +1,21 @@
 'use client'
 
 import * as React from "react"
-import { ArrowRight, Globe, Star, Clock, BookOpen, Users, TrendingUp, Calendar, MapPin, Award, HeadphonesIcon, FileText, MessageCircle, PlayCircle } from "lucide-react"
+import { Globe, Star, Clock, BookOpen, Users, TrendingUp, Calendar, MapPin, Award, HeadphonesIcon, FileText, MessageCircle, PlayCircle } from "lucide-react"
 import Link from "next/link"
 import { Slot } from "@radix-ui/react-slot"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Progress } from '@/components/ui/progress'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
-import { languages } from '@/lib/data/languages'
-import { enhancedLanguageData } from '@/data/enhanced-languages-new' // Using new bilingual format
 import { useTranslation } from '@/hooks/useTranslation'
-import { getLocalizedLanguageById, localizeLanguage } from '@/lib/utils/i18n-data'
 import type { LocalizedLanguage } from '@/lib/utils/i18n-data'
+import type { Locale } from '@/types/i18n'
 
 type LanguageDetailPageClientProps = {
   languageId: string
   initialLanguage: LocalizedLanguage
+  initialLocale: Locale
 }
 
 // UI Components (same as homepage)
@@ -73,27 +72,62 @@ const CardContent = React.forwardRef<
 ))
 CardContent.displayName = "CardContent"
 
-export default function LanguageDetailPageClient({ languageId, initialLanguage }: LanguageDetailPageClientProps) {
+type LanguageResponse = {
+  language: LocalizedLanguage
+}
+
+export default function LanguageDetailPageClient({ languageId, initialLanguage, initialLocale }: LanguageDetailPageClientProps) {
   const { t, locale } = useTranslation()
   const [language, setLanguage] = React.useState<LocalizedLanguage | null>(initialLanguage)
+  const initialLocaleRef = React.useRef<Locale>(initialLocale)
 
   React.useEffect(() => {
-    const baseLanguage = getLocalizedLanguageById(languages, languageId, locale)
-    if (!baseLanguage) {
-      setLanguage(null)
-      return
+    setLanguage(initialLanguage)
+    initialLocaleRef.current = initialLocale
+  }, [initialLanguage, initialLocale])
+
+  React.useEffect(() => {
+    let isActive = true
+    const controller = new AbortController()
+
+    async function loadLanguageData(targetLocale: Locale) {
+      try {
+        const response = await fetch(`/api/languages/${languageId}?locale=${targetLocale}`, {
+          signal: controller.signal,
+          cache: 'force-cache',
+        })
+
+        if (!response.ok) {
+          throw new Error(`Failed to load language: ${response.status}`)
+        }
+
+        const data = (await response.json()) as LanguageResponse
+
+        if (isActive) {
+          setLanguage(data.language)
+        }
+      } catch (error) {
+        if (isActive) {
+          console.error('Failed to load language data', error)
+          setLanguage(null)
+        }
+      }
     }
 
-    const enhancedData = enhancedLanguageData[languageId]
-    const localizedLanguage = enhancedData
-      ? {
-          ...baseLanguage,
-          ...localizeLanguage(enhancedData, locale),
-        }
-      : baseLanguage
+    const shouldHydrate = !language
+    const shouldRefetchForLocale = locale !== initialLocaleRef.current
 
-    setLanguage(localizedLanguage)
-  }, [languageId, locale])
+    if (shouldHydrate || shouldRefetchForLocale) {
+      initialLocaleRef.current = locale
+
+      loadLanguageData(locale)
+    }
+
+    return () => {
+      isActive = false
+      controller.abort()
+    }
+  }, [languageId, locale, language])
 
   if (!language) {
     return (

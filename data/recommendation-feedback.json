@@ -1,0 +1,103 @@
+[
+  {
+    "rating": 3,
+    "comment": "test1",
+    "surveySubmissionId": "db5aff7b-bb24-47b0-8622-6842e429c4c6",
+    "selectedLanguageId": "french",
+    "recommendedLanguages": [
+      {
+        "id": "french",
+        "name": "French",
+        "matchScore": 48,
+        "successProbability": 0.9129999999999999,
+        "timeline": "Within 2 years",
+        "rank": 1
+      },
+      {
+        "id": "spanish",
+        "name": "Spanish",
+        "matchScore": 46,
+        "successProbability": 0.855,
+        "timeline": "Within 1 year",
+        "rank": 2
+      },
+      {
+        "id": "german",
+        "name": "German",
+        "matchScore": 46,
+        "successProbability": 0.9229999999999999,
+        "timeline": "Within 2 years",
+        "rank": 3
+      },
+      {
+        "id": "italian",
+        "name": "Italian",
+        "matchScore": 45,
+        "successProbability": 0.855,
+        "timeline": "Within 1 year",
+        "rank": 4
+      },
+      {
+        "id": "japanese",
+        "name": "Japanese",
+        "matchScore": 44,
+        "successProbability": 0.769,
+        "timeline": "Within 2 years",
+        "rank": 5
+      },
+      {
+        "id": "portuguese",
+        "name": "Portuguese",
+        "matchScore": 43,
+        "successProbability": 0.865,
+        "timeline": "Within 1 year",
+        "rank": 6
+      },
+      {
+        "id": "korean",
+        "name": "Korean",
+        "matchScore": 42,
+        "successProbability": 0.8079999999999999,
+        "timeline": "Within 2 years",
+        "rank": 7
+      },
+      {
+        "id": "english",
+        "name": "English",
+        "matchScore": 40,
+        "successProbability": 0.7499999999999999,
+        "timeline": "Within 1 year",
+        "rank": 8
+      },
+      {
+        "id": "chinese",
+        "name": "Chinese",
+        "matchScore": 39,
+        "successProbability": 0.7499999999999999,
+        "timeline": "More than 2 years",
+        "rank": 9
+      },
+      {
+        "id": "arabic",
+        "name": "Arabic",
+        "matchScore": 37,
+        "successProbability": 0.7499999999999999,
+        "timeline": "More than 2 years",
+        "rank": 10
+      },
+      {
+        "id": "russian",
+        "name": "Russian",
+        "matchScore": 36,
+        "successProbability": 0.7499999999999999,
+        "timeline": "More than 2 years",
+        "rank": 11
+      }
+    ],
+    "metadata": {
+      "recommendationCount": 11
+    },
+    "id": "60f57995-43a5-4745-8824-1922aa76d40f",
+    "createdAt": "2025-10-19T11:50:18.166Z"
+  }
+]

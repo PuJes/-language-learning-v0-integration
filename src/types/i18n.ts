@@ -320,6 +320,22 @@ export interface TranslationKeys {
     compareLanguages: string
     startLearning: string
     exploreLanguage: string
+    feedback: {
+      floatingButton: string
+      drawerHint: string
+      drawerTitle: string
+      commentLabel: string
+      commentPlaceholder: string
+      success: string
+      submissionIdLabel: string
+      submitting: string
+      idle: string
+      error: string
+      submit: string
+      submitted: string
+      closeAriaLabel: string
+      ratingRequired: string
+    }
   }
   // Learning Methods page
   learningMethods: {
